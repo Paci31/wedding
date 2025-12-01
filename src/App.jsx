@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./App.css";
+import "./index.css";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 import Header from "./components/Header";
 import CeremonyDetails from "./components/CeremonyDetails";
 import ReceptionDetails from "./components/ReceptionDetails";
@@ -10,7 +11,8 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="app">
+    <div className="w-full min-h-screen overflow-x-hidden bg-ivory">
+      <LanguageSwitcher />
       <Header />
       <OurStory />
       <CeremonyDetails />

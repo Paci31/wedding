@@ -1,0 +1,84 @@
+{
+  "header": {
+    "announcement": "Vi invitiamo",
+    "subtitle": "A celebrare la nostra unione",
+    "monsieur": "Signor",
+    "madame": "Signora",
+    "mademoiselle": "Signorina",
+    "et": "e",
+    "date": "Sabato, 20 Giugno 2026",
+    "time": "alle 15:30",
+    "ceremony": "Luogo della cerimonia",
+    "venue": "Villa Laparelli 1898",
+    "address": "Via Gradisca 12 · Tradate (VA) · Italia",
+    "watermark": "Amore"
+  },
+  "ourStory": {
+    "title": "Il Nostro Amore",
+    "subtitle": "Un amore sincero",
+    "text1": "Sostituisci questo testo con la tua storia di incontro. Parla di come vi siete incontrati, dei momenti speciali che avete condiviso e perché avete deciso di sposarvi.",
+    "text2": "Questa è la tua occasione per condividere le tue emozioni e i tuoi ricordi con i tuoi cari. Ogni parola conta per raccontare la tua storia."
+  },
+  "ceremony": {
+    "title": "La Cerimonia",
+    "dataOra": "Data & Ora",
+    "date": "20 GIUGNO 2026",
+    "time": "ORE 15:30",
+    "location": "Luogo",
+    "venue": "Villa Laparelli 1898",
+    "address": "Via Gradisca 12",
+    "city": "Tradate (VA)",
+    "mapLink": "Localizza sulla mappa",
+    "program": "Programma",
+    "ceremony_label": "La Cerimonia",
+    "ceremony_text": "Avremo il piacere della vostra presenza",
+    "reception_label": "Seguito",
+    "reception_text": "Aperitivo e Ricevimento"
+  },
+  "reception": {
+    "title": "Conferma la tua presenza",
+    "rsvpMessage": "RSVP Richiesto",
+    "deadline": "Entro il 30 Aprile",
+    "contact": "Contattaci per confermare",
+    "available": "Disponibile per le domande",
+    "always_happy": "Sempre felice di aiutare",
+    "prefer_email": "Preferisci contattare per email?",
+    "email": "matrimonio@example.com",
+    "required": "Risposta desiderata"
+  },
+  "gallery": {
+    "title": "I Nostri Momenti",
+    "subtitle": "Condividere i nostri momenti più belli",
+    "moment": "Momento Speciale",
+    "click": "Clicca per vedere",
+    "note": "Le tue foto saranno presto disponibili",
+    "complete": "🎞️ Galleria completa dopo l'evento"
+  },
+  "rsvp": {
+    "title": "Conferma la tua presenza",
+    "name": "Il Tuo Nome",
+    "email": "La Tua Email",
+    "phone": "Il Tuo Telefono",
+    "response": "La Tua Risposta",
+    "select": "-- Seleziona --",
+    "yes": "✓ Sì, sarò presente",
+    "no": "✗ No, non sarò presente",
+    "maybe": "? Da confermare",
+    "guests": "Numero di Ospiti",
+    "dietary": "Esigenze Alimentari Speciali",
+    "dietary_placeholder": "Vegetariano, Vegano, Allergie, ecc.",
+    "message": "Un Messaggio per gli Sposi",
+    "message_placeholder": "Condividi i tuoi auguri e felicitazioni...",
+    "submit": "✓ Invia la Mia Risposta",
+    "required": "* Campi obbligatori",
+    "thanks": "Grazie molte!",
+    "thanks_message": "La tua risposta è stata registrata con successo.\nNon vediamo l'ora di vederti il 20 giugno!",
+    "success_emoji": "✨"
+  },
+  "footer": {
+    "names": "Flavio & Letizia",
+    "date": "20 Giugno 2026",
+    "copyright": "© 2026 Flavio & Letizia. Tutti i diritti riservati.",
+    "love": "Con tutto il nostro amore 💕"
+  }
+}
