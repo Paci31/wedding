@@ -1,0 +1,104 @@
+.ceremony-details {
+  width: 100%;
+  padding: 100px 20px;
+  background: #fafaf8;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ceremony-content {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #5a5a5a;
+  margin: 0 0 60px 0;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.date-time {
+  margin-bottom: 50px;
+}
+
+.large-text {
+  font-size: 2rem;
+  color: #5a5a5a;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+
+.time {
+  font-size: 1.3rem;
+  color: #9d8b80;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 10px 0 0 0;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+
+.location {
+  margin-bottom: 50px;
+}
+
+.location-name {
+  font-size: 1.8rem;
+  color: #5a5a5a;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Great Vibes', cursive;
+}
+
+.address {
+  font-size: 1.1rem;
+  color: #9d8b80;
+  margin: 0;
+  letter-spacing: 1px;
+  font-family: 'Cinzel', serif;
+}
+
+.ceremony-details-list {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #e0d5c8;
+}
+
+.ceremony-item {
+  font-size: 1rem;
+  color: #9d8b80;
+  margin: 15px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: 'Cinzel', serif;
+}
+
+@media (max-width: 768px) {
+  .ceremony-details {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .large-text {
+    font-size: 1.5rem;
+  }
+
+  .location-name {
+    font-size: 1.3rem;
+  }
+}

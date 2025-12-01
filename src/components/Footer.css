@@ -1,0 +1,32 @@
+.footer {
+  width: 100%;
+  padding: 40px 20px;
+  background: #fafaf8;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.footer-content p {
+  margin: 8px 0;
+  color: #9d8b80;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  font-family: 'Cinzel', serif;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #b39e93;
+  font-family: 'Great Vibes', cursive;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-content p {
+    font-size: 0.9rem;
+  }
+}
