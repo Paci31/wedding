@@ -20,7 +20,7 @@
   margin: 0 0 60px 0;
   font-weight: 400;
   font-style: italic;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   text-align: center;
 }
 
@@ -35,7 +35,7 @@
   letter-spacing: 3px;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .time {
@@ -45,7 +45,7 @@
   letter-spacing: 2px;
   margin: 10px 0 0 0;
   text-transform: uppercase;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .location {
@@ -58,7 +58,7 @@
   margin: 0 0 10px 0;
   font-weight: 400;
   font-style: italic;
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
 }
 
 .address {
@@ -66,7 +66,7 @@
   color: #9d8b80;
   margin: 0;
   letter-spacing: 1px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .ceremony-details-list {
@@ -82,7 +82,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 400;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 @media (max-width: 768px) {

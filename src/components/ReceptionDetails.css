@@ -19,7 +19,7 @@
   margin-bottom: 50px;
   font-weight: 400;
   line-height: 1.8;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .contacts {
@@ -43,7 +43,7 @@
   font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .contact-phone {
@@ -52,7 +52,7 @@
   margin: 0;
   font-weight: 400;
   letter-spacing: 0.5px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 @media (max-width: 768px) {

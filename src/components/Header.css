@@ -12,15 +12,22 @@
 }
 
 .header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(230, 200, 180, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(200, 170, 150, 0.1) 0%, transparent 40%);
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(230, 200, 180, 0.15) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(200, 170, 150, 0.1) 0%,
+      transparent 40%
+    );
   pointer-events: none;
   animation: bgFloat 15s ease-in-out infinite;
 }
@@ -60,7 +67,7 @@
   margin: 0 0 60px 0;
   opacity: 0;
   animation: fadeInDown 1s ease-out 0.4s forwards;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .names {
@@ -70,7 +77,7 @@
   color: #4a4a4a;
   margin: 0 0 50px 0;
   line-height: 1.05;
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
   opacity: 0;
   animation: fadeInDown 1.2s ease-out 0.6s forwards;
   letter-spacing: 0px;
@@ -98,7 +105,7 @@
   margin: 8px 0;
   font-style: normal;
   letter-spacing: 2px;
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
 }
 
 .date-info {
@@ -109,7 +116,7 @@
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.8s forwards;
   font-weight: 400;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 @keyframes fadeInDown {
@@ -146,7 +153,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -155,7 +163,8 @@
 }
 
 @keyframes bgFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
   }
   50% {
