@@ -52,22 +52,16 @@ function Header() {
           </p>
         </div>
 
-        {/* Noms - Style faire-part élégant */}
+        {/* Noms - Style faire-part élégant avec police Boheme Floreal */}
         <div className="mb-12 py-8 border-t-2 border-b-2 border-rose-gold border-opacity-30">
           <div className="mb-6">
-            <p className="text-lg md:text-xl text-gray-700 font-lora mb-2">
-              {t("header.monsieur")}
-            </p>
-            <p className="text-7xl md:text-9xl font-vibes text-gray-900 leading-none">
+            <p className="text-7xl md:text-9xl font-boheme text-gray-900 leading-none">
               Flavio
             </p>
           </div>
           <div className="text-rose-gold text-2xl mb-6">{t("header.et")}</div>
           <div>
-            <p className="text-lg md:text-xl text-gray-700 font-lora mb-2">
-              {t("header.mademoiselle")}
-            </p>
-            <p className="text-7xl md:text-9xl font-vibes text-gray-900 leading-none">
+            <p className="text-7xl md:text-9xl font-boheme text-gray-900 leading-none">
               Letizia
             </p>
           </div>

@@ -30,9 +30,9 @@
     "city": "Tradate (VA)",
     "mapLink": "Localiser sur la carte",
     "program": "Déroulement",
-    "ceremony_label": "La Cérémonie",
+    "ceremony_label": "La Cérémonie - 15h30",
     "ceremony_text": "Nous aurons le plaisir de votre présence",
-    "reception_label": "Suivi",
+    "reception_label": "Apéritif et repas - 18h",
     "reception_text": "Apéritif et Réception"
   },
   "reception": {
@@ -98,7 +98,7 @@
     "mapLink": "Localiser sur la carte",
     "deadline_title": "Réservation avant le 20 Janvier 2026",
     "deadline_text": "Nous avons réservé des chambres à tarif préférentiel jusqu'au 20 janvier 2026. Passé ce délai, il y a un risque que les chambres ne soient plus disponibles ou que le prix augmente.",
-    "rates_title": "Tarifs par Nuit",
+    "rates_title": "Tarifs par nuit",
     "room_single": "Chambre Simple",
     "room_double": "Chambre Double/Twin",
     "room_triple": "Chambre Triple",
@@ -106,10 +106,10 @@
     "person": "personne",
     "persons": "personnes",
     "per_night": "par nuit",
-    "tourist_tax": "Taxe de séjour : €2,00 par personne par nuit (Commune de Saronno)",
+    "tourist_tax": "Taxe de séjour : €2,00 par personne par nuit à payer sur place (Commune de Saronno)",
     "breakfast_included": "Petit-déjeuner inclus",
-    "payment_title": "Modalités de Paiement",
-    "payment_text": "Le paiement doit être effectué par Twint à l'avance lors de la réservation. Veuillez nous contacter après avoir rempli le formulaire pour finaliser votre réservation.",
+    "payment_title": "Modalités de paiement",
+    "payment_text": "Le paiement doit être effectue par twint lors de votre confirmation, sur le numéro de Letizia, ceci afin que nous puissions valider votre chambre auprès de l’hôtel.",
     "form_note": "Merci de compléter la section Hébergement dans le formulaire RSVP ci-dessous"
   },
   "gift": {

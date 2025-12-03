@@ -92,16 +92,10 @@ function CeremonyDetails() {
               <p className="text-rose-gold uppercase text-sm font-semibold tracking-widest mb-2">
                 {t("ceremony.ceremony_label")}
               </p>
-              <p className="text-gray-700 font-lora">
-                {t("ceremony.ceremony_text")}
-              </p>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-rose-50 to-blush rounded-lg border border-rose-gold border-opacity-30">
               <p className="text-rose-gold uppercase text-sm font-semibold tracking-widest mb-2">
                 {t("ceremony.reception_label")}
-              </p>
-              <p className="text-gray-700 font-lora">
-                {t("ceremony.reception_text")}
               </p>
             </div>
           </div>

@@ -30,9 +30,9 @@
     "city": "Tradate (VA)",
     "mapLink": "Localizza sulla mappa",
     "program": "Programma",
-    "ceremony_label": "La Cerimonia",
+    "ceremony_label": "La Cerimonia - 15:30",
     "ceremony_text": "Avremo il piacere della vostra presenza",
-    "reception_label": "Seguito",
+    "reception_label": "Aperitivo e pasto - 18h",
     "reception_text": "Aperitivo e Ricevimento"
   },
   "reception": {
@@ -98,7 +98,7 @@
     "mapLink": "Localizza sulla mappa",
     "deadline_title": "Prenotazione entro il 20 Gennaio 2026",
     "deadline_text": "Abbiamo riservato delle camere a tariffa preferenziale fino al 20 gennaio 2026. Dopo questa data, c'è il rischio che le camere non siano più disponibili o che il prezzo aumenti.",
-    "rates_title": "Tariffe per Notte",
+    "rates_title": "Tariffe per notte",
     "room_single": "Camera Singola",
     "room_double": "Camera Matrimoniale/Twin",
     "room_triple": "Camera Tripla",
@@ -106,10 +106,10 @@
     "person": "persona",
     "persons": "persone",
     "per_night": "a notte",
-    "tourist_tax": "Tassa di soggiorno: €2,00 per persona a notte (Comune di Saronno)",
+    "tourist_tax": "Tassa di soggiorno: €2,00 per persona a notte da pagare in loco (Comune di Saronno)",
     "breakfast_included": "Colazione inclusa",
-    "payment_title": "Modalità di Pagamento",
-    "payment_text": "Il pagamento deve essere effettuato tramite Twint in anticipo al momento della prenotazione. Vi preghiamo di contattarci dopo aver compilato il modulo per finalizzare la vostra prenotazione.",
+    "payment_title": "Modalità di pagamento",
+    "payment_text": "Il pagamento dovrà essere effettuato tramite Twint al momento della conferma, al numero di Letizia, in modo da poter convalidare la vostra camera con l'hotel.",
     "form_note": "Si prega di compilare la sezione Alloggio nel modulo RSVP qui sotto"
   },
   "gift": {

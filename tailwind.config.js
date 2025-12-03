@@ -14,6 +14,7 @@ export default {
         playfair: ["Playfair Display", "serif"],
         garamond: ["Cormorant Garamond", "serif"],
         vibes: ["Great Vibes", "cursive"],
+        boheme: ["Calligrafico Boheme Floreal", "Great Vibes", "cursive"],
         lora: ["Lora", "serif"],
         raleway: ["Raleway", "sans-serif"],
         bodoni: ["Bodoni Moda", "serif"],

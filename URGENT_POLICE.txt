@@ -1,0 +1,73 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   ✅ POLICE "BOHEME FLOREAL" CONFIGURÉE POUR FLAVIO ET LETIZIA      ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📌 ÉTAT ACTUEL
+--------------
+✅ Le code est prêt
+✅ Le CSS est configuré
+✅ Le Header utilise la police
+❌ Les FICHIERS de police manquent
+
+
+🔴 POUR ACTIVER LA POLICE BOHEME FLOREAL
+-----------------------------------------
+
+1. Obtenez les fichiers : CalligraficoBohemeFloreal.woff2 / .woff / .ttf
+   (MyFonts, Creative Market, Dafont, ou vos fichiers achetés)
+
+2. Copiez-les dans :
+   C:\DEV\wedding\src\assets\fonts\
+
+3. Exécutez :
+   npm run build
+
+4. Commitez :
+   git add src/assets/fonts/
+   git commit -m "Ajout police Boheme"
+   git push
+
+
+⚡ ALTERNATIVE : POLICE TEMPORAIRE ALLURA (GRATUITE)
+----------------------------------------------------
+
+Si vous voulez voir le résultat MAINTENANT avec une police similaire :
+
+   Double-cliquez sur :  use-allura-temp.bat
+
+   Cela remplacera temporairement Boheme par Allura (Google Fonts).
+
+
+📖 DOCUMENTATION COMPLÈTE
+--------------------------
+
+• AJOUTER_POLICE_BOHEME.md      → Guide complet étape par étape
+• POLICE_TEMPORAIRE.md          → Alternatives gratuites
+• RESUME_POLICE_BOHEME.md       → Récapitulatif technique
+• use-allura-temp.bat           → Installation automatique Allura
+
+
+🎯 EN RÉSUMÉ
+-------------
+
+ACTUELLEMENT : Les noms utilisent "Great Vibes" (fallback)
+APRÈS :        Les noms utiliseront "Boheme Floreal" (si fichiers ajoutés)
+            OU "Allura" (si script temporaire exécuté)
+
+
+💡 MA RECOMMANDATION
+--------------------
+
+Si vous n'avez pas encore les fichiers Boheme Floreal :
+→ Exécutez "use-allura-temp.bat" pour une belle police MAINTENANT
+→ Ajoutez Boheme Floreal plus tard quand vous l'aurez
+
+
+═══════════════════════════════════════════════════════════════════════
+
+Questions ? Voir AJOUTER_POLICE_BOHEME.md pour le guide complet.
+
+═══════════════════════════════════════════════════════════════════════
+
