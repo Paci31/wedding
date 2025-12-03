@@ -19,12 +19,12 @@ function AdminDashboard() {
     }
     // En mode développement, utiliser localhost:3001
     if (import.meta.env.DEV) {
-      return 'http://localhost:3001';
+      return "http://localhost:3001";
     }
     // En production, utiliser le même domaine
     return window.location.origin;
   };
-  
+
   const API_URL = getApiUrl();
 
   // Vérifier si déjà authentifié

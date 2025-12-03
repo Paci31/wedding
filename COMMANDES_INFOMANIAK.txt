@@ -1,0 +1,152 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║        🚀 COMMANDES À EXÉCUTER SUR INFOMANIAK                        ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+✅ GIT PUSH EFFECTUÉ !
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Les modifications ont été envoyées sur Git :
+  ✅ Détection automatique de l'API (import.meta.env.DEV)
+  ✅ Nouveau build généré (index-BqkPABoM.js)
+  ✅ Tous les composants (Hôtel, Repas, Voyage)
+  ✅ Backend avec statistiques enfants par âge
+  ✅ Serveur unifié (server-unified.js)
+
+
+📋 COMMANDES SUR INFOMANIAK (SSH)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Connectez-vous en SSH à votre serveur, puis :
+
+# 1. ALLER DANS LE DOSSIER DU SITE
+cd /sites/wedding.pacifico.dev
+# (ou le chemin exact de votre site)
+
+
+# 2. RÉCUPÉRER LES MODIFICATIONS
+git pull
+
+
+# 3. INSTALLER LES DÉPENDANCES (si nécessaire)
+npm install
+
+
+# 4. REBUILDER LE FRONTEND SUR LE SERVEUR
+npm run build
+
+
+# 5. REDÉMARRER LE SERVEUR
+pm2 restart wedding
+
+# OU si vous n'utilisez pas PM2 :
+# killall node
+# npm start &
+
+
+# 6. VÉRIFIER
+curl http://localhost:3000/api/health
+
+
+🎯 RÉSULTAT ATTENDU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Après ces commandes :
+  ✅ Le serveur a les dernières modifications
+  ✅ Le nouveau dist/ est généré avec la correction
+  ✅ Le site utilise window.location.origin en production
+  ✅ Plus d'erreur CORS !
+
+
+🧪 TEST FINAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Videz le cache du navigateur :
+   Ctrl + Shift + Delete → "Images et fichiers en cache"
+
+2. Ou rechargez sans cache :
+   Ctrl + Shift + R
+
+3. Allez sur :
+   https://wedding.pacifico.dev/admin
+
+4. Ouvrez la console (F12) → Network
+
+5. Tentez de vous connecter
+
+6. Vérifiez l'URL :
+   ✅ DEVRAIT ÊTRE : https://wedding.pacifico.dev/api/admin/login
+   ❌ PLUS : http://localhost:3001/api/admin/login
+
+
+✨ NOUVEAU FICHIER GÉNÉRÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ancien : index-1YgKngss.js
+Nouveau : index-BqkPABoM.js  ← Nouveau hash confirme le changement !
+
+
+💡 CE QUI A CHANGÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AVANT :
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+  ↓
+Toujours localhost:3001 ❌
+
+MAINTENANT :
+const getApiUrl = () => {
+  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+  if (import.meta.env.DEV) return 'http://localhost:3001';  // DEV
+  return window.location.origin;                            // PROD
+};
+  ↓
+En dev : localhost:3001 ✅
+En prod : window.location.origin (wedding.pacifico.dev) ✅
+
+
+🔍 VÉRIFICATION API (DÉJÀ FAITE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ https://wedding.pacifico.dev/api/health
+   {"status":"OK","timestamp":"2025-12-03T12:00:22.268Z"}
+
+L'API fonctionne parfaitement !
+
+
+⚠️ IMPORTANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sur Infomaniak, après "git pull", vous DEVEZ faire "npm run build" !
+
+Pourquoi ?
+  • Git ne contient PAS le dossier dist/
+  • Le build doit être fait sur le serveur
+  • C'est le dist/ qui génère index-BqkPABoM.js avec la correction
+
+
+📋 CHECKLIST COMPLÈTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sur Infomaniak (SSH) :
+  [ ] cd /sites/wedding.pacifico.dev
+  [ ] git pull
+  [ ] npm install (si nouveaux packages)
+  [ ] npm run build  ⚠️ CRITIQUE !
+  [ ] pm2 restart wedding
+  [ ] curl http://localhost:3000/api/health
+
+Sur votre navigateur :
+  [ ] Vider le cache (Ctrl + Shift + Delete)
+  [ ] Ou rechargement dur (Ctrl + Shift + R)
+  [ ] https://wedding.pacifico.dev/admin
+  [ ] Tester la connexion
+  [ ] Vérifier dans Network que l'URL est correcte
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TOUT EST PRÊT ! Exécutez simplement ces commandes sur Infomaniak ! 🚀
+

@@ -1,0 +1,177 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║           🚀 UPLOADEZ LE NOUVEAU DIST/ SUR INFOMANIAK ! 🚀           ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+✅ BUILD TERMINÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Le nouveau dist/ avec la correction est prêt dans :
+  📁 C:\DEV\wedding\dist\
+
+Fichiers générés :
+  ✅ index.html
+  ✅ assets/index-1YgKngss.js  (NOUVEAU - avec détection auto)
+  ✅ assets/index-BBWz3i75.css
+  ✅ logo.png
+
+
+🎯 CONFIRMATION : L'API FONCTIONNE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Test de l'API : https://wedding.pacifico.dev/api/health
+Résultat : ✅ {"status":"OK","timestamp":"2025-12-03T12:00:22.268Z"}
+
+Le serveur unifié est DÉJÀ en place sur Infomaniak ! 🎉
+
+
+❌ LE PROBLÈME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+L'ANCIEN dist/ est encore sur le serveur Infomaniak.
+Le fichier index-1YgKngss.js sur le serveur contient l'ancien code
+qui essaie de se connecter à localhost:3001.
+
+
+✅ LA SOLUTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UPLOADER LE NOUVEAU dist/ !
+
+
+📋 ÉTAPES D'UPLOAD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. CONNECTEZ-VOUS À INFOMANIAK
+   ────────────────────────────
+
+   Via FTP :
+   • Hôte : ftp.infomaniak.com (ou votre hôte spécifique)
+   • Username : votre-username
+   • Password : votre-password
+   • Port : 21 (FTP) ou 22 (SFTP)
+
+   Logiciels recommandés :
+   • FileZilla (gratuit)
+   • WinSCP (gratuit)
+   • Cyberduck (gratuit)
+
+
+2. NAVIGUEZ VERS LE DOSSIER
+   ─────────────────────────
+
+   Sur le serveur, allez dans :
+   /sites/wedding.pacifico.dev/dist/
+
+   ou
+
+   /htdocs/dist/
+   /www/dist/
+
+   (Selon votre configuration Infomaniak)
+
+
+3. REMPLACEZ TOUT LE CONTENU
+   ──────────────────────────
+
+   ⚠️ IMPORTANT : Supprimez TOUT l'ancien contenu du dossier dist/
+   
+   Puis uploadez depuis votre PC :
+   📁 C:\DEV\wedding\dist\
+   
+   Tous les fichiers :
+   ✅ index.html
+   ✅ logo.png
+   ✅ assets/
+      ├─ index-1YgKngss.js
+      └─ index-BBWz3i75.css
+
+
+4. VIDEZ LE CACHE DU NAVIGATEUR
+   ─────────────────────────────
+
+   Chrome/Edge :
+   • Ctrl + Shift + Delete
+   • Cochez "Images et fichiers en cache"
+   • Période : "Toutes les données"
+   • Cliquez "Effacer les données"
+
+   Ou plus rapide :
+   • Ctrl + Shift + R (rechargement dur)
+
+
+5. TESTEZ
+   ──────
+
+   a) Allez sur : https://wedding.pacifico.dev/admin
+   
+   b) Ouvrez la console (F12) → Onglet "Network"
+   
+   c) Tentez de vous connecter
+   
+   d) Vérifiez l'URL dans Network :
+      ✅ DEVRAIT ÊTRE : https://wedding.pacifico.dev/api/admin/login
+      ❌ AVANT : http://localhost:3001/api/admin/login
+
+
+🔍 VÉRIFICATION RAPIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Après l'upload, comparez les tailles de fichiers :
+
+Sur votre PC (C:\DEV\wedding\dist\assets\) :
+  index-1YgKngss.js → ~344 KB
+
+Sur le serveur (/dist/assets/) :
+  index-1YgKngss.js → Devrait être ~344 KB
+
+Si la taille est différente → L'upload n'est pas complet !
+
+
+⚠️ ERREUR ERR_BLOCKED_BY_CLIENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cette erreur peut aussi venir de :
+• Extension de navigateur (uBlock Origin, AdBlock, etc.)
+• Antivirus qui bloque localhost
+• Paramètres de sécurité du navigateur
+
+Mais le problème principal est que le site essaie toujours localhost:3001.
+
+
+💡 ALTERNATIVE : FORCER UN NOUVEAU BUILD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Si vous voulez être 100% sûr, forcez un nouveau hash :
+
+1. Modifiez un fichier (ajoutez un espace quelque part)
+2. Rebuild :
+   npm run build
+3. Le nom du fichier changera (ex: index-ABC123.js)
+4. Uploadez ce nouveau fichier
+
+
+🎯 RÉSUMÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SITUATION ACTUELLE :
+  ✅ Code modifié avec détection automatique
+  ✅ Build généré (dist/ local correct)
+  ✅ API serveur fonctionne (test réussi)
+  ❌ Ancien dist/ encore sur Infomaniak
+
+ACTION REQUISE :
+  → UPLOADER le contenu de C:\DEV\wedding\dist\ sur le serveur
+
+APRÈS UPLOAD :
+  → Vider cache navigateur (Ctrl + Shift + R)
+  → Tester https://wedding.pacifico.dev/admin
+  → ✅ Connexion devrait fonctionner !
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Le problème sera résolu dès que le nouveau dist/ sera uploadé ! 🚀
+
