@@ -3,9 +3,11 @@
 ## 📥 Ajouter la Police
 
 1. **Obtenez les fichiers de police "Calligrafico Boheme Floreal"**
+
    - Formats nécessaires : `.woff`, `.woff2`, `.ttf` ou `.otf`
 
 2. **Placez les fichiers dans ce dossier**
+
    ```
    src/assets/fonts/
    ├── CalligraficoBohemeFloreal.woff2
@@ -28,4 +30,3 @@
 ---
 
 **Une fois les fichiers ajoutés ici, la police fonctionnera automatiquement !**
-
