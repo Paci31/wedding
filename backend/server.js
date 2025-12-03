@@ -187,6 +187,26 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         acc[date] = (acc[date] || 0) + 1;
         return acc;
       }, {}),
+      hotel: {
+        needed: responses.filter((r) => r.hotelNeeded === "yes").length,
+        notNeeded: responses.filter((r) => r.hotelNeeded === "no").length,
+        roomTypes: responses.reduce((acc, r) => {
+          if (r.hotelNeeded === "yes" && r.hotelRoomType) {
+            acc[r.hotelRoomType] = (acc[r.hotelRoomType] || 0) + 1;
+          }
+          return acc;
+        }, {}),
+        totalNights: responses.reduce((sum, r) => {
+          if (r.hotelNeeded === "yes" && r.hotelNights) {
+            return sum + (parseInt(r.hotelNights) || 0);
+          }
+          return sum;
+        }, 0),
+      },
+      dinner: {
+        attending: responses.filter((r) => r.dinnerAttending === "yes").length,
+        notAttending: responses.filter((r) => r.dinnerAttending === "no").length,
+      },
     };
 
     res.json({ success: true, data: stats });

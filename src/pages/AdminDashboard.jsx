@@ -480,6 +480,119 @@ function StatsView({ stats }) {
         </div>
       )}
 
+      {/* Statistiques Hôtel */}
+      {stats.hotel && (
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800 mb-6">
+            🏨 Réservations d'Hôtel
+          </h3>
+          
+          {/* Graphique besoin hôtel */}
+          <div className="mb-6">
+            <div className="flex items-end gap-4 h-48">
+              <BarChart
+                label="Besoin hôtel"
+                value={stats.hotel.needed}
+                max={stats.total}
+                color="bg-blue-500"
+              />
+              <BarChart
+                label="Pas d'hôtel"
+                value={stats.hotel.notNeeded}
+                max={stats.total}
+                color="bg-gray-400"
+              />
+            </div>
+          </div>
+
+          {/* Types de chambres */}
+          {stats.hotel.roomTypes && Object.keys(stats.hotel.roomTypes).length > 0 && (
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold text-gray-700 mb-3">
+                Types de Chambres Demandées
+              </h4>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {Object.entries(stats.hotel.roomTypes)
+                  .sort(([, countA], [, countB]) => countB - countA)
+                  .map(([roomType, count]) => (
+                    <div
+                      key={roomType}
+                      className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                      <span className="font-semibold text-gray-700">
+                        🛏️ {roomType}
+                      </span>
+                      <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
+                        {count}
+                      </span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
+
+          {/* Total nuitées */}
+          {stats.hotel.totalNights > 0 && (
+            <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  🌙 Total de nuitées réservées
+                </span>
+                <span className="text-2xl font-bold text-blue-600">
+                  {stats.hotel.totalNights}
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Statistiques Repas de la Veille */}
+      {stats.dinner && (
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800 mb-6">
+            🍽️ Repas de la Veille à Stresa
+          </h3>
+          
+          <div className="flex items-end gap-4 h-48">
+            <BarChart
+              label="Participeront"
+              value={stats.dinner.attending}
+              max={stats.total}
+              color="bg-emerald-500"
+            />
+            <BarChart
+              label="Ne participeront pas"
+              value={stats.dinner.notAttending}
+              max={stats.total}
+              color="bg-gray-400"
+            />
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-4">
+            <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  ✅ Participants
+                </span>
+                <span className="text-3xl font-bold text-emerald-600">
+                  {stats.dinner.attending}
+                </span>
+              </div>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  ❌ Absents
+                </span>
+                <span className="text-3xl font-bold text-gray-600">
+                  {stats.dinner.notAttending}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Réponses par date */}
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-4">
