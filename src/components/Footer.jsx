@@ -33,7 +33,7 @@ function Footer() {
           </div>
 
           {/* Date du mariage */}
-          <p className="font-lora text-white/80">20 Giugno 2026</p>
+          <p className="font-lora text-white/80">{t("footer.date")}</p>
 
           {/* Copyright */}
           <div className="border-t border-white/20 pt-6 mt-6">

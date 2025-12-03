@@ -1,0 +1,259 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║          ✨ NOUVELLES FONCTIONNALITÉS AJOUTÉES AU SITE ✨            ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+🎯 RÉSUMÉ RAPIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ 3 nouvelles sections sur le site web
+✅ Formulaire RSVP enrichi (hôtel + repas)
+✅ Dashboard admin mis à jour
+✅ Export CSV avec nouvelles colonnes
+✅ Traductions FR + IT complètes
+
+
+🌐 NOUVELLES SECTIONS DU SITE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 🏨 HÉBERGEMENT - Just Hotel Saronno
+   ────────────────────────────────────
+   • Tarifs par type de chambre
+   • Simple (1 pers.) : €120
+   • Double (2 pers.) : €140
+   • Triple (3 pers.) : €160
+   • Quadruple (4 pers.) : €180
+   • Taxe de séjour : €2/pers/nuit
+   • Petit-déjeuner INCLUS
+   • Date limite : 20 Janvier 2026
+   • Paiement par Twint
+
+2. 🍝 REPAS DE LA VEILLE - Stresa
+   ──────────────────────────────
+   • Date : 19 Juin 2026
+   • Lieu : Stresa
+   • Invitation conviviale
+   • Lien vers formulaire RSVP
+
+3. 🏝️ VOYAGE DE NOCES
+   ──────────────────
+   • Message pour cadeaux
+   • Texte élégant
+   • À COMPLÉTER avec infos d'Anna
+
+
+📝 FORMULAIRE RSVP ENRICHI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────┐
+│  INFORMATIONS INVITÉS (Existant)                                │
+│  ├─ Nom, Email, Téléphone                                       │
+│  ├─ Présence au mariage (Oui/Non)                               │
+│  ├─ Nombre d'adultes                                            │
+│  ├─ Nombre d'enfants                                            │
+│  ├─ Âge de CHAQUE enfant (champs individuels) ⭐                │
+│  └─ Régimes alimentaires                                        │
+│                                                                  │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                         │
+│  🏨 HÉBERGEMENT (NOUVEAU)                                        │
+│  ├─ Besoin d'une chambre ? (Oui/Non)                            │
+│  └─ Si oui:                                                      │
+│     ├─ Type de chambre (avec tarifs affichés)                   │
+│     ├─ Date d'arrivée                                            │
+│     ├─ Date de départ                                            │
+│     └─ Note paiement Twint                                       │
+│                                                                  │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                         │
+│  🍝 REPAS DE LA VEILLE (NOUVEAU)                                 │
+│  └─ Présence au repas du 19 juin à Stresa ? (Oui/Non)           │
+│                                                                  │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━                         │
+│  💌 MESSAGE                                                      │
+│  └─ Message personnalisé pour les mariés                        │
+└─────────────────────────────────────────────────────────────────┘
+
+
+📊 DASHBOARD ADMIN - NOUVELLES INFOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chaque réponse affiche maintenant :
+
+┌──────────────────────────────────────────────────────────────┐
+│  Jean Dupont                            [✓ Présent]          │
+│  ──────────────────────────────────────────────────────────  │
+│  📧 jean@email.com                                            │
+│  📱 +41 78 XXX XX XX                                          │
+│  👨‍👩 Adultes: 2      👶 Enfants: 1                            │
+│  🎂 Âge: 5 ans                                                │
+│                                                               │
+│  ┌────────────────────────────────────────────────┐ (NOUVEAU)│
+│  │ 🏨 HÉBERGEMENT                                 │          │
+│  │ Chambre: Double (2 pers.) - €140              │          │
+│  │ Arrivée: 19.06.2026                           │          │
+│  │ Départ: 21.06.2026                            │          │
+│  │ Nuits: 2                                       │          │
+│  └────────────────────────────────────────────────┘          │
+│                                                               │
+│  ┌────────────────────────────────────────────────┐ (NOUVEAU)│
+│  │ 🍝 Présent au repas de la veille à Stresa     │          │
+│  └────────────────────────────────────────────────┘          │
+│                                                               │
+│  📅 Reçu le 03.12.2024, 14:30:00                             │
+└──────────────────────────────────────────────────────────────┘
+
+
+📥 EXPORT CSV ENRICHI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOUVELLES COLONNES AJOUTÉES :
+
+│ Hôtel │ Type Chambre │ Arrivée    │ Départ     │ Nuits │ Repas │
+├───────┼──────────────┼────────────┼────────────┼───────┼───────┤
+│ Oui   │ double       │ 19.06.2026 │ 21.06.2026 │ 2     │ Oui   │
+│ Non   │              │            │            │       │ Non   │
+│ Oui   │ triple       │ 19.06.2026 │ 22.06.2026 │ 3     │ Oui   │
+
+✅ Format date suisse : DD.MM.YYYY
+✅ Calcul automatique des nuits
+✅ Compatible Excel / Google Sheets
+
+
+🚀 POUR TESTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Site Web : http://localhost:5173
+   ─────────────────────────────────────
+   Descendez sur la page, vous verrez :
+   ✅ Section "Hébergement" avec les tarifs
+   ✅ Section "Repas de la Veille"
+   ✅ Section "Voyage de Noces"
+   ✅ Formulaire RSVP avec les nouvelles sections
+
+2. Tester le Formulaire
+   ────────────────────
+   • Sélectionnez "Oui" pour l'hôtel
+   • Choisissez un type de chambre
+   • Les tarifs s'affichent dans le menu déroulant
+   • Sélectionnez des dates
+   • Voyez le message sur le paiement Twint
+   • Indiquez présence au repas
+
+3. Dashboard Admin : http://localhost:5173/admin
+   ────────────────────────────────────────────────
+   • Consultez les réponses
+   • Voyez les encadrés bleus (hôtel)
+   • Voyez les badges oranges (repas)
+   • Exportez en CSV
+   • Vérifiez les nouvelles colonnes
+
+
+📋 STATISTIQUES DISPONIBLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Avec les nouvelles données, vous pouvez suivre :
+
+🏨 HÉBERGEMENT :
+   • Nombre total de chambres par type
+   • Chambres simples : X
+   • Chambres doubles : X
+   • Chambres triples : X
+   • Chambres quadruples : X
+   • Total nuits réservées : X
+   • Coût total estimé : €XXX
+
+🍝 REPAS STRESA :
+   • Nombre de personnes présentes
+   • Liste des noms
+   • Pour réservation restaurant
+
+
+💡 FONCTIONNALITÉS INTELLIGENTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Affichage Conditionnel
+   └─ Les champs hôtel n'apparaissent que si "Oui" est choisi
+
+✅ Calcul Automatique
+   └─ Nombre de nuits calculé automatiquement
+
+✅ Tarifs Visibles
+   └─ Prix affichés directement dans le formulaire
+
+✅ Validation Intelligente
+   └─ Dates, types de chambre, formats corrects
+
+✅ Multi-Langue
+   └─ Tout traduit en français et italien
+
+
+⚠️ À COMPLÉTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. TEXTE VOYAGE DE NOCES
+   ─────────────────────
+   Fichiers : src/i18n/locales/fr.json et it.json
+   Clé : "gift.quote"
+   
+   Action : Remplacer par le texte des cartes d'Anna
+
+2. DÉTAILS REPAS STRESA (Optionnel)
+   ─────────────────────────────────
+   Si vous avez :
+   • Heure du repas
+   • Nom du restaurant
+   • Adresse exacte
+   
+   À ajouter dans : src/components/DinnerInfo.jsx
+
+
+🎯 RÉSUMÉ DES AVANTAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POUR VOUS :
+✅ Tout centralisé en un seul formulaire
+✅ Vue d'ensemble complète dans le dashboard
+✅ Export CSV avec toutes les infos
+✅ Calculs automatiques (nuits, totaux)
+✅ Dates au format suisse (DD.MM.YYYY)
+
+POUR VOS INVITÉS :
+✅ Un seul formulaire à remplir
+✅ Tarifs clairs et visibles
+✅ Info paiement Twint bien visible
+✅ Date limite rappelée (20.01.2026)
+✅ Process simple et guidé
+
+
+📂 FICHIERS CRÉÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+src/components/
+  ├── HotelInfo.jsx        → Section hébergement
+  ├── GiftInfo.jsx         → Section voyage de noces
+  └── DinnerInfo.jsx       → Section repas de la veille
+
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Documentation détaillée disponible dans :
+→ NOUVELLES_FONCTIONNALITES.md
+
+
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║                   ✅ TOUT EST PRÊT ! ✅                              ║
+║                                                                      ║
+║           Rafraîchissez simplement votre navigateur                  ║
+║                  http://localhost:5173                               ║
+║                                                                      ║
+║             Les nouvelles sections s'affichent                       ║
+║                  automatiquement ! 🎉                                ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+💑 Bon mariage le 20 Juin 2026 ! 💑
+

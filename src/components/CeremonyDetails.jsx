@@ -54,7 +54,7 @@ function CeremonyDetails() {
 
               {/* Lien Google Maps */}
               <a
-                href="https://maps.google.com/?q=Villa+Laparelli+1898+Tradate"
+                href="https://maps.google.com/?q=Villa+Saporiti+1898+Tradate"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-rose-gold hover:text-gold font-semibold transition-colors duration-300">

@@ -3,6 +3,9 @@
 .env.local
 .env.*.local
 
+# Backend data (contains sensitive RSVP responses)
+backend/data/
+
 # Logs
 logs
 *.log

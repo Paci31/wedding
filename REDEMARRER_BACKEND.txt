@@ -1,0 +1,118 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║                  ⚠️  REDÉMARRAGE DU BACKEND REQUIS                  ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+🔄 MODIFICATIONS EFFECTUÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ✅ Format de date suisse corrigé : DD.MM.YYYY
+2. ✅ Nouvelle statistique : Répartition des enfants par âge
+
+
+📋 POUR APPLIQUER LES CHANGEMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ÉTAPE 1 : Redémarrer le Backend
+─────────────────────────────────
+
+Option A - Via la fenêtre du backend :
+   1. Allez dans la fenêtre "Backend API" (terminal noir)
+   2. Appuyez sur Ctrl+C pour arrêter le serveur
+   3. Tapez : npm start
+   4. Attendez le message : "Serveur API Wedding démarré sur le port 3001"
+
+Option B - Via un nouveau terminal :
+   1. Fermez la fenêtre "Backend API"
+   2. Double-cliquez sur : start-dev.bat
+   (Cela redémarre tout automatiquement)
+
+
+ÉTAPE 2 : Rafraîchir le Dashboard Admin
+────────────────────────────────────────
+
+   1. Dans votre navigateur, allez sur : http://localhost:5173/admin
+   2. Appuyez sur F5 ou Ctrl+R pour rafraîchir
+   3. Les dates seront maintenant au format : 03.12.2024
+
+
+✨ NOUVELLES FONCTIONNALITÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. FORMAT DE DATE SUISSE
+   ───────────────────────
+   Avant : 03/12/2024 ou 3/12/2024
+   Maintenant : 03.12.2024
+
+   Où ? 
+   • Section "Réponses par Date" dans les statistiques
+   • Export CSV
+   • Détails des réponses
+
+
+2. RÉPARTITION DES ENFANTS PAR ÂGE
+   ──────────────────────────────────
+   Nouvelle section dans les statistiques qui affiche :
+   
+   Exemple :
+   ┌─────────────────────────────────────────────┐
+   │  Répartition des Enfants par Âge            │
+   │                                             │
+   │  👶 3 ans     [2 enfants]                   │
+   │  👶 5 ans     [1 enfant]                    │
+   │  👶 7 ans     [3 enfants]                   │
+   │  👶 12 ans    [1 enfant]                    │
+   └─────────────────────────────────────────────┘
+
+   Avantages :
+   • Voir combien d'enfants ont le même âge
+   • Organiser les activités par groupe d'âge
+   • Commander les menus enfants adaptés
+   • Trier automatiquement par âge croissant
+
+
+3. CHAMPS D'ÂGE INDIVIDUELS
+   ──────────────────────────
+   (Déjà actif sur le frontend - pas besoin de redémarrage)
+   
+   Si un invité indique "3 enfants", 3 champs apparaissent :
+   • Enfant 1 : [5 ans]
+   • Enfant 2 : [7 ans]
+   • Enfant 3 : [12 ans]
+
+
+🎯 RÉSULTAT ATTENDU APRÈS REDÉMARRAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Admin → Onglet Statistiques :
+
+1. ✅ "Réponses par Date" affiche : 03.12.2024 (format suisse)
+2. ✅ Nouvelle section "Répartition des Enfants par Âge" apparaît
+3. ✅ Cartes roses avec le nombre d'enfants par âge
+
+
+⚠️  IMPORTANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Si vous ne redémarrez pas le backend, vous verrez toujours :
+❌ Dates au format 03/12/2024 au lieu de 03.12.2024
+❌ Pas de section "Répartition des Enfants par Âge"
+
+
+🔍 VÉRIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Après le redémarrage du backend :
+
+1. Allez sur : http://localhost:5173/admin
+2. Cliquez sur l'onglet "📊 Statistiques"
+3. Descendez jusqu'à "Réponses par Date"
+4. Vérifiez le format : 03.12.2024 ✅
+5. Cherchez la nouvelle section : "Répartition des Enfants par Âge"
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fait avec ❤️ pour Flavio & Letizia
+

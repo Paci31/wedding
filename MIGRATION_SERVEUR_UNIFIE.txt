@@ -1,0 +1,229 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║           📦 MIGRATION VERS LE SERVEUR UNIFIÉ                        ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+
+🎯 POURQUOI ?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Avant : 2 serveurs séparés
+  ├─ Frontend  (port 5173 en dev, 3000 en prod)
+  └─ Backend   (port 3001)
+
+Problème : Sur Infomaniak, impossible d'avoir 2 serveurs Node.js
+
+Solution : 1 seul serveur unifié
+  ├─ Frontend statique (dist/)
+  ├─ API RSVP (/api/rsvp, /api/admin/*)
+  └─ API Contact (/api/contact)
+  Tout sur le port 3000 !
+
+
+✅ CE QUI A ÉTÉ FAIT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Création de server-unified.js
+   Combine :
+   • Le serveur frontend (ancien server.js)
+   • L'API RSVP (ancien backend/server.js)
+   • L'API Contact
+   • Tout sur UN SEUL port
+
+✅ Guide de déploiement
+   → DEPLOIEMENT_INFOMANIAK.md
+
+✅ Script de test
+   → test-unified.bat
+
+
+📋 ÉTAPES DE MIGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. TESTER LOCALEMENT
+   ──────────────────
+
+   Option A - Automatique :
+   Double-cliquez sur : test-unified.bat
+
+   Option B - Manuelle :
+   a) Build du frontend :
+      npm run build
+
+   b) Démarrer le serveur unifié :
+      node server-unified.js
+
+   c) Tester :
+      • Site : http://localhost:3000
+      • Admin : http://localhost:3000/admin
+      • API : http://localhost:3000/api/health
+
+
+2. METTRE À JOUR .ENV
+   ──────────────────
+
+   Changez l'URL de l'API :
+   
+   AVANT :
+   VITE_API_URL=http://localhost:3001
+
+   MAINTENANT :
+   VITE_API_URL=http://localhost:3000
+
+
+3. REMPLACER LE SERVEUR
+   ────────────────────
+
+   Option A - Renommer :
+   mv server.js server-old.js
+   mv server-unified.js server.js
+
+   Option B - Remplacer directement :
+   copy server-unified.js server.js
+
+
+4. REBUILD ET TESTER
+   ─────────────────
+
+   npm run build
+   node server.js
+
+   Testez tout :
+   • Formulaire RSVP
+   • Dashboard admin
+   • Export CSV
+
+
+5. DÉPLOYER SUR INFOMANIAK
+   ────────────────────────
+
+   Suivez le guide :
+   → DEPLOIEMENT_INFOMANIAK.md
+
+
+🔄 DÉVELOPPEMENT APRÈS MIGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+En développement, vous avez 2 options :
+
+OPTION 1 - Mode Dev Normal (recommandé pour développer)
+────────────────────────────────────────────────────────
+
+Terminal 1 - Frontend Vite (modifications en temps réel) :
+npm run dev
+→ http://localhost:5173
+
+Terminal 2 - Backend API :
+cd backend
+npm start
+→ http://localhost:3001
+
+.env :
+VITE_API_URL=http://localhost:3001
+
+
+OPTION 2 - Mode Production Local (pour tester avant déploiement)
+─────────────────────────────────────────────────────────────────
+
+npm run build
+node server.js
+→ http://localhost:3000 (tout en un)
+
+.env :
+VITE_API_URL=http://localhost:3000
+
+
+📊 COMPARAISON
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌────────────────────────────────────────────────────────────────┐
+│                     AVANT (2 serveurs)                         │
+├────────────────────────────────────────────────────────────────┤
+│  Développement :                                               │
+│    Frontend  → localhost:5173 (Vite)                           │
+│    Backend   → localhost:3001 (Node)                           │
+│                                                                 │
+│  Production :                                                  │
+│    ❌ Impossible sur Infomaniak !                              │
+│    Besoin de 2 serveurs séparés                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────────────────────────────────┐
+│                   MAINTENANT (1 serveur)                       │
+├────────────────────────────────────────────────────────────────┤
+│  Développement (option 1) :                                    │
+│    Frontend  → localhost:5173 (Vite - hot reload)             │
+│    Backend   → localhost:3001 (Node)                           │
+│                                                                 │
+│  Développement (option 2) :                                    │
+│    Tout      → localhost:3000 (Node - comme en prod)          │
+│                                                                 │
+│  Production :                                                  │
+│    ✅ Tout   → localhost:3000 (Node)                           │
+│    Compatible Infomaniak !                                     │
+└────────────────────────────────────────────────────────────────┘
+
+
+⚠️  FICHIERS À NE PLUS UTILISER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Une fois le serveur unifié testé et validé :
+
+❌ backend/server.js       → Remplacé par server-unified.js
+❌ start-dev.bat           → Utilise encore 2 serveurs
+❌ server-old.js           → Sauvegarde de l'ancien
+
+Vous pouvez les garder en backup ou les supprimer.
+
+
+✅ FICHIERS IMPORTANTS MAINTENANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ server.js                  → Serveur unifié (ex: server-unified.js)
+✓ package.json               → Scripts de build/start
+✓ .env                       → VITE_API_URL=http://localhost:3000
+✓ dist/                      → Frontend compilé
+✓ data/                      → Données RSVP
+  ├─ responses.json
+  └─ admin.json
+
+
+🎯 CHECKLIST DE MIGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EN LOCAL :
+  [ ] Tester server-unified.js
+  [ ] Mettre à jour .env (VITE_API_URL=http://localhost:3000)
+  [ ] Rebuild : npm run build
+  [ ] Remplacer server.js par server-unified.js
+  [ ] Tester avec node server.js
+  [ ] Vérifier formulaire RSVP fonctionne
+  [ ] Vérifier dashboard admin fonctionne
+  [ ] Tester export CSV
+
+SUR INFOMANIAK :
+  [ ] Changer mot de passe admin dans .env
+  [ ] Envoyer server.js + dist/ + package.json
+  [ ] npm install --production
+  [ ] Configurer les variables d'environnement
+  [ ] pm2 start server.js --name wedding
+  [ ] Tester le site en production
+  [ ] Configurer sauvegardes automatiques
+
+
+📞 AIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Si problème, consultez :
+  → DEPLOIEMENT_INFOMANIAK.md (guide complet)
+  → Les logs du serveur
+  → /api/health pour tester l'API
+
+
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║   ✅ LE SERVEUR UNIFIÉ EST PRÊT POUR INFOMANIAK ! ✅                 ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
