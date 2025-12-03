@@ -36,7 +36,10 @@ app.use(express.json({ limit: "200kb" }));
 app.use((req, res, next) => {
   if (req.path.startsWith("/api/")) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type, username, password");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Content-Type, username, password"
+    );
     res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
     if (req.method === "OPTIONS") return res.sendStatus(200);
   }
@@ -196,10 +199,17 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         maybe: responses.filter((r) => r.attending === "maybe").length,
       },
       guests: {
-        totalAdults: responses.reduce((sum, r) => sum + (parseInt(r.adults) || 0), 0),
-        totalChildren: responses.reduce((sum, r) => sum + (parseInt(r.children) || 0), 0),
+        totalAdults: responses.reduce(
+          (sum, r) => sum + (parseInt(r.adults) || 0),
+          0
+        ),
+        totalChildren: responses.reduce(
+          (sum, r) => sum + (parseInt(r.children) || 0),
+          0
+        ),
         total: responses.reduce(
-          (sum, r) => sum + (parseInt(r.adults) || 0) + (parseInt(r.children) || 0),
+          (sum, r) =>
+            sum + (parseInt(r.adults) || 0) + (parseInt(r.children) || 0),
           0
         ),
       },
@@ -245,7 +255,8 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
       },
       dinner: {
         attending: responses.filter((r) => r.dinnerAttending === "yes").length,
-        notAttending: responses.filter((r) => r.dinnerAttending === "no").length,
+        notAttending: responses.filter((r) => r.dinnerAttending === "no")
+          .length,
       },
     };
 
@@ -290,7 +301,9 @@ app.post("/api/admin/login", async (req, res) => {
         token: Buffer.from(`${username}:${password}`).toString("base64"),
       });
     } else {
-      res.status(401).json({ success: false, error: "Identifiants incorrects" });
+      res
+        .status(401)
+        .json({ success: false, error: "Identifiants incorrects" });
     }
   } catch (error) {
     console.error("Erreur POST /api/admin/login:", error);
@@ -304,7 +317,14 @@ app.post("/api/admin/login", async (req, res) => {
 
 app.post("/api/contact", contactLimiter, async (req, res) => {
   try {
-    const { name, email, company = "", message, website = "", startedAt } = req.body || {};
+    const {
+      name,
+      email,
+      company = "",
+      message,
+      website = "",
+      startedAt,
+    } = req.body || {};
 
     // Honeypot
     if (website) return res.status(400).json({ error: "Bot détecté." });
@@ -342,11 +362,22 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
       <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <p><strong>Société:</strong> ${escapeHtml(company || "—")}</p>
       <p><strong>Message:</strong></p>
-      <div style="background:#f1f5f9;padding:12px;border-radius:8px">${escapeHtml(message)}</div>
+      <div style="background:#f1f5f9;padding:12px;border-radius:8px">${escapeHtml(
+        message
+      )}</div>
     </div>`;
-    const text = `Nouveau message\nNom: ${name}\nEmail: ${email}\nSociété: ${company || "—"}\n\nMessage:\n${message}`;
+    const text = `Nouveau message\nNom: ${name}\nEmail: ${email}\nSociété: ${
+      company || "—"
+    }\n\nMessage:\n${message}`;
 
-    await transporter.sendMail({ to, from, replyTo: email, subject, text, html });
+    await transporter.sendMail({
+      to,
+      from,
+      replyTo: email,
+      subject,
+      text,
+      html,
+    });
     return res.json({ ok: true });
   } catch (err) {
     console.error("Contact error:", err);
@@ -393,7 +424,7 @@ app.use(express.static(dist, { index: "index.html", maxAge: "1y" }));
 
 async function startServer() {
   await initDataFiles();
-  
+
   app.listen(PORT, "0.0.0.0", () => {
     console.log("╔══════════════════════════════════════════════════╗");
     console.log("║   🎉 SERVEUR MARIAGE DÉMARRÉ                     ║");
@@ -412,4 +443,3 @@ async function startServer() {
 }
 
 startServer();
-
