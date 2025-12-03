@@ -188,17 +188,29 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         return acc;
       }, {}),
       hotel: {
-        needed: responses.filter((r) => r.hotelNeeded === "yes").length,
-        notNeeded: responses.filter((r) => r.hotelNeeded === "no").length,
+        needed: responses.filter((r) => r.hotelRoomType && r.hotelRoomType !== "" && r.hotelRoomType !== "none").length,
+        notNeeded: responses.filter((r) => !r.hotelRoomType || r.hotelRoomType === "" || r.hotelRoomType === "none").length,
         roomTypes: responses.reduce((acc, r) => {
-          if (r.hotelNeeded === "yes" && r.hotelRoomType) {
-            acc[r.hotelRoomType] = (acc[r.hotelRoomType] || 0) + 1;
+          if (r.hotelRoomType && r.hotelRoomType !== "" && r.hotelRoomType !== "none") {
+            // Convertir les codes en noms lisibles
+            const roomNames = {
+              single: "Chambre Simple",
+              double: "Chambre Double/Twin",
+              triple: "Chambre Triple",
+              quadruple: "Chambre Quadruple",
+              larger: "Chambre Plus Grande"
+            };
+            const roomName = roomNames[r.hotelRoomType] || r.hotelRoomType;
+            acc[roomName] = (acc[roomName] || 0) + 1;
           }
           return acc;
         }, {}),
         totalNights: responses.reduce((sum, r) => {
-          if (r.hotelNeeded === "yes" && r.hotelNights) {
-            return sum + (parseInt(r.hotelNights) || 0);
+          if (r.hotelRoomType && r.hotelRoomType !== "" && r.hotelRoomType !== "none" && r.hotelCheckIn && r.hotelCheckOut) {
+            const checkIn = new Date(r.hotelCheckIn);
+            const checkOut = new Date(r.hotelCheckOut);
+            const nights = Math.round((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+            return sum + (nights > 0 ? nights : 0);
           }
           return sum;
         }, 0),
