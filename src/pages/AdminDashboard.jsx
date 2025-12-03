@@ -11,12 +11,21 @@ function AdminDashboard() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState("stats"); // 'stats' ou 'responses'
 
-  // Détection automatique de l'environnement
-  const API_URL =
-    import.meta.env.VITE_API_URL ||
-    (window.location.hostname === "localhost"
-      ? "http://localhost:3001"
-      : window.location.origin);
+  // URL de l'API : en production utilise le même domaine que le site
+  const getApiUrl = () => {
+    // Si l'URL est définie dans les variables d'environnement, l'utiliser
+    if (import.meta.env.VITE_API_URL) {
+      return import.meta.env.VITE_API_URL;
+    }
+    // En mode développement, utiliser localhost:3001
+    if (import.meta.env.DEV) {
+      return 'http://localhost:3001';
+    }
+    // En production, utiliser le même domaine
+    return window.location.origin;
+  };
+  
+  const API_URL = getApiUrl();
 
   // Vérifier si déjà authentifié
   useEffect(() => {
