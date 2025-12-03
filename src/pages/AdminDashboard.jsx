@@ -11,7 +11,12 @@ function AdminDashboard() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState("stats"); // 'stats' ou 'responses'
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+  // Détection automatique de l'environnement
+  const API_URL =
+    import.meta.env.VITE_API_URL ||
+    (window.location.hostname === "localhost"
+      ? "http://localhost:3001"
+      : window.location.origin);
 
   // Vérifier si déjà authentifié
   useEffect(() => {

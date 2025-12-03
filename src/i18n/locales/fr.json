@@ -6,7 +6,7 @@
     "madame": "Madame",
     "mademoiselle": "Mademoiselle",
     "et": "et",
-    "date": "Samedi, 20 Juin 2026",
+    "date": "Samedi, 20 juin 2026",
     "time": "à 15:30",
     "ceremony": "Lieu de la cérémonie",
     "venue": "Villa Saporiti 1898",
@@ -22,7 +22,7 @@
   "ceremony": {
     "title": "La Cérémonie",
     "dataOra": "Date & Heure",
-    "date": "20 JUIN 2026",
+    "date": "20 juin 2026",
     "time": "À 15:30",
     "location": "Lieu",
     "venue": "Villa Saporiti 1898",
@@ -95,6 +95,7 @@
   "hotel": {
     "title": "Hébergement",
     "subtitle": "Chambres avec tarif préférentiel",
+    "mapLink": "Localiser sur la carte",
     "deadline_title": "Réservation avant le 20 Janvier 2026",
     "deadline_text": "Nous avons réservé des chambres à tarif préférentiel jusqu'au 20 janvier 2026. Passé ce délai, il y a un risque que les chambres ne soient plus disponibles ou que le prix augmente.",
     "rates_title": "Tarifs par Nuit",
@@ -121,13 +122,13 @@
     "subtitle": "Dîner à Stresa",
     "message": "Nous serions ravis de vous accueillir pour un repas convivial la veille du mariage à Stresa, l'occasion de se retrouver avant le grand jour !",
     "date_label": "Quand",
-    "date": "19 Juin 2026",
+    "date": "19 juin 2026",
     "location_label": "Où",
     "form_note": "Merci d'indiquer votre présence dans le formulaire RSVP ci-dessous"
   },
   "footer": {
     "names": "Flavio & Letizia",
-    "date": "20 Juin 2026",
+    "date": "20 juin 2026",
     "copyright": "© 2026 Flavio & Letizia. Tous les droits réservés.",
     "love": "Avec tout notre amour 💕"
   }

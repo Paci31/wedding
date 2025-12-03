@@ -32,9 +32,38 @@ function HotelInfo() {
             <h3 className="text-3xl font-playfair font-bold text-gray-800 mb-2">
               🏨 Just Hotel Saronno
             </h3>
-            <p className="text-gray-600 font-lora">
+            <p className="text-gray-600 font-lora mb-3">
               {t("hotel.subtitle")}
             </p>
+            <p className="text-gray-700 font-lora text-lg mb-3">
+              Via Strà Madonna, 15<br />
+              21047 Saronno VA, Italie
+            </p>
+            <a
+              href="https://maps.google.com/?q=Just+Hotel+Saronno+Via+Strà+Madonna+15+Saronno"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-rose-gold hover:text-gold font-semibold transition-colors duration-300">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              {t("hotel.mapLink")}
+            </a>
           </div>
 
           {/* Info importante */}

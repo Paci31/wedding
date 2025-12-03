@@ -23,7 +23,9 @@ function RSVP() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+  // Détection automatique de l'environnement
+  const API_URL = import.meta.env.VITE_API_URL || 
+    (window.location.hostname === 'localhost' ? 'http://localhost:3001' : window.location.origin);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
