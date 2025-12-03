@@ -1,0 +1,182 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ✅ PROBLÈME DES STATISTIQUES HÔTEL CORRIGÉ !                          ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🐛 LE PROBLÈME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vous avez rempli le formulaire avec une "chambre twin", mais rien ne s'affichait
+dans les statistiques du dashboard admin.
+
+CAUSE : Le formulaire envoie maintenant directement le type de chambre
+        (hotelRoomType: "double"), mais le backend cherchait encore
+        l'ancienne propriété hotelNeeded qui n'existe plus.
+
+
+✅ LA CORRECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+J'ai modifié le backend pour qu'il détecte correctement les réservations d'hôtel
+en se basant sur hotelRoomType au lieu de hotelNeeded.
+
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  CE QUI A CHANGÉ                                                        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+1️⃣  DÉTECTION DES RÉSERVATIONS
+    ✅ Le backend détecte qu'une chambre est demandée si hotelRoomType existe
+    ✅ Ignore les valeurs vides ou "none" (pas besoin d'hôtel)
+
+2️⃣  NOMS LISIBLES
+    Au lieu d'afficher les codes techniques, vous verrez maintenant :
+    
+    Code interne   →   Nom affiché
+    ────────────       ────────────────────────────
+    "single"       →   "Chambre Simple"
+    "double"       →   "Chambre Double/Twin"    ← Twin est ici !
+    "triple"       →   "Chambre Triple"
+    "quadruple"    →   "Chambre Quadruple"
+    "larger"       →   "Chambre Plus Grande"
+
+3️⃣  CALCUL AUTOMATIQUE DES NUITÉES
+    ✅ Plus besoin de stocker manuellement le nombre de nuits
+    ✅ Calcul automatique à partir de hotelCheckIn et hotelCheckOut
+    
+    Exemple :
+    Check-in  : 13/06/2026
+    Check-out : 15/06/2026
+    Résultat  : 2 nuitées ✓
+
+
+🔄 REDÉMARRAGE NÉCESSAIRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Le backend a été redémarré automatiquement avec les corrections.
+
+Si vous ne voyez toujours pas les statistiques :
+
+1. Dans le terminal où tourne le backend :
+   → Appuyez sur Ctrl + C pour arrêter
+   → Relancez : cd backend && npm start
+
+2. Rechargez le dashboard admin :
+   → F5 ou Ctrl + R dans le navigateur
+
+
+📊 CE QUE VOUS VERREZ MAINTENANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dans le Dashboard Admin → Onglet "📊 Statistiques" :
+
+╔════════════════════════════════════════════════════════════════╗
+║  🏨 Réservations d'Hôtel                                      ║
+╠════════════════════════════════════════════════════════════════╣
+║                                                                ║
+║  [Graphique en barres]                                         ║
+║  Besoin hôtel: 1    Pas d'hôtel: 0                            ║
+║                                                                ║
+║  Types de Chambres Demandées                                  ║
+║  ┌──────────────────────────────────────────┐                 ║
+║  │  🛏️ Chambre Double/Twin            [1]  │  ← Votre Twin ! ║
+║  └──────────────────────────────────────────┘                 ║
+║                                                                ║
+║  🌙 Total de nuitées réservées: 2                             ║
+║     (calculé automatiquement depuis les dates)                ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+
+🎯 POUR TESTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Ouvrez le dashboard admin :
+   → URL : http://localhost:5173/admin
+   → Login : admin
+   → Mot de passe : wedding2026
+
+2. Allez dans l'onglet "📊 Statistiques"
+
+3. Scrollez jusqu'à "🏨 Réservations d'Hôtel"
+
+4. Vous devriez maintenant voir :
+   ✓ Besoin hôtel : 1 (ou plus si vous avez soumis plusieurs fois)
+   ✓ Chambre Double/Twin : [1]
+   ✓ Total de nuitées : [nombre calculé]
+
+
+📝 DÉTAILS TECHNIQUES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ANCIENNE STRUCTURE (ne fonctionnait pas) :
+{
+  hotelNeeded: "yes",        ❌ N'existe plus
+  hotelNights: 2,           ❌ N'existe plus
+  hotelRoomType: "double"
+}
+
+NOUVELLE STRUCTURE (actuelle) :
+{
+  hotelRoomType: "double",  ✅ Détermine si hôtel nécessaire
+  hotelCheckIn: "2026-06-13",
+  hotelCheckOut: "2026-06-15"
+}
+
+Le backend calcule automatiquement :
+→ Hôtel nécessaire : Si hotelRoomType existe et ≠ "none"
+→ Nombre de nuitées : checkOut - checkIn
+
+
+✅ CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✅ Backend corrigé (backend/server.js)
+  ✅ Backend unifié corrigé (server-unified.js)
+  ✅ Noms de chambres lisibles ajoutés
+  ✅ Calcul automatique des nuitées
+  ✅ Build réussi
+  ✅ Git commit effectué
+  ✅ Git push effectué
+  ✅ Backend redémarré
+  ✅ Documentation créée (CORRECTION_STATS_HOTEL.md)
+
+
+🚀 DÉPLOIEMENT EN PRODUCTION (INFOMANIAK)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Quand vous voudrez mettre à jour la production :
+
+Sur le serveur Infomaniak :
+
+  1. git pull
+  2. npm run build
+  3. pm2 restart wedding
+
+Les statistiques fonctionneront alors aussi en production !
+
+
+💡 BONUS : AUTRES AMÉLIORATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Les noms de chambres sont maintenant en français lisible
+✓ Le calcul des nuitées est automatique (plus d'erreur de saisie)
+✓ Le système gère correctement les cas "pas besoin d'hôtel"
+✓ Si quelqu'un entre des dates invalides, elles sont ignorées
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✅ PROBLÈME RÉSOLU !                                                    ║
+║                                                                           ║
+║  Rechargez le dashboard admin pour voir vos statistiques d'hôtel !      ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+Questions ? Voir le fichier : CORRECTION_STATS_HOTEL.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
