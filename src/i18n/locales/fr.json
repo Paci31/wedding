@@ -15,7 +15,7 @@
   },
   "ourStory": {
     "title": "Notre Amour",
-    "subtitle": "Un amour sincère",
+    "subtitle": "La danse de notre amour",
     "text1": "De quelques pas dansés est née notre histoire.",
     "text2": "Sur un parquet où résonnaient basses et battements de cœur, nos regards se sont croisés comme deux notes qui cherchaient leur mélodie.",
     "text3": "Au rythme du hip-hop, nous avons appris à avancer ensemble, à improviser, à nous soutenir, à rire de nos faux pas.",
@@ -42,7 +42,7 @@
   "reception": {
     "title": "Confirmez votre présence",
     "rsvpMessage": "RSVP Demandé",
-    "deadline": "Avant le 30 Avril",
+    "deadline": "Avant le 30 avril 2026",
     "contact": "Contactez-nous pour confirmer",
     "available": "Disponible pour les questions",
     "always_happy": "Toujours heureux d'aider",
@@ -52,7 +52,7 @@
   },
   "gallery": {
     "title": "Nos Moments",
-    "subtitle": "Partager nos plus beaux instants",
+    "subtitle": "Partagez nos plus beaux instants",
     "moment": "Moment Spécial",
     "click": "Cliquez pour voir",
     "note": "Vos photos seront bientôt disponibles",
@@ -100,7 +100,7 @@
     "title": "Hébergement",
     "subtitle": "Chambres avec tarif préférentiel",
     "mapLink": "Localiser sur la carte",
-    "deadline_title": "Réservation avant le 20 Janvier 2026",
+    "deadline_title": "Réservation avant le 20 janvier 2026",
     "deadline_text": "Nous avons réservé des chambres à tarif préférentiel jusqu'au 20 janvier 2026. Passé ce délai, il y a un risque que les chambres ne soient plus disponibles ou que le prix augmente.",
     "rates_title": "Tarifs par nuit",
     "room_single": "Chambre Simple",

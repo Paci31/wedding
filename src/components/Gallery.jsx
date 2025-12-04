@@ -48,13 +48,13 @@ function Gallery() {
       showYear: false,
       objectPosition: "center 30%",
     },
-     {
-       id: 5,
-       year: "2020",
-       src: photo2020,
-       showYear: false,
-       objectPosition: "center 25%",
-     },
+    {
+      id: 5,
+      year: "2020",
+      src: photo2020,
+      showYear: false,
+      objectPosition: "center 25%",
+    },
     {
       id: 6,
       year: "2022",

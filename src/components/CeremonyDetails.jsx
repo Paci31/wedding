@@ -26,7 +26,7 @@ function CeremonyDetails() {
               <p className="text-rose-gold text-sm uppercase tracking-widest font-semibold mb-2">
                 {t("ceremony.dataOra")}
               </p>
-              <p className="text-3xl md:text-5xl font-playfair font-bold text-gray-800 mb-3">
+              <p className="text-3xl md:text-4xl font-playfair font-bold text-gray-800 mb-3">
                 {t("ceremony.date")}
               </p>
               <p className="text-2xl font-lora text-gray-700">
