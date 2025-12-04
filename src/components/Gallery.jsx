@@ -3,16 +3,32 @@ import { useTranslation } from "react-i18next";
 
 // Import des photos
 import photo2016 from "../assets/photo/2016.jpeg";
+import photo2017 from "../assets/photo/2017.jpeg";
+import photo2018 from "../assets/photo/2018.jpeg";
+import photo2019 from "../assets/photo/2019.jpeg";
+import photo2020 from "../assets/photo/2020.jpeg";
+import photo2022 from "../assets/photo/2022.jpeg";
+import photo2024 from "../assets/photo/2024.jpeg";
+import photo2024_2 from "../assets/photo/2024_2.jpeg";
 import photo2025 from "../assets/photo/2025.jpeg";
 
 function Gallery() {
   const { t } = useTranslation();
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  // Photos : première (2016) et dernière (2025)
+  // Photos dans l'ordre chronologique
+  // showYear = true uniquement pour la première et la dernière
+  // objectPosition pour centrer sur les visages
   const photos = [
-    { id: 1, year: "2016", src: photo2016 },
-    { id: 2, year: "2025", src: photo2025 },
+    { id: 1, year: "2016", src: photo2016, showYear: true, objectPosition: "center" },
+    { id: 2, year: "2017", src: photo2017, showYear: false, objectPosition: "center" },
+    { id: 3, year: "2018", src: photo2018, showYear: false, objectPosition: "center top" },
+    { id: 4, year: "2019", src: photo2019, showYear: false, objectPosition: "center 30%" },
+    { id: 5, year: "2020", src: photo2020, showYear: false, objectPosition: "center 35%" },
+    { id: 6, year: "2022", src: photo2022, showYear: false, objectPosition: "center" },
+    { id: 7, year: "2024", src: photo2024, showYear: false, objectPosition: "center" },
+    { id: 8, year: "2024", src: photo2024_2, showYear: false, objectPosition: "center" },
+    { id: 9, year: "2025", src: photo2025, showYear: true, objectPosition: "center" },
   ];
 
   return (
@@ -34,7 +50,7 @@ function Gallery() {
         </div>
 
         {/* Galerie */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {photos.map((photo) => (
             <div
               key={photo.id}
@@ -46,6 +62,7 @@ function Gallery() {
                   src={photo.src}
                   alt={`Flavio & Letizia ${photo.year}`}
                   className="w-full h-full object-cover"
+                  style={{ objectPosition: photo.objectPosition }}
                 />
 
                 {/* Overlay au survol */}
@@ -69,12 +86,14 @@ function Gallery() {
                   </div>
                 </div>
 
-                {/* Légende avec l'année */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white font-playfair text-2xl font-bold text-center">
-                    {photo.year}
-                  </p>
-                </div>
+                {/* Légende avec l'année (uniquement pour la première et la dernière) */}
+                {photo.showYear && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <p className="text-white font-playfair text-2xl font-bold text-center">
+                      {photo.year}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Bordure décorative */}
@@ -113,11 +132,13 @@ function Gallery() {
                 alt={`Flavio & Letizia ${selectedPhoto.year}`}
                 className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
               />
-              <div className="mt-4 text-center">
-                <p className="text-white font-playfair text-3xl font-bold">
-                  {selectedPhoto.year}
-                </p>
-              </div>
+              {selectedPhoto.showYear && (
+                <div className="mt-4 text-center">
+                  <p className="text-white font-playfair text-3xl font-bold">
+                    {selectedPhoto.year}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         )}
