@@ -13,10 +13,6 @@ function AdminDashboard() {
 
   // URL de l'API : en production utilise le même domaine que le site
   const getApiUrl = () => {
-    // Si l'URL est définie dans les variables d'environnement, l'utiliser
-    if (import.meta.env.VITE_API_URL) {
-      return import.meta.env.VITE_API_URL;
-    }
     // En production, utiliser le même domaine
     return window.location.origin;
   };
