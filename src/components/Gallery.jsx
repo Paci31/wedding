@@ -3,30 +3,16 @@ import { useTranslation } from "react-i18next";
 
 // Import des photos
 import photo2016 from "../assets/photo/2016.jpeg";
-import photo2017 from "../assets/photo/2017.jpeg";
-import photo2018 from "../assets/photo/2018.jpeg";
-import photo2019 from "../assets/photo/2019.jpeg";
-import photo2020 from "../assets/photo/2020.jpeg";
-import photo2022 from "../assets/photo/2022.jpeg";
-import photo2024 from "../assets/photo/2024.jpeg";
-import photo2024_2 from "../assets/photo/2024_2.jpeg";
 import photo2025 from "../assets/photo/2025.jpeg";
 
 function Gallery() {
   const { t } = useTranslation();
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  // Photos dans l'ordre chronologique
+  // Photos : première (2016) et dernière (2025)
   const photos = [
     { id: 1, year: "2016", src: photo2016 },
-    { id: 2, year: "2017", src: photo2017 },
-    { id: 3, year: "2018", src: photo2018 },
-    { id: 4, year: "2019", src: photo2019 },
-    { id: 5, year: "2020", src: photo2020 },
-    { id: 6, year: "2022", src: photo2022 },
-    { id: 7, year: "2024", src: photo2024 },
-    { id: 8, year: "2024", src: photo2024_2 },
-    { id: 9, year: "2025", src: photo2025 },
+    { id: 2, year: "2025", src: photo2025 },
   ];
 
   return (
@@ -48,7 +34,7 @@ function Gallery() {
         </div>
 
         {/* Galerie */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {photos.map((photo) => (
             <div
               key={photo.id}
@@ -135,16 +121,6 @@ function Gallery() {
             </div>
           </div>
         )}
-
-        {/* Call to action */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-600 font-lora text-lg mb-4">
-            {t("gallery.note")}
-          </p>
-          <p className="text-rose-gold font-semibold text-sm uppercase tracking-widest">
-            {t("gallery.complete")}
-          </p>
-        </div>
       </div>
     </section>
   );
