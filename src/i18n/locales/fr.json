@@ -30,9 +30,9 @@
     "city": "Tradate (VA)",
     "mapLink": "Localiser sur la carte",
     "program": "Déroulement",
-    "ceremony_label": "La Cérémonie - 15h30",
+    "ceremony_label": "15h30 -La Cérémonie",
     "ceremony_text": "Nous aurons le plaisir de votre présence",
-    "reception_label": "Apéritif et repas - 18h",
+    "reception_label": "18h00 - Apéritif et repas",
     "reception_text": "Apéritif et Réception"
   },
   "reception": {
@@ -109,11 +109,11 @@
     "tourist_tax": "Taxe de séjour : €2,00 par personne par nuit à payer sur place (Commune de Saronno)",
     "breakfast_included": "Petit-déjeuner inclus",
     "payment_title": "Modalités de paiement",
-    "payment_text": "Le paiement doit être effectue par twint lors de votre confirmation, sur le numéro de Letizia, ceci afin que nous puissions valider votre chambre auprès de l’hôtel.",
+    "payment_text": "Le paiement doit être effectué par twint lors de votre confirmation, sur le numéro de Letizia, ceci afin que nous puissions valider votre chambre auprès de l’hôtel.",
     "form_note": "Merci de compléter la section Hébergement dans le formulaire RSVP ci-dessous"
   },
   "gift": {
-    "title": "Voyage de Noces",
+    "title": "Voyage de Noce",
     "message": "Votre présence à notre mariage est le plus beau des cadeaux. Si vous souhaitez nous offrir quelque chose, une contribution à notre voyage de noces nous ferait très plaisir.",
     "quote": "Le plus beau cadeau est de partager ce jour spécial avec vous. Si vous souhaitez nous gâter davantage, aidez-nous à créer de merveilleux souvenirs lors de notre voyage de noces."
   },

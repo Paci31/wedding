@@ -22,13 +22,12 @@ function DinnerInfo() {
         <div className="bg-gradient-to-br from-gray-50 to-rose-50 rounded-2xl shadow-xl p-8 md:p-12 border border-rose-gold border-opacity-20">
           <div className="text-center">
             {/* Icône */}
-            <div className="text-6xl mb-6">🍝🌅</div>
-            
+
             {/* Texte principal */}
             <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-4">
               {t("dinner.subtitle")}
             </h3>
-            
+
             <p className="text-lg font-lora text-gray-700 mb-6 leading-relaxed">
               {t("dinner.message")}
             </p>
@@ -43,7 +42,7 @@ function DinnerInfo() {
                   {t("dinner.date")}
                 </p>
               </div>
-              
+
               <div className="bg-white rounded-lg p-6 shadow-md">
                 <p className="text-rose-gold text-sm uppercase tracking-widest font-semibold mb-2">
                   {t("dinner.location_label")}
@@ -68,4 +67,3 @@ function DinnerInfo() {
 }
 
 export default DinnerInfo;
-

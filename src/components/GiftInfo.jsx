@@ -22,17 +22,15 @@ function GiftInfo() {
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
           {/* Icône */}
           <div className="text-6xl mb-6">🏝️✈️</div>
-          
+
           {/* Texte principal */}
           <p className="text-xl font-lora text-gray-700 mb-6 leading-relaxed">
-            {t("gift.message")}
+            {t("gift.quote")}
           </p>
 
           {/* Citation */}
           <div className="border-l-4 border-rose-gold pl-6 py-4 bg-rose-50 rounded-r-lg">
-            <p className="italic text-gray-600 font-lora">
-              {t("gift.quote")}
-            </p>
+            <p className="italic text-gray-600 font-lora"></p>
           </div>
         </div>
       </div>
@@ -41,4 +39,3 @@ function GiftInfo() {
 }
 
 export default GiftInfo;
-

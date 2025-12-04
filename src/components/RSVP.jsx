@@ -31,17 +31,17 @@ function RSVP() {
     }
     // En mode développement, utiliser localhost:3001
     if (import.meta.env.DEV) {
-      return 'http://localhost:3001';
+      return "http://localhost:3001";
     }
     // En production, utiliser le même domaine
     return window.location.origin;
   };
-  
+
   const API_URL = getApiUrl();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Si on change le nombre d'enfants, initialiser le tableau d'âges
     if (name === "children") {
       const numChildren = parseInt(value) || 0;
@@ -79,7 +79,9 @@ function RSVP() {
       // Convertir le tableau d'âges en chaîne pour le backend
       const dataToSend = {
         ...formData,
-        childrenAges: formData.childrenAges.filter(age => age.trim() !== "").join(", "),
+        childrenAges: formData.childrenAges
+          .filter((age) => age.trim() !== "")
+          .join(", "),
       };
 
       const response = await fetch(`${API_URL}/api/rsvp`, {
@@ -152,282 +154,286 @@ function RSVP() {
 
         {/* Formulaire RSVP */}
         <div className="max-w-2xl mx-auto">
-
-        {submitted ? (
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg shadow-lg p-8 md:p-12 border-2 border-emerald-500 text-center">
-            <div className="mb-4 text-5xl">{t("rsvp.success_emoji")}</div>
-            <h3 className="text-2xl font-playfair font-bold text-emerald-700 mb-2">
-              {t("rsvp.thanks")}
-            </h3>
-            <p className="text-emerald-600 font-lora whitespace-pre-line">
-              {t("rsvp.thanks_message")}
-            </p>
-          </div>
-        ) : (
-          <form
-            className="bg-gradient-to-br from-gray-50 to-rose-50 rounded-lg shadow-xl p-8 md:p-12 border border-rose-gold border-opacity-20"
-            onSubmit={handleSubmit}>
-            {error && (
-              <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                {error}
-              </div>
-            )}
-            {/* Nom complet */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                {t("rsvp.name")} *
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder={t("rsvp.name")}
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-              />
+          {submitted ? (
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg shadow-lg p-8 md:p-12 border-2 border-emerald-500 text-center">
+              <div className="mb-4 text-5xl">{t("rsvp.success_emoji")}</div>
+              <h3 className="text-2xl font-playfair font-bold text-emerald-700 mb-2">
+                {t("rsvp.thanks")}
+              </h3>
+              <p className="text-emerald-600 font-lora whitespace-pre-line">
+                {t("rsvp.thanks_message")}
+              </p>
             </div>
-
-            {/* Email et Téléphone */}
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.email")} *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="votre@email.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.phone")}
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+41 78 XXX XX XX"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-                />
-              </div>
-            </div>
-
-            {/* Présence */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                {t("rsvp.response")} *
-              </label>
-              <select
-                name="attending"
-                value={formData.attending}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
-                <option value="">{t("rsvp.select")}</option>
-                <option value="yes">{t("rsvp.yes")}</option>
-                <option value="no">{t("rsvp.no")}</option>
-              </select>
-            </div>
-
-            {/* Nombre d'adultes et d'enfants */}
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.adults")} *
-                </label>
-                <input
-                  type="number"
-                  name="adults"
-                  placeholder="1"
-                  min="1"
-                  max="10"
-                  value={formData.adults}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.children")}
-                </label>
-                <input
-                  type="number"
-                  name="children"
-                  placeholder="0"
-                  min="0"
-                  max="10"
-                  value={formData.children}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-                />
-              </div>
-            </div>
-
-            {/* Âge des enfants - Champs individuels */}
-            {formData.children && parseInt(formData.children) > 0 && (
+          ) : (
+            <form
+              className="bg-gradient-to-br from-gray-50 to-rose-50 rounded-lg shadow-xl p-8 md:p-12 border border-rose-gold border-opacity-20"
+              onSubmit={handleSubmit}>
+              {error && (
+                <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                  {error}
+                </div>
+              )}
+              {/* Nom complet */}
               <div className="mb-6">
-                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-3">
-                  {t("rsvp.childrenAges")}
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.name")} *
                 </label>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {Array.from({ length: parseInt(formData.children) }).map((_, index) => (
-                    <div key={index}>
-                      <label className="block text-gray-600 text-sm mb-2">
-                        {t("rsvp.childAge")} {index + 1}
+                <input
+                  type="text"
+                  name="name"
+                  placeholder={t("rsvp.name")}
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                />
+              </div>
+
+              {/* Email et Téléphone */}
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                    {t("rsvp.email")} *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="votre@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                    {t("rsvp.phone")}
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+41 78 XXX XX XX"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                  />
+                </div>
+              </div>
+
+              {/* Présence */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.response")} *
+                </label>
+                <select
+                  name="attending"
+                  value={formData.attending}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
+                  <option value="">{t("rsvp.select")}</option>
+                  <option value="yes">{t("rsvp.yes")}</option>
+                  <option value="no">{t("rsvp.no")}</option>
+                </select>
+              </div>
+
+              {/* Nombre d'adultes et d'enfants */}
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                    {t("rsvp.adults")} *
+                  </label>
+                  <input
+                    type="number"
+                    name="adults"
+                    placeholder="1"
+                    min="1"
+                    max="10"
+                    value={formData.adults}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                    {t("rsvp.children")}
+                  </label>
+                  <input
+                    type="number"
+                    name="children"
+                    placeholder="0"
+                    min="0"
+                    max="10"
+                    value={formData.children}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                  />
+                </div>
+              </div>
+
+              {/* Âge des enfants - Champs individuels */}
+              {formData.children && parseInt(formData.children) > 0 && (
+                <div className="mb-6">
+                  <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-3">
+                    {t("rsvp.childrenAges")}
+                  </label>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {Array.from({ length: parseInt(formData.children) }).map(
+                      (_, index) => (
+                        <div key={index}>
+                          <label className="block text-gray-600 text-sm mb-2">
+                            {t("rsvp.childAge")} {index + 1}
+                          </label>
+                          <input
+                            type="text"
+                            placeholder={t("rsvp.childAge_placeholder")}
+                            value={formData.childrenAges[index] || ""}
+                            onChange={(e) =>
+                              handleChildAgeChange(index, e.target.value)
+                            }
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                          />
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Régimes alimentaires */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.dietary")}
+                </label>
+                <input
+                  type="text"
+                  name="dietary"
+                  placeholder={t("rsvp.dietary_placeholder")}
+                  value={formData.dietary}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                />
+              </div>
+
+              {/* Séparateur - Hôtel */}
+              <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
+              <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                🏨 {t("rsvp.hotel_section")}
+              </h3>
+
+              {/* Choix de la chambre d'hôtel */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.hotel_room_choice")}
+                </label>
+                <select
+                  name="hotelRoomType"
+                  value={formData.hotelRoomType}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
+                  <option value="">{t("rsvp.select")}</option>
+                  <option value="none">{t("rsvp.hotel_none")}</option>
+                  <option value="single">{t("rsvp.room_single")} - €120</option>
+                  <option value="double">{t("rsvp.room_double")} - €140</option>
+                  <option value="triple">{t("rsvp.room_triple")} - €160</option>
+                  <option value="quadruple">
+                    {t("rsvp.room_quadruple")} - €180
+                  </option>
+                  <option value="larger">{t("rsvp.room_larger")}</option>
+                </select>
+              </div>
+
+              {/* Détails de l'hôtel si une chambre est sélectionnée */}
+              {formData.hotelRoomType && formData.hotelRoomType !== "none" && (
+                <>
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                        {t("rsvp.hotel_checkin")}
                       </label>
                       <input
-                        type="text"
-                        placeholder={t("rsvp.childAge_placeholder")}
-                        value={formData.childrenAges[index] || ""}
-                        onChange={(e) => handleChildAgeChange(index, e.target.value)}
+                        type="date"
+                        name="hotelCheckIn"
+                        value={formData.hotelCheckIn}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
                       />
                     </div>
-                  ))}
-                </div>
+                    <div>
+                      <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                        {t("rsvp.hotel_checkout")}
+                      </label>
+                      <input
+                        type="date"
+                        name="hotelCheckOut"
+                        value={formData.hotelCheckOut}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg mb-6">
+                    <p className="text-sm text-gray-700 font-lora">
+                      💳 {t("rsvp.hotel_payment_note")}
+                    </p>
+                  </div>
+                </>
+              )}
+
+              {/* Séparateur - Repas */}
+              <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
+              <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                🍝 {t("rsvp.dinner_section")}
+              </h3>
+
+              {/* Présence au repas de la veille */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.dinner_attending")}
+                </label>
+                <select
+                  name="dinnerAttending"
+                  value={formData.dinnerAttending}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
+                  <option value="">{t("rsvp.select")}</option>
+                  <option value="yes">{t("rsvp.yes")}</option>
+                  <option value="no">{t("rsvp.no")}</option>
+                </select>
               </div>
-            )}
 
-            {/* Régimes alimentaires */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                {t("rsvp.dietary")}
-              </label>
-              <input
-                type="text"
-                name="dietary"
-                placeholder={t("rsvp.dietary_placeholder")}
-                value={formData.dietary}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-              />
-            </div>
+              {/* Séparateur */}
+              <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
 
-            {/* Séparateur - Hôtel */}
-            <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
-            <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
-              🏨 {t("rsvp.hotel_section")}
-            </h3>
+              {/* Message */}
+              <div className="mb-8">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.message")}
+                </label>
+                <textarea
+                  name="message"
+                  placeholder={t("rsvp.message_placeholder")}
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora resize-none"></textarea>
+              </div>
 
-            {/* Choix de la chambre d'hôtel */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                {t("rsvp.hotel_room_choice")}
-              </label>
-              <select
-                name="hotelRoomType"
-                value={formData.hotelRoomType}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
-                <option value="">{t("rsvp.select")}</option>
-                <option value="none">{t("rsvp.hotel_none")}</option>
-                <option value="single">{t("rsvp.room_single")} - €120</option>
-                <option value="double">{t("rsvp.room_double")} - €140</option>
-                <option value="triple">{t("rsvp.room_triple")} - €160</option>
-                <option value="quadruple">{t("rsvp.room_quadruple")} - €180</option>
-                <option value="larger">{t("rsvp.room_larger")}</option>
-              </select>
-            </div>
+              {/* Bouton submit */}
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-gradient-to-r from-rose-gold to-gold hover:from-gold hover:to-rose-gold text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed">
+                {submitting ? "Envoi en cours..." : t("rsvp.submit")}
+              </button>
 
-            {/* Détails de l'hôtel si une chambre est sélectionnée */}
-            {formData.hotelRoomType && formData.hotelRoomType !== "none" && (
-              <>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                      {t("rsvp.hotel_checkin")}
-                    </label>
-                    <input
-                      type="date"
-                      name="hotelCheckIn"
-                      value={formData.hotelCheckIn}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                      {t("rsvp.hotel_checkout")}
-                    </label>
-                    <input
-                      type="date"
-                      name="hotelCheckOut"
-                      value={formData.hotelCheckOut}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
-                    />
-                  </div>
-                </div>
-
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg mb-6">
-                  <p className="text-sm text-gray-700 font-lora">
-                    💳 {t("rsvp.hotel_payment_note")}
-                  </p>
-                </div>
-              </>
-            )}
-
-            {/* Séparateur - Repas */}
-            <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
-            <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
-              🍝 {t("rsvp.dinner_section")}
-            </h3>
-
-            {/* Présence au repas de la veille */}
-            <div className="mb-6">
-              <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                {t("rsvp.dinner_attending")}
-              </label>
-              <select
-                name="dinnerAttending"
-                value={formData.dinnerAttending}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
-                <option value="">{t("rsvp.select")}</option>
-                <option value="yes">{t("rsvp.yes")}</option>
-                <option value="no">{t("rsvp.no")}</option>
-              </select>
-            </div>
-
-            {/* Séparateur */}
-            <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
-
-            {/* Message */}
-            <div className="mb-8">
-              <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                {t("rsvp.message")}
-              </label>
-              <textarea
-                name="message"
-                placeholder={t("rsvp.message_placeholder")}
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora resize-none"></textarea>
-            </div>
-
-            {/* Bouton submit */}
-            <button
-              type="submit"
-              disabled={submitting}
-              className="w-full bg-gradient-to-r from-rose-gold to-gold hover:from-gold hover:to-rose-gold text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed">
-              {submitting ? "Envoi en cours..." : t("rsvp.submit")}
-            </button>
-
-            <p className="text-center text-gray-600 text-xs mt-4 font-lora">
-              {t("rsvp.required")}
-            </p>
-          </form>
-        )}
+              <p className="text-center text-gray-600 text-xs mt-4 font-lora">
+                {t("rsvp.required")}
+              </p>
+            </form>
+          )}
         </div>
 
         {/* Cartes de contact */}
@@ -458,9 +464,6 @@ function RSVP() {
                 </svg>
                 +41 78 715 04 79
               </a>
-              <p className="text-gray-600 font-lora">
-                {t("reception.available")}
-              </p>
             </div>
           </div>
 
@@ -490,21 +493,8 @@ function RSVP() {
                 </svg>
                 +41 78 677 40 50
               </a>
-              <p className="text-gray-600 font-lora">
-                {t("reception.always_happy")}
-              </p>
             </div>
           </div>
-        </div>
-
-        {/* Alternativa email */}
-        <div className="text-center mt-8">
-          <p className="text-gray-600 font-lora mb-2">
-            {t("reception.prefer_email")}
-          </p>
-          <p className="text-rose-gold font-semibold">
-            ✉️ {t("reception.email")}
-          </p>
         </div>
       </div>
     </section>

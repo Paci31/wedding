@@ -17,10 +17,6 @@ function AdminDashboard() {
     if (import.meta.env.VITE_API_URL) {
       return import.meta.env.VITE_API_URL;
     }
-    // En mode développement, utiliser localhost:3001
-    if (import.meta.env.DEV) {
-      return "http://localhost:3001";
-    }
     // En production, utiliser le même domaine
     return window.location.origin;
   };
@@ -486,7 +482,7 @@ function StatsView({ stats }) {
           <h3 className="text-xl font-bold text-gray-800 mb-6">
             🏨 Réservations d'Hôtel
           </h3>
-          
+
           {/* Graphique besoin hôtel */}
           <div className="mb-6">
             <div className="flex items-end gap-4 h-48">
@@ -506,29 +502,30 @@ function StatsView({ stats }) {
           </div>
 
           {/* Types de chambres */}
-          {stats.hotel.roomTypes && Object.keys(stats.hotel.roomTypes).length > 0 && (
-            <div className="mt-6">
-              <h4 className="text-lg font-semibold text-gray-700 mb-3">
-                Types de Chambres Demandées
-              </h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {Object.entries(stats.hotel.roomTypes)
-                  .sort(([, countA], [, countB]) => countB - countA)
-                  .map(([roomType, count]) => (
-                    <div
-                      key={roomType}
-                      className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
-                      <span className="font-semibold text-gray-700">
-                        🛏️ {roomType}
-                      </span>
-                      <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
-                        {count}
-                      </span>
-                    </div>
-                  ))}
+          {stats.hotel.roomTypes &&
+            Object.keys(stats.hotel.roomTypes).length > 0 && (
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold text-gray-700 mb-3">
+                  Types de Chambres Demandées
+                </h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {Object.entries(stats.hotel.roomTypes)
+                    .sort(([, countA], [, countB]) => countB - countA)
+                    .map(([roomType, count]) => (
+                      <div
+                        key={roomType}
+                        className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <span className="font-semibold text-gray-700">
+                          🛏️ {roomType}
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
+                          {count}
+                        </span>
+                      </div>
+                    ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {/* Total nuitées */}
           {stats.hotel.totalNights > 0 && (
@@ -552,7 +549,7 @@ function StatsView({ stats }) {
           <h3 className="text-xl font-bold text-gray-800 mb-6">
             🍽️ Repas de la Veille à Stresa
           </h3>
-          
+
           <div className="flex items-end gap-4 h-48">
             <BarChart
               label="Participeront"
@@ -581,9 +578,7 @@ function StatsView({ stats }) {
             </div>
             <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-semibold">
-                  ❌ Absents
-                </span>
+                <span className="text-gray-700 font-semibold">❌ Absents</span>
                 <span className="text-3xl font-bold text-gray-600">
                   {stats.dinner.notAttending}
                 </span>
