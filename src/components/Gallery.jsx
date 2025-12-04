@@ -1,15 +1,32 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+
+// Import des photos
+import photo2016 from "../assets/photo/2016.jpeg";
+import photo2017 from "../assets/photo/2017.jpeg";
+import photo2018 from "../assets/photo/2018.jpeg";
+import photo2019 from "../assets/photo/2019.jpeg";
+import photo2020 from "../assets/photo/2020.jpeg";
+import photo2022 from "../assets/photo/2022.jpeg";
+import photo2024 from "../assets/photo/2024.jpeg";
+import photo2024_2 from "../assets/photo/2024_2.jpeg";
+import photo2025 from "../assets/photo/2025.jpeg";
 
 function Gallery() {
   const { t } = useTranslation();
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
+  // Photos dans l'ordre chronologique
   const photos = [
-    { id: 1, title: t("gallery.moment") + " 1" },
-    { id: 2, title: t("gallery.moment") + " 2" },
-    { id: 3, title: t("gallery.moment") + " 3" },
-    { id: 4, title: t("gallery.moment") + " 4" },
-    { id: 5, title: t("gallery.moment") + " 5" },
-    { id: 6, title: t("gallery.moment") + " 6" },
+    { id: 1, year: "2016", src: photo2016 },
+    { id: 2, year: "2017", src: photo2017 },
+    { id: 3, year: "2018", src: photo2018 },
+    { id: 4, year: "2019", src: photo2019 },
+    { id: 5, year: "2020", src: photo2020 },
+    { id: 6, year: "2022", src: photo2022 },
+    { id: 7, year: "2024", src: photo2024 },
+    { id: 8, year: "2024", src: photo2024_2 },
+    { id: 9, year: "2025", src: photo2025 },
   ];
 
   return (
@@ -35,47 +52,89 @@ function Gallery() {
           {photos.map((photo) => (
             <div
               key={photo.id}
-              className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 h-80 bg-white">
-              {/* Placeholder avec gradient */}
-              <div className="w-full h-full bg-gradient-to-br from-rose-gold via-gold to-rose-200 flex items-center justify-center relative overflow-hidden">
-                {/* Motif de fond */}
-                <div className="absolute inset-0 opacity-10">
-                  <div
-                    className="absolute inset-0 bg-repeat"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle, rgba(255,255,255,1) 1px, transparent 1px)",
-                      backgroundSize: "20px 20px",
-                    }}></div>
-                </div>
-
-                {/* Contenu */}
-                <div className="relative z-10 text-center">
-                  <div className="text-5xl mb-4">📷</div>
-                  <p className="text-white font-playfair text-xl font-bold">
-                    {photo.title}
-                  </p>
-                  <p className="text-white/80 font-lora text-sm mt-2">
-                    {t("gallery.click")}
-                  </p>
-                </div>
+              onClick={() => setSelectedPhoto(photo)}
+              className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:scale-105">
+              {/* Image */}
+              <div className="relative h-80 w-full">
+                <img
+                  src={photo.src}
+                  alt={`Flavio & Letizia ${photo.year}`}
+                  className="w-full h-full object-cover"
+                />
 
                 {/* Overlay au survol */}
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                  </svg>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg
+                      className="w-16 h-16 text-white mx-auto mb-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                      />
+                    </svg>
+                    <p className="text-white font-lora text-sm">
+                      {t("gallery.click")}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Légende avec l'année */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                  <p className="text-white font-playfair text-2xl font-bold text-center">
+                    {photo.year}
+                  </p>
                 </div>
               </div>
 
               {/* Bordure décorative */}
-              <div className="absolute inset-0 border-2 border-gradient-to-r from-rose-gold/20 via-gold/20 to-rose-gold/20 pointer-events-none rounded-lg"></div>
+              <div className="absolute inset-0 border-2 border-rose-gold/20 pointer-events-none rounded-lg"></div>
             </div>
           ))}
         </div>
+
+        {/* Modal Lightbox */}
+        {selectedPhoto && (
+          <div
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedPhoto(null)}>
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              className="absolute top-4 right-4 text-white hover:text-rose-gold transition-colors duration-300 z-10">
+              <svg
+                className="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <div
+              className="max-w-5xl max-h-[90vh] relative"
+              onClick={(e) => e.stopPropagation()}>
+              <img
+                src={selectedPhoto.src}
+                alt={`Flavio & Letizia ${selectedPhoto.year}`}
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="mt-4 text-center">
+                <p className="text-white font-playfair text-3xl font-bold">
+                  {selectedPhoto.year}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Call to action */}
         <div className="mt-16 text-center">
