@@ -1,0 +1,343 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ✅ GALERIE COMPLÈTE : 9 PHOTOS + ANNÉES SÉLECTIVES ! 📸               ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 MODIFICATIONS APPLIQUÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  TOUTES LES 9 PHOTOS AFFICHÉES
+    ✅ 2016, 2017, 2018, 2019, 2020, 2022, 2024 (×2), 2025
+
+2️⃣  ANNÉES VISIBLES UNIQUEMENT SUR LA PREMIÈRE ET LA DERNIÈRE
+    ✅ 2016 → Année affichée
+    ❌ 2017-2024 → Pas d'année
+    ✅ 2025 → Année affichée
+
+3️⃣  CENTRAGE SUR LES VISAGES
+    ✅ 2018 → Centré sur le haut (têtes)
+    ✅ 2019 → Centré à 30% du haut (visages)
+    ✅ 2020 → Centré à 35% du haut (visages)
+
+
+📸 RÉSULTAT VISUEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                           NOS MOMENTS                                   ┃
+┃                  Partager nos plus beaux instants                       ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  ┌─────────┐  ┌─────────┐  ┌─────────┐
+  │         │  │         │  │         │
+  │ Photo   │  │ Photo   │  │ Photo   │
+  │         │  │         │  │         │
+  │  2016   │  │ (2017)  │  │ (2018)  │  ← Centré sur têtes
+  └─────────┘  └─────────┘  └─────────┘
+      ↑                           ↑
+   Année                    Pas d'année
+   affichée                 affichée
+
+  ┌─────────┐  ┌─────────┐  ┌─────────┐
+  │         │  │         │  │         │
+  │ Photo   │  │ Photo   │  │ Photo   │
+  │         │  │         │  │         │
+  │ (2019)  │  │ (2020)  │  │ (2022)  │
+  └─────────┘  └─────────┘  └─────────┘
+      ↑            ↑
+   Centré 30%  Centré 35%
+
+  ┌─────────┐  ┌─────────┐  ┌─────────┐
+  │         │  │         │  │         │
+  │ Photo   │  │ Photo   │  │ Photo   │
+  │         │  │         │  │         │
+  │ (2024)  │  │ (2024)  │  │  2025   │
+  └─────────┘  └─────────┘  └─────────┘
+                                 ↑
+                            Année affichée
+
+
+🎨 CENTRAGE PERSONNALISÉ PAR PHOTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Photo    Année    Centrage               Description
+────────────────────────────────────────────────────────────────────────────
+2016     ✅       center                 Photo bien cadrée
+2017     ❌       center                 Photo bien cadrée
+2018     ❌       center top             Têtes vers le haut → recadré
+2019     ❌       center 30%             Visages décalés → recadré 30%
+2020     ❌       center 35%             Visages décalés → recadré 35%
+2022     ❌       center                 Photo bien cadrée
+2024 #1  ❌       center                 Photo bien cadrée
+2024 #2  ❌       center                 Photo bien cadrée
+2025     ✅       center                 Photo bien cadrée
+
+
+🔧 TECHNIQUE : OBJECT-POSITION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Pour centrer sur les visages, j'ai utilisé la propriété CSS `object-position` :
+
+2018 : objectPosition: "center top"
+────────────────────────────────────────────────────────────────────────────
+AVANT (center center)            APRÈS (center top)
+┌──────────────────┐             ┌──────────────────┐
+│                  │             │  🙂 🙂  ← Têtes  │
+│                  │             │                  │
+│  🙂 🙂  ← Têtes  │             │                  │
+│                  │             │                  │
+│                  │             │                  │
+└──────────────────┘             └──────────────────┘
+Têtes coupées en haut            Têtes bien visibles !
+
+
+2019 : objectPosition: "center 30%"
+────────────────────────────────────────────────────────────────────────────
+AVANT (center center)            APRÈS (center 30%)
+┌──────────────────┐             ┌──────────────────┐
+│                  │             │ 🙂 🙂  ← Visages │
+│                  │             │                  │
+│ 🙂 🙂  ← Visages │             │                  │
+│                  │             │                  │
+│                  │             │                  │
+└──────────────────┘             └──────────────────┘
+Visages décalés                  Visages centrés !
+
+
+2020 : objectPosition: "center 35%"
+────────────────────────────────────────────────────────────────────────────
+AVANT (center center)            APRÈS (center 35%)
+┌──────────────────┐             ┌──────────────────┐
+│                  │             │ 🙂 🙂  ← Visages │
+│                  │             │                  │
+│ 🙂 🙂  ← Visages │             │                  │
+│                  │             │                  │
+│                  │             │                  │
+└──────────────────┘             └──────────────────┘
+Visages trop bas                 Visages bien placés !
+
+
+💡 CODE TECHNIQUE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const photos = [
+  { 
+    id: 1, 
+    year: "2016", 
+    src: photo2016, 
+    showYear: true,           ← Afficher l'année
+    objectPosition: "center" 
+  },
+  { 
+    id: 2, 
+    year: "2017", 
+    src: photo2017, 
+    showYear: false,          ← Masquer l'année
+    objectPosition: "center" 
+  },
+  { 
+    id: 3, 
+    year: "2018", 
+    src: photo2018, 
+    showYear: false,
+    objectPosition: "center top"  ← Centrer en haut
+  },
+  { 
+    id: 4, 
+    year: "2019", 
+    src: photo2019, 
+    showYear: false,
+    objectPosition: "center 30%"  ← Centrer à 30% du haut
+  },
+  { 
+    id: 5, 
+    year: "2020", 
+    src: photo2020, 
+    showYear: false,
+    objectPosition: "center 35%"  ← Centrer à 35% du haut
+  },
+  ...
+  { 
+    id: 9, 
+    year: "2025", 
+    src: photo2025, 
+    showYear: true,           ← Afficher l'année
+    objectPosition: "center" 
+  },
+];
+
+
+📐 AFFICHAGE CONDITIONNEL DE L'ANNÉE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dans la galerie :
+
+{photo.showYear && (
+  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+    <p className="text-white font-playfair text-2xl font-bold text-center">
+      {photo.year}
+    </p>
+  </div>
+)}
+
+→ L'année s'affiche UNIQUEMENT si showYear = true
+
+
+Dans le modal lightbox :
+
+{selectedPhoto.showYear && (
+  <div className="mt-4 text-center">
+    <p className="text-white font-playfair text-3xl font-bold">
+      {selectedPhoto.year}
+    </p>
+  </div>
+)}
+
+→ Dans le modal aussi, l'année s'affiche UNIQUEMENT pour 2016 et 2025
+
+
+🎯 PROPRIÉTÉ object-position
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<img
+  src={photo.src}
+  alt={`Flavio & Letizia ${photo.year}`}
+  className="w-full h-full object-cover"
+  style={{ objectPosition: photo.objectPosition }}  ← Appliqué ici
+/>
+
+Valeurs possibles :
+─────────────────────────────────────────────────────────────────
+"center"          → Centre horizontal et vertical (par défaut)
+"center top"      → Centre horizontal, haut vertical
+"center 30%"      → Centre horizontal, 30% du haut
+"center 35%"      → Centre horizontal, 35% du haut
+"left top"        → Gauche et haut
+"right bottom"    → Droite et bas
+etc.
+
+
+✅ RÉSULTAT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ 9 photos affichées
+✓ Année visible sur 2016 (première)
+✓ Année visible sur 2025 (dernière)
+✓ Pas d'année sur les photos intermédiaires
+✓ Photo 2018 centrée sur les têtes
+✓ Photo 2019 centrée sur les visages (30%)
+✓ Photo 2020 centrée sur les visages (35%)
+✓ Grid responsive : 1/2/3 colonnes
+✓ Effet hover et lightbox fonctionnels
+
+
+📱 RESPONSIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Mobile (< 768px)     : 1 colonne
+Tablette (768-1024)  : 2 colonnes
+Desktop (> 1024px)   : 3 colonnes
+
+
+💾 BUILD INFO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fichiers générés :
+✓ dist/assets/2016-DtWdXhEH.jpeg     (75 KB)
+✓ dist/assets/2017-RnPYnKpW.jpeg     (125 KB)
+✓ dist/assets/2018-DEDsaTcp.jpeg     (298 KB)  ← Recadré
+✓ dist/assets/2019-CdgqIIre.jpeg     (157 KB)  ← Recadré
+✓ dist/assets/2020-DiJAkbBS.jpeg     (284 KB)  ← Recadré
+✓ dist/assets/2022-DpokX7Sk.jpeg     (335 KB)
+✓ dist/assets/2024-DbDj6PwI.jpeg     (294 KB)
+✓ dist/assets/2024_2-CAxmJo0g.jpeg   (427 KB)
+✓ dist/assets/2025-CRXknQTe.jpeg     (292 KB)
+
+Total : ~2.3 MB
+
+
+🎨 COMPORTEMENT AU SURVOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Toutes les photos :
+→ Zoom léger (scale 1.05)
+→ Icône de loupe apparaît
+→ Texte "Cliquez pour voir"
+
+Photos avec année (2016 et 2025) :
+→ Année toujours visible en bas
+
+Photos sans année (2017-2024) :
+→ Pas de légende en bas
+→ Photo pure
+
+
+🔍 LIGHTBOX (MODAL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cliquez sur une photo :
+→ Photo en grand format
+→ Année affichée uniquement pour 2016 et 2025
+→ Bouton [X] pour fermer
+→ Clic sur le fond pour fermer
+
+
+🚀 POUR VOIR LE RÉSULTAT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Rechargez la page : F5 ou Ctrl + R
+
+2. Scrollez jusqu'à "Nos Moments"
+
+3. Observez :
+   ✓ 9 photos affichées
+   ✓ Seules les photos 2016 et 2025 ont l'année en légende
+   ✓ Les visages sont bien centrés sur les photos 2018, 2019, 2020
+
+4. Testez :
+   → Passez la souris sur les photos
+   → Cliquez pour voir en grand
+   → Vérifiez le centrage des visages
+
+
+💡 AJUSTEMENTS POSSIBLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Si les visages ne sont pas encore parfaitement centrés, vous pouvez ajuster
+les valeurs dans src/components/Gallery.jsx :
+
+Pour 2018 :
+objectPosition: "center top"     → "center 10%" ou "center 20%"
+
+Pour 2019 :
+objectPosition: "center 30%"     → "center 25%" ou "center 35%"
+
+Pour 2020 :
+objectPosition: "center 35%"     → "center 30%" ou "center 40%"
+
+Puis refaire : npm run build
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✨ GALERIE FINALISÉE ! ✨                                               ║
+║                                                                           ║
+║  ✓ 9 photos de votre histoire                                            ║
+║  ✓ Années visibles sur 2016 et 2025 uniquement                           ║
+║  ✓ Visages centrés sur toutes les photos                                 ║
+║  ✓ Design élégant et responsive                                          ║
+║                                                                           ║
+║  2016 → 2025 : Votre belle histoire en images ! 💕                       ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+Date : 4 décembre 2025
+Fichier : src/components/Gallery.jsx
+Build : ✅ Réussi (2.3 MB)
+Status : ✅ Prêt pour production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
