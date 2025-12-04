@@ -88,13 +88,13 @@ function CeremonyDetails() {
             {t("ceremony.program")}
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="text-center p-6 bg-gradient-to-br from-rose-50 to-blush rounded-lg border border-rose-gold border-opacity-30">
-              <p className="text-rose-gold uppercase text-sm font-semibold tracking-widest mb-2">
+            <div className="flex items-center justify-center p-6 bg-gradient-to-br from-rose-50 to-blush rounded-lg border border-rose-gold border-opacity-30">
+              <p className="text-rose-gold uppercase text-sm font-semibold tracking-widest">
                 {t("ceremony.ceremony_label")}
               </p>
             </div>
-            <div className="text-center p-6 bg-gradient-to-br from-rose-50 to-blush rounded-lg border border-rose-gold border-opacity-30">
-              <p className="text-rose-gold uppercase text-sm font-semibold tracking-widest mb-2">
+            <div className="flex items-center justify-center p-6 bg-gradient-to-br from-rose-50 to-blush rounded-lg border border-rose-gold border-opacity-30">
+              <p className="text-rose-gold uppercase text-sm font-semibold tracking-widest">
                 {t("ceremony.reception_label")}
               </p>
             </div>
