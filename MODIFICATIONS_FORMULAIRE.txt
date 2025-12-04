@@ -1,0 +1,270 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ✅ MODIFICATIONS APPLIQUÉES : PHOTO + FORMULAIRE ! 📸📝               ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 MODIFICATION 1 : CENTRAGE PHOTO 2020
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fichier : src/components/Gallery.jsx
+
+AVANT : objectPosition: "center 35%"
+APRÈS : objectPosition: "center 25%"
+
+→ Les visages sont maintenant mieux centrés sur la photo 2020 ! ✓
+
+
+📐 AJUSTEMENTS DES PHOTOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Photo    Centrage           Description
+──────────────────────────────────────────────────────────────────────
+2016     center             ✓ Photo bien cadrée
+2017     center             ✓ Photo bien cadrée
+2018     center top         ✓ Têtes centrées en haut
+2019     center 30%         ✓ Visages centrés à 30%
+2020     center 25%         ✓✓ NOUVEAU : Visages mieux centrés !
+2022     center             ✓ Photo bien cadrée
+2024 #1  center             ✓ Photo bien cadrée
+2024 #2  center             ✓ Photo bien cadrée
+2025     center             ✓ Photo bien cadrée
+
+
+🎯 MODIFICATION 2 : CHAMPS OBLIGATOIRES DU FORMULAIRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fichier : src/components/RSVP.jsx
+
+Tous les champs sont maintenant OBLIGATOIRES, sauf :
+- Nombre d'enfants (optionnel)
+- Âge des enfants (optionnel, dépend du nombre d'enfants)
+- Régimes alimentaires (optionnel)
+- Message pour les mariés (optionnel) ✓
+
+
+📋 LISTE DES CHAMPS OBLIGATOIRES (avec *)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ DÉJÀ OBLIGATOIRES (avant)
+────────────────────────────────────────────────────────────────────────
+1. Nom complet *                    → required ✓
+2. Email *                          → required ✓
+3. Présence *                       → required ✓
+4. Nombre d'adultes *               → required ✓
+
+
+✨ NOUVEAUX CHAMPS OBLIGATOIRES (ajoutés)
+────────────────────────────────────────────────────────────────────────
+5. Téléphone *                      → required ✓✓ NOUVEAU !
+6. Type de chambre d'hôtel *        → required ✓✓ NOUVEAU !
+7. Check-in hôtel *                 → required ✓✓ NOUVEAU ! (si chambre)
+8. Check-out hôtel *                → required ✓✓ NOUVEAU ! (si chambre)
+9. Présence repas à Stresa *        → required ✓✓ NOUVEAU !
+
+
+❌ CHAMPS FACULTATIFS (restent optionnels)
+────────────────────────────────────────────────────────────────────────
+- Nombre d'enfants                  → Pas de required
+- Âge des enfants                   → Pas de required
+- Régimes alimentaires              → Pas de required
+- Message pour les mariés           → Pas de required ✓
+
+
+🔧 DÉTAILS TECHNIQUES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  TÉLÉPHONE
+
+AVANT :
+<input
+  type="tel"
+  name="phone"
+  ...
+/>
+
+APRÈS :
+<input
+  type="tel"
+  name="phone"
+  required           ← Ajouté
+  ...
+/>
+
+
+2️⃣  TYPE DE CHAMBRE D'HÔTEL
+
+AVANT :
+<select
+  name="hotelRoomType"
+  ...
+>
+
+APRÈS :
+<select
+  name="hotelRoomType"
+  required           ← Ajouté
+  ...
+>
+
+
+3️⃣  CHECK-IN / CHECK-OUT (si chambre sélectionnée)
+
+AVANT :
+<input
+  type="date"
+  name="hotelCheckIn"
+  ...
+/>
+
+APRÈS :
+<input
+  type="date"
+  name="hotelCheckIn"
+  required           ← Ajouté
+  ...
+/>
+
+(même chose pour hotelCheckOut)
+
+
+4️⃣  PRÉSENCE AU REPAS DE LA VEILLE
+
+AVANT :
+<select
+  name="dinnerAttending"
+  ...
+>
+
+APRÈS :
+<select
+  name="dinnerAttending"
+  required           ← Ajouté
+  ...
+>
+
+
+💡 LABELS AVEC *
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tous les champs obligatoires ont maintenant un * dans leur label :
+
+<label>
+  {t("rsvp.phone")} *        ← Ajouté *
+</label>
+
+<label>
+  {t("rsvp.hotel_room_choice")} *    ← Ajouté *
+</label>
+
+<label>
+  {t("rsvp.hotel_checkin")} *        ← Ajouté *
+</label>
+
+<label>
+  {t("rsvp.hotel_checkout")} *       ← Ajouté *
+</label>
+
+<label>
+  {t("rsvp.dinner_attending")} *     ← Ajouté *
+</label>
+
+
+✅ COMPORTEMENT DU FORMULAIRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Avant soumission :
+→ Le navigateur vérifie que tous les champs avec `required` sont remplis
+→ Si un champ obligatoire est vide, un message d'erreur s'affiche
+→ Le formulaire ne peut pas être soumis tant que tous les champs ne sont pas remplis
+
+
+Message du navigateur (automatique) :
+┌────────────────────────────────────┐
+│  ⚠️ Veuillez remplir ce champ.     │
+└────────────────────────────────────┘
+
+
+📊 RÉCAPITULATIF FINAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CHAMPS OBLIGATOIRES (9)           CHAMPS FACULTATIFS (4)
+──────────────────────            ─────────────────────
+✓ Nom complet                     - Nombre d'enfants
+✓ Email                           - Âge des enfants
+✓ Téléphone                       - Régimes alimentaires
+✓ Présence                        - Message
+✓ Nombre d'adultes
+✓ Type de chambre
+✓ Check-in (si chambre)
+✓ Check-out (si chambre)
+✓ Présence repas
+
+
+🎯 LOGIQUE CONDITIONNELLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  Type de chambre d'hôtel : TOUJOURS obligatoire
+    → L'utilisateur DOIT choisir (même "Pas besoin d'hébergement")
+
+2️⃣  Check-in / Check-out : Obligatoires UNIQUEMENT si chambre sélectionnée
+    → Affichés seulement si hotelRoomType !== "" et !== "none"
+    → Si affichés, ils sont obligatoires (required)
+
+3️⃣  Présence au repas : TOUJOURS obligatoire
+    → L'utilisateur DOIT choisir "Oui" ou "Non"
+
+
+✨ AVANTAGES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Données complètes pour l'organisation
+✅ Pas de réponses incomplètes dans le dashboard admin
+✅ Meilleure expérience utilisateur (validation claire)
+✅ Message pour les mariés reste optionnel (comme souhaité)
+
+
+🚀 POUR TESTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Rechargez la page : F5 ou Ctrl + R
+
+2. Allez au formulaire RSVP
+
+3. Essayez de soumettre sans remplir tous les champs obligatoires
+   → Le navigateur bloquera et affichera un message d'erreur
+
+4. Vérifiez la photo 2020 dans la galerie
+   → Les visages doivent être mieux centrés maintenant !
+
+
+💾 BUILD INFO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fichiers générés :
+✓ dist/assets/index-DspyHVUg.js     (348 KB)
+✓ dist/assets/2020-DiJAkbBS.jpeg    (284 KB) ← Avec nouveau centrage
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✅ MODIFICATIONS TERMINÉES ! ✅                                         ║
+║                                                                           ║
+║  1. Photo 2020 mieux centrée sur les visages                             ║
+║  2. Tous les champs obligatoires SAUF le message                         ║
+║                                                                           ║
+║  Le formulaire garantit maintenant des réponses complètes ! 📝✓          ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+Date : 4 décembre 2025
+Fichiers modifiés :
+  - src/components/Gallery.jsx (centrage photo 2020)
+  - src/components/RSVP.jsx (champs obligatoires)
+Build : ✅ Réussi
+Status : ✅ Prêt pour production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
