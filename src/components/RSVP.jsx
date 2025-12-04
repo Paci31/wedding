@@ -207,7 +207,7 @@ function RSVP() {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                    {t("rsvp.phone")}
+                    {t("rsvp.phone")} *
                   </label>
                   <input
                     type="tel"
@@ -215,6 +215,7 @@ function RSVP() {
                     placeholder="+41 78 XXX XX XX"
                     value={formData.phone}
                     onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
                   />
                 </div>
@@ -325,12 +326,13 @@ function RSVP() {
               {/* Choix de la chambre d'hôtel */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.hotel_room_choice")}
+                  {t("rsvp.hotel_room_choice")} *
                 </label>
                 <select
                   name="hotelRoomType"
                   value={formData.hotelRoomType}
                   onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
                   <option value="">{t("rsvp.select")}</option>
                   <option value="none">{t("rsvp.hotel_none")}</option>
@@ -350,25 +352,27 @@ function RSVP() {
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                        {t("rsvp.hotel_checkin")}
+                        {t("rsvp.hotel_checkin")} *
                       </label>
                       <input
                         type="date"
                         name="hotelCheckIn"
                         value={formData.hotelCheckIn}
                         onChange={handleChange}
+                        required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
                       />
                     </div>
                     <div>
                       <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                        {t("rsvp.hotel_checkout")}
+                        {t("rsvp.hotel_checkout")} *
                       </label>
                       <input
                         type="date"
                         name="hotelCheckOut"
                         value={formData.hotelCheckOut}
                         onChange={handleChange}
+                        required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora"
                       />
                     </div>
@@ -391,12 +395,13 @@ function RSVP() {
               {/* Présence au repas de la veille */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.dinner_attending")}
+                  {t("rsvp.dinner_attending")} *
                 </label>
                 <select
                   name="dinnerAttending"
                   value={formData.dinnerAttending}
                   onChange={handleChange}
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
                   <option value="">{t("rsvp.select")}</option>
                   <option value="yes">{t("rsvp.yes")}</option>

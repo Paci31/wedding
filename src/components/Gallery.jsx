@@ -20,15 +20,69 @@ function Gallery() {
   // showYear = true uniquement pour la première et la dernière
   // objectPosition pour centrer sur les visages
   const photos = [
-    { id: 1, year: "2016", src: photo2016, showYear: true, objectPosition: "center" },
-    { id: 2, year: "2017", src: photo2017, showYear: false, objectPosition: "center" },
-    { id: 3, year: "2018", src: photo2018, showYear: false, objectPosition: "center top" },
-    { id: 4, year: "2019", src: photo2019, showYear: false, objectPosition: "center 30%" },
-    { id: 5, year: "2020", src: photo2020, showYear: false, objectPosition: "center 35%" },
-    { id: 6, year: "2022", src: photo2022, showYear: false, objectPosition: "center" },
-    { id: 7, year: "2024", src: photo2024, showYear: false, objectPosition: "center" },
-    { id: 8, year: "2024", src: photo2024_2, showYear: false, objectPosition: "center" },
-    { id: 9, year: "2025", src: photo2025, showYear: true, objectPosition: "center" },
+    {
+      id: 1,
+      year: "2016",
+      src: photo2016,
+      showYear: true,
+      objectPosition: "center",
+    },
+    {
+      id: 2,
+      year: "2017",
+      src: photo2017,
+      showYear: false,
+      objectPosition: "center",
+    },
+    {
+      id: 3,
+      year: "2018",
+      src: photo2018,
+      showYear: false,
+      objectPosition: "center top",
+    },
+    {
+      id: 4,
+      year: "2019",
+      src: photo2019,
+      showYear: false,
+      objectPosition: "center 30%",
+    },
+     {
+       id: 5,
+       year: "2020",
+       src: photo2020,
+       showYear: false,
+       objectPosition: "center 25%",
+     },
+    {
+      id: 6,
+      year: "2022",
+      src: photo2022,
+      showYear: false,
+      objectPosition: "center",
+    },
+    {
+      id: 7,
+      year: "2024",
+      src: photo2024,
+      showYear: false,
+      objectPosition: "center",
+    },
+    {
+      id: 8,
+      year: "2024",
+      src: photo2024_2,
+      showYear: false,
+      objectPosition: "center",
+    },
+    {
+      id: 9,
+      year: "2025",
+      src: photo2025,
+      showYear: true,
+      objectPosition: "center",
+    },
   ];
 
   return (
