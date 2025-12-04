@@ -16,8 +16,12 @@
   "ourStory": {
     "title": "Notre Amour",
     "subtitle": "Un amour sincère",
-    "text1": "Remplacez ce texte par votre histoire de rencontre. Parlez de comment vous vous êtes rencontrés, des moments spéciaux que vous avez partagés, et pourquoi vous avez décidé de vous marier.",
-    "text2": "C'est votre occasion de partager vos émotions et vos souvenirs avec vos proches. Chaque mot compte pour raconter votre histoire."
+    "text1": "De quelques pas dansés est née notre histoire.",
+    "text2": "Sur un parquet où résonnaient basses et battements de cœur, nos regards se sont croisés comme deux notes qui cherchaient leur mélodie.",
+    "text3": "Au rythme du hip-hop, nous avons appris à avancer ensemble, à improviser, à nous soutenir, à rire de nos faux pas.",
+    "text4": "Et pas après pas, notre danse est devenue une vie.",
+    "text5": "Aujourd’hui, nous vous invitons à célébrer avec nous le plus beau de nos duos :",
+    "text6": "notre mariage, né d’une passion commune et construit d’un amour qui ne cesse de grandir."
   },
   "ceremony": {
     "title": "La Cérémonie",
@@ -30,9 +34,9 @@
     "city": "Tradate (VA)",
     "mapLink": "Localiser sur la carte",
     "program": "Déroulement",
-    "ceremony_label": "15h30 -La Cérémonie",
+    "ceremony_label": "15:30 -La Cérémonie",
     "ceremony_text": "Nous aurons le plaisir de votre présence",
-    "reception_label": "18h00 - Apéritif et repas",
+    "reception_label": "18:00 - Apéritif et repas",
     "reception_text": "Apéritif et Réception"
   },
   "reception": {
@@ -114,8 +118,8 @@
   },
   "gift": {
     "title": "Voyage de Noce",
-    "message": "Votre présence à notre mariage est le plus beau des cadeaux. Si vous souhaitez nous offrir quelque chose, une contribution à notre voyage de noces nous ferait très plaisir.",
-    "quote": "Le plus beau cadeau est de partager ce jour spécial avec vous. Si vous souhaitez nous gâter davantage, aidez-nous à créer de merveilleux souvenirs lors de notre voyage de noces."
+    "message": "Votre présence à notre mariage est le plus beau des cadeaux. Si vous souhaitez nous offrir quelque chose, une contribution à notre voyage de noce nous ferait très plaisir.",
+    "quote": "Le plus beau cadeau est de partager ce jour spécial avec vous. Si vous souhaitez nous gâter davantage, aidez-nous à créer de merveilleux souvenirs lors de notre voyage de noce."
   },
   "dinner": {
     "title": "Repas de la Veille",

@@ -32,9 +32,16 @@ function OurStory() {
             </p>
             <p className="text-lg md:text-xl font-lora leading-relaxed text-center italic">
               {t("ourStory.text1")}
-            </p>
-            <p className="text-lg md:text-xl font-lora leading-relaxed text-center">
+              <br />
               {t("ourStory.text2")}
+              <br />
+              {t("ourStory.text3")}
+              <br />
+              {t("ourStory.text4")}
+              <br />
+              {t("ourStory.text5")}
+              <br />
+              {t("ourStory.text6")}
             </p>
           </div>
         </div>

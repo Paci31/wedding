@@ -16,8 +16,12 @@
   "ourStory": {
     "title": "Il Nostro Amore",
     "subtitle": "Un amore sincero",
-    "text1": "Sostituisci questo testo con la tua storia di incontro. Parla di come vi siete incontrati, dei momenti speciali che avete condiviso e perché avete deciso di sposarvi.",
-    "text2": "Questa è la tua occasione per condividere le tue emozioni e i tuoi ricordi con i tuoi cari. Ogni parola conta per raccontare la tua storia."
+    "text1": "Da pochi passi di danza è nata la nostra storia.",
+    "text2": "Su un parquet dove risuonavano bassi e battiti del cuore, i nostri sguardi si sono incrociati come due note in cerca della loro melodia.",
+    "text3": "Al ritmo dell’hip-hop abbiamo imparato ad avanzare insieme, a improvvisare, a sostenerci, a ridere dei nostri passi falsi.",
+    "text4": "E passo dopo passo, la nostra danza è diventata una vita.",
+    "text5": "Oggi vi invitiamo a celebrare con noi il più bello dei nostri duetti:",
+    "text6": "il nostro matrimonio, nato da una passione comune e costruito con un amore che non smette mai di crescere."
   },
   "ceremony": {
     "title": "La Cerimonia",
@@ -32,7 +36,7 @@
     "program": "Programma",
     "ceremony_label": "15:30 - La Cerimonia",
     "ceremony_text": "Avremo il piacere della vostra presenza",
-    "reception_label": "18h00 - Aperitivo e ricevimento",
+    "reception_label": "18:00 - Aperitivo e ricevimento",
     "reception_text": "Aperitivo e Ricevimento"
   },
   "reception": {
@@ -96,7 +100,7 @@
     "title": "Alloggio",
     "subtitle": "Camere a tariffa preferenziale",
     "mapLink": "Localizza sulla mappa",
-    "deadline_title": "Prenotazione entro il 20 Gennaio 2026",
+    "deadline_title": "Prenotazione entro il 20 gennaio 2026",
     "deadline_text": "Abbiamo riservato delle camere a tariffa preferenziale fino al 20 gennaio 2026. Dopo questa data, c'è il rischio che le camere non siano più disponibili o che il prezzo aumenti.",
     "rates_title": "Tariffe per notte",
     "room_single": "Camera Singola",
