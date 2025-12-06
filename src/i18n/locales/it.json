@@ -7,7 +7,7 @@
     "mademoiselle": "Signorina",
     "et": "e",
     "date": "Sabato, 20 giugno 2026",
-    "time": "alle 15:30",
+    "time": "ore 15:30",
     "ceremony": "Luogo della cerimonia",
     "venue": "Villa Saporiti 1898",
     "address": "Via Gradisca 12 · Tradate (VA) · Italia",
@@ -42,7 +42,7 @@
   "reception": {
     "title": "Conferma la tua presenza",
     "rsvpMessage": "RSVP Richiesto",
-    "deadline": "Entro il 30 Aprile",
+    "deadline": "Entro il 30 aprile 2026",
     "contact": "Contattaci per confermare",
     "available": "Disponibile per le domande",
     "always_happy": "Sempre felice di aiutare",
@@ -118,8 +118,8 @@
   },
   "gift": {
     "title": "Luna di miele",
-    "message": "La vostra quota, piccola o grande che sia, contribuirà a rendere unico il sotro viaggo",
-    "quote": "Per la nostra luna di miele abbiamo prenotato il viaggo presso l'angenzia"
+    "message": "La vostra quota, piccola o grande che sia, contribuirà a rendere unico il nostro viaggio",
+    "quote": "Per la nostra luna di miele abbiamo prenotato il viaggio presso l'agenzia"
   },
   "dinner": {
     "title": "Cena della Vigilia",
