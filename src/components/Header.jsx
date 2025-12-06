@@ -54,14 +54,16 @@ function Header() {
 
         {/* Noms - Style faire-part élégant avec police Boheme Floreal */}
         <div className="mb-12 py-8 border-t-2 border-b-2 border-rose-gold border-opacity-30">
-          <div className="mb-6">
-            <p className="text-7xl md:text-9xl font-boheme text-gray-900 leading-none">
+          <div className="flex flex-col items-center justify-center">
+            <p className="text-7xl md:text-9xl font-boheme text-gray-900 leading-none mb-6">
               Flavio
             </p>
-          </div>
-          <div className="text-rose-gold text-2xl mb-6">{t("header.et")}</div>
-          <div>
-            <p className="text-7xl md:text-9xl font-boheme text-gray-900 leading-none">
+            <div className="flex items-center justify-center my-4">
+              <span className="text-6xl md:text-8xl font-boheme text-gray-900">
+                {t("header.et")}
+              </span>
+            </div>
+            <p className="text-7xl md:text-9xl font-boheme text-gray-900 leading-none mt-6">
               Letizia
             </p>
           </div>
