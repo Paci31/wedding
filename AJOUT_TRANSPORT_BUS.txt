@@ -1,0 +1,493 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ✅ SYSTÈME DE TRANSPORT AVEC 2 BUS AJOUTÉ ! ✓                         ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 MODIFICATIONS RÉALISÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ajout d'un système complet de transport retour avec 2 bus :
+✅ Information sur les bus dans HotelInfo
+✅ Champ de sélection dans le formulaire RSVP
+✅ Statistiques dans le dashboard admin
+✅ Backend pour le calcul des stats
+✅ Traductions FR et IT complètes
+✅ Affichage individuel du choix de transport
+
+
+📋 DÉTAILS DES MODIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  TRADUCTIONS FR/IT
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichiers : 
+   - src/i18n/locales/fr.json
+   - src/i18n/locales/it.json
+   
+   ✨ Nouvelles clés dans la section "hotel" :
+   
+   FRANÇAIS :
+   ├── bus_title : "Navettes Retour"
+   ├── bus_text : "Nous mettons à votre disposition 2 bus pour le retour..."
+   ├── bus1_label : "Bus 1"
+   ├── bus1_time : "Départ après le gâteau (environ 00h30)"
+   ├── bus2_label : "Bus 2"
+   ├── bus2_time : "Départ à la fin de la soirée (environ 3h)"
+   └── bus_note : "Merci d'indiquer votre choix de transport..."
+   
+   ITALIEN :
+   ├── bus_title : "Navette di Ritorno"
+   ├── bus_text : "Mettiamo a vostra disposizione 2 bus per il ritorno..."
+   ├── bus1_label : "Bus 1"
+   ├── bus1_time : "Partenza dopo la torta (circa 00h30)"
+   ├── bus2_label : "Bus 2"
+   ├── bus2_time : "Partenza a fine serata (circa 3h)"
+   └── bus_note : "Si prega di indicare la vostra scelta di trasporto..."
+   
+   ✨ Nouvelles clés dans la section "rsvp" :
+   
+   FRANÇAIS :
+   ├── transport_section : "Transport Retour"
+   ├── transport_choice : "Comment comptez-vous rentrer à l'hôtel ?"
+   ├── transport_bus1 : "🚌 Bus 1 - Départ après le gâteau (00h30)"
+   ├── transport_bus2 : "🚌 Bus 2 - Départ fin de soirée (3h)"
+   └── transport_own : "🚗 Mon propre moyen de transport"
+   
+   ITALIEN :
+   ├── transport_section : "Trasporto di Ritorno"
+   ├── transport_choice : "Come prevedi di tornare in hotel?"
+   ├── transport_bus1 : "🚌 Bus 1 - Partenza dopo la torta (00h30)"
+   ├── transport_bus2 : "🚌 Bus 2 - Partenza fine serata (3h)"
+   └── transport_own : "🚗 Il mio mezzo di trasporto"
+
+
+2️⃣  COMPOSANT HotelInfo.jsx
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/components/HotelInfo.jsx
+   
+   ✨ Nouvelle section ajoutée (après le paiement) :
+   
+   ┌────────────────────────────────────────────────────────────────┐
+   │ 🚌 Navettes Retour                                             │
+   │                                                                │
+   │ Nous mettons à votre disposition 2 bus pour le retour :       │
+   │                                                                │
+   │ ┌──────────────────────┐  ┌──────────────────────┐           │
+   │ │ 🚌 Bus 1             │  │ 🚌 Bus 2             │           │
+   │ │ Départ après le      │  │ Départ à la fin de   │           │
+   │ │ gâteau (00h30)       │  │ la soirée (3h)       │           │
+   │ └──────────────────────┘  └──────────────────────┘           │
+   │                                                                │
+   │ 💡 Merci d'indiquer votre choix de transport dans le          │
+   │    formulaire RSVP                                            │
+   └────────────────────────────────────────────────────────────────┘
+   
+   Style :
+   - Fond : Violet clair (bg-purple-50)
+   - Bordure : Violette (border-purple-500)
+   - Cartes bus : Fond blanc avec bordure violette
+   - Emoji : 🚌 (bus)
+
+
+3️⃣  FORMULAIRE RSVP
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/components/RSVP.jsx
+   
+   ✨ Modifications :
+   
+   a) État du formulaire (formData) :
+      + transportChoice: ""  (nouveau champ)
+   
+   b) Nouvelle section dans le formulaire (après le brunch) :
+      ┌─────────────────────────────────────────────────────────┐
+      │ 🚌 Transport Retour                                     │
+      │                                                          │
+      │ Comment comptez-vous rentrer à l'hôtel ? *              │
+      │ ┌──────────────────────────────────────────────┐        │
+      │ │ [-- Sélectionnez --]                         │        │
+      │ │  🚌 Bus 1 - Départ après le gâteau (00h30)   │        │
+      │ │  🚌 Bus 2 - Départ fin de soirée (3h)        │        │
+      │ │  🚗 Mon propre moyen de transport            │        │
+      │ └──────────────────────────────────────────────┘        │
+      └─────────────────────────────────────────────────────────┘
+   
+   c) Champ obligatoire (required)
+   
+   d) Options disponibles :
+      - bus1 : Bus 1 (00h30)
+      - bus2 : Bus 2 (3h)
+      - own : Propre moyen de transport
+
+
+4️⃣  ADMIN DASHBOARD - STATISTIQUES
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/pages/AdminDashboard.jsx
+   
+   ✨ Nouvelle section de statistiques :
+   
+   a) Graphiques en barres (3 barres) :
+      ┌────────────────────────────────────────────┐
+      │ 🚌 Transport Retour                        │
+      │                                             │
+      │   ┌─────┐  ┌─────┐  ┌─────┐               │
+      │   │     │  │     │  │     │               │
+      │   │ XX  │  │ YY  │  │ ZZ  │               │
+      │   │     │  │     │  │     │               │
+      │   └─────┘  └─────┘  └─────┘               │
+      │  Bus 1    Bus 2    Propre moyen            │
+      │  (00h30)   (3h)                            │
+      └────────────────────────────────────────────┘
+   
+   b) Cartes de statistiques (3 cartes) :
+      ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+      │ 🚌 Bus 1     │  │ 🚌 Bus 2     │  │ 🚗 Propre    │
+      │              │  │              │  │   moyen      │
+      │     XX       │  │     YY       │  │     ZZ       │
+      │ Après gâteau │  │ Fin soirée   │  │ Transport    │
+      └──────────────┘  └──────────────┘  │ personnel    │
+                                           └──────────────┘
+   
+   c) Couleurs :
+      - Bus 1 : Fond violet (🟣)
+      - Bus 2 : Fond indigo (🔵)
+      - Propre moyen : Fond gris
+   
+   ✨ Affichage dans les réponses individuelles :
+   
+   Pour chaque réponse, affichage du choix :
+   ┌──────────────────────────────────────────────┐
+   │ 🚌 Transport : Bus 1 (00h30)                 │
+   │          ou : Bus 2 (3h)                     │
+   │          ou : 🚗 Propre moyen               │
+   └──────────────────────────────────────────────┘
+   (Fond violet, bordure violette)
+
+
+5️⃣  BACKEND - CALCUL DES STATISTIQUES
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichiers : 
+   - backend/server.js
+   - server-unified.js
+   
+   ✨ Nouvelle section dans les stats :
+   
+   transport: {
+     bus1: <nombre de personnes>,
+     bus2: <nombre de personnes>,
+     own: <nombre de personnes>
+   }
+   
+   🔍 Logique :
+   - Filtre les réponses avec transportChoice === "bus1"
+   - Filtre les réponses avec transportChoice === "bus2"
+   - Filtre les réponses avec transportChoice === "own"
+   - Calcul automatique à chaque requête GET /api/admin/stats
+
+
+🚌 INFORMATIONS SUR LES BUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│                          🚌 BUS 1 - PREMIER DÉPART                       │
+│                                                                          │
+│  ⏰ Horaire : Environ 00h30                                             │
+│  📍 Moment : Après le gâteau                                            │
+│  👥 Pour qui : Invités qui souhaitent partir tôt                        │
+│  🎯 Idéal pour : Familles avec enfants, personnes fatiguées            │
+│                                                                          │
+│  ────────────────────────────────────────────────────────────────────   │
+│                                                                          │
+│                          🚌 BUS 2 - DERNIER DÉPART                       │
+│                                                                          │
+│  ⏰ Horaire : Environ 3h du matin                                       │
+│  📍 Moment : Fin de la soirée                                           │
+│  👥 Pour qui : Invités qui restent jusqu'à la fin                       │
+│  🎯 Idéal pour : Fêtards, amis proches                                  │
+│                                                                          │
+│  ────────────────────────────────────────────────────────────────────   │
+│                                                                          │
+│                          🚗 PROPRE MOYEN                                 │
+│                                                                          │
+│  Pour les invités qui :                                                 │
+│  - Viennent en voiture                                                  │
+│  - Ont un chauffeur privé                                               │
+│  - Logent ailleurs qu'à l'hôtel                                         │
+│  - Ne nécessitent pas de transport                                      │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+
+🔄 FLUX DE DONNÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. INVITÉ consulte la section Hébergement
+   └── Voit les informations sur les 2 bus disponibles
+   
+2. INVITÉ remplit le formulaire RSVP
+   └── Sélectionne Bus 1, Bus 2, ou Propre moyen (obligatoire)
+   
+3. SOUMISSION du formulaire
+   └── POST /api/rsvp avec { transportChoice: "bus1" | "bus2" | "own" }
+   
+4. BACKEND sauvegarde dans responses.json
+   └── Fichier : backend/data/responses.json
+   
+5. ADMIN consulte le dashboard
+   └── GET /api/admin/stats
+   
+6. BACKEND calcule les statistiques
+   ├── transport.bus1 = count(transportChoice === "bus1")
+   ├── transport.bus2 = count(transportChoice === "bus2")
+   └── transport.own = count(transportChoice === "own")
+   
+7. AFFICHAGE dans le dashboard
+   ├── Graphiques en barres (3 barres)
+   ├── Cartes de statistiques (3 cartes)
+   └── Badge individuel sur chaque réponse
+
+
+📁 FICHIERS MODIFIÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FRONTEND :
+✅ src/components/HotelInfo.jsx
+✅ src/components/RSVP.jsx
+✅ src/pages/AdminDashboard.jsx
+✅ src/i18n/locales/fr.json
+✅ src/i18n/locales/it.json
+
+BACKEND :
+✅ backend/server.js
+✅ server-unified.js
+
+
+🧪 TESTS EFFECTUÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Build réussi (npm run build)
+✅ Aucune erreur de compilation
+✅ 84 modules transformés
+✅ Tous les assets générés correctement (359.76 kB JS)
+✅ Git commit et push réussis
+
+
+🎨 DESIGN ET COULEURS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Section HotelInfo :
+├── Fond : Violet clair (bg-purple-50)
+├── Bordure : Violette (border-purple-500)
+├── Cartes bus : Fond blanc avec bordure violette
+└── Emoji : 🚌
+
+Formulaire RSVP :
+├── Section : 🚌 emoji
+├── Champ select : Style classique du formulaire
+└── Obligatoire : Astérisque rouge *
+
+Dashboard Admin :
+├── Graphique Bus 1 : Barre violette (bg-purple-500)
+├── Graphique Bus 2 : Barre indigo (bg-indigo-500)
+├── Graphique Propre : Barre grise (bg-gray-500)
+├── Carte Bus 1 : Fond purple-50, bordure purple-500
+├── Carte Bus 2 : Fond indigo-50, bordure indigo-500
+├── Carte Propre : Fond gray-50, bordure gray-400
+└── Badge réponse : Fond purple-50, bordure purple-200
+
+
+📊 STATISTIQUES DASHBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Le dashboard admin affiche maintenant :
+
+1. Graphiques en barres (3 barres) :
+   ├── Barre violette : Nombre de personnes dans Bus 1
+   ├── Barre indigo : Nombre de personnes dans Bus 2
+   └── Barre grise : Nombre de personnes avec propre moyen
+
+2. Cartes de comptage (3 cartes) :
+   ├── Carte violette : 🚌 Bus 1 (grand chiffre) + "Après le gâteau"
+   ├── Carte indigo : 🚌 Bus 2 (grand chiffre) + "Fin de soirée"
+   └── Carte grise : 🚗 Propre moyen (grand chiffre) + "Transport personnel"
+
+3. Pourcentage visuel :
+   └── Hauteur des barres = (valeur / total) × 100%
+
+4. Affichage individuel :
+   └── Badge violet "🚌 Transport : Bus 1 (00h30)" ou "Bus 2 (3h)" ou "🚗 Propre moyen"
+
+
+📱 RESPONSIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Mobile (< 768px) :
+├── Cartes bus empilées verticalement
+├── Formulaire pleine largeur
+├── Graphiques adaptés (3 barres visibles)
+└── Cartes stats empilées (3 cartes verticales)
+
+Desktop (> 768px) :
+├── Cartes bus côte à côte (grid 2 colonnes)
+├── Formulaire centré
+├── Graphiques optimisés (3 barres côte à côte)
+└── Cartes stats côte à côte (grid 3 colonnes)
+
+
+🌐 TRADUCTIONS COMPLÈTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FRANÇAIS (FR) :
+Section Hébergement :
+├── Titre : "Navettes Retour"
+├── Description : "Nous mettons à votre disposition 2 bus..."
+├── Bus 1 : "Départ après le gâteau (environ 00h30)"
+└── Bus 2 : "Départ à la fin de la soirée (environ 3h)"
+
+Formulaire RSVP :
+├── Section : "Transport Retour"
+├── Question : "Comment comptez-vous rentrer à l'hôtel ?"
+├── Option 1 : "🚌 Bus 1 - Départ après le gâteau (00h30)"
+├── Option 2 : "🚌 Bus 2 - Départ fin de soirée (3h)"
+└── Option 3 : "🚗 Mon propre moyen de transport"
+
+ITALIEN (IT) :
+Section Hébergement :
+├── Titre : "Navette di Ritorno"
+├── Description : "Mettiamo a vostra disposizione 2 bus..."
+├── Bus 1 : "Partenza dopo la torta (circa 00h30)"
+└── Bus 2 : "Partenza a fine serata (circa 3h)"
+
+Formulaire RSVP :
+├── Section : "Trasporto di Ritorno"
+├── Question : "Come prevedi di tornare in hotel?"
+├── Option 1 : "🚌 Bus 1 - Partenza dopo la torta (00h30)"
+├── Option 2 : "🚌 Bus 2 - Partenza fine serata (3h)"
+└── Option 3 : "🚗 Il mio mezzo di trasporto"
+
+
+✨ AVANTAGES DU SYSTÈME
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POUR LES INVITÉS :
+✅ Information claire sur les options de transport
+✅ Choix flexible (2 bus + propre moyen)
+✅ Horaires précis pour planifier
+✅ Choix obligatoire (pas d'oubli)
+
+POUR LES MARIÉS :
+✅ Statistiques en temps réel
+✅ Savoir combien de personnes par bus
+✅ Planifier la capacité nécessaire
+✅ Identifier qui vient avec son propre moyen
+✅ Vue d'ensemble complète dans le dashboard
+
+
+💡 UTILISATION DES STATISTIQUES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Grâce aux statistiques, vous pouvez :
+
+1️⃣  PLANIFIER LA CAPACITÉ DES BUS
+   - Savoir combien de personnes pour chaque bus
+   - Réserver des bus de la bonne taille
+   - Prévoir un bus supplémentaire si nécessaire
+
+2️⃣  OPTIMISER LES HORAIRES
+   - Si beaucoup de monde dans Bus 1, peut-être avancer l'horaire
+   - Si peu de monde dans Bus 2, peut-être l'annuler
+
+3️⃣  COMMUNIQUER AVEC LES INVITÉS
+   - Envoyer des rappels ciblés
+   - Informations spécifiques par bus
+
+4️⃣  PRÉVOIR LES BESOINS
+   - Nombre de places totales nécessaires
+   - Répartition des invités dans le temps
+
+
+🎯 EXEMPLE DE STATISTIQUES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Imaginons 100 réponses :
+
+┌──────────────────────────────────────────────────────────────┐
+│                    🚌 Transport Retour                       │
+│                                                              │
+│    ┌──────────┐  ┌──────────┐  ┌──────────┐               │
+│    │          │  │          │  │          │               │
+│    │    45    │  │    30    │  │    25    │               │
+│    │  ████    │  │  ███     │  │  ██      │               │
+│    └──────────┘  └──────────┘  └──────────┘               │
+│     Bus 1         Bus 2         Propre moyen               │
+│     (00h30)       (3h)                                     │
+│                                                              │
+│  🚌 Bus 1: 45 personnes (45%)                               │
+│  🚌 Bus 2: 30 personnes (30%)                               │
+│  🚗 Propre moyen: 25 personnes (25%)                        │
+│                                                              │
+│  📊 Analyse :                                               │
+│  - Besoin d'un bus de 50 places pour Bus 1                 │
+│  - Besoin d'un bus de 35 places pour Bus 2                 │
+│  - 75 personnes utilisent les bus (75%)                     │
+│  - 25 personnes ont leur propre transport (25%)             │
+└──────────────────────────────────────────────────────────────┘
+
+
+🚀 PROCHAINES ÉTAPES SUGGÉRÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Réserver les bus selon les statistiques
+   └── Attendre d'avoir 80% des réponses
+
+2. Optionnel : Ajouter des précisions
+   └── Point de rendez-vous exact
+   └── Numéro du chauffeur
+   └── Capacité maximale par bus
+
+3. Optionnel : Envoyer des rappels
+   └── Email aux personnes ayant choisi Bus 1
+   └── Email aux personnes ayant choisi Bus 2
+
+4. Optionnel : Ajouter un champ "Remarques transport"
+   └── Pour des besoins spéciaux (handicap, bagages, etc.)
+
+
+✅ RÉSUMÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Section bus créée dans HotelInfo
+✓ Champ transport obligatoire dans le formulaire
+✓ 3 options de transport disponibles
+✓ Dashboard admin avec statistiques complètes
+✓ Backend configuré pour le calcul des stats
+✓ Traductions FR et IT complètes
+✓ Design cohérent avec le reste du site
+✓ Responsive sur tous les écrans
+✓ Build réussi sans erreurs
+✓ Git commit et push effectués
+
+Le système de transport est maintenant opérationnel ! 🚌✨
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✨ SYSTÈME DE TRANSPORT OPÉRATIONNEL ! ✨                               ║
+║                                                                           ║
+║  Les invités peuvent choisir leur mode de transport et vous pouvez      ║
+║  suivre les statistiques en temps réel dans le dashboard ! 🚌           ║
+║                                                                           ║
+║  Rechargez la page pour voir les informations sur les bus ! 🎉          ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+Date : 24 décembre 2025
+Commit : 5702cf7
+Build : ✅ Réussi (84 modules, 359.76 kB JS)
+Status : ✅ Prêt pour production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
