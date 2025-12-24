@@ -289,8 +289,17 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
             r.hotelCheckIn &&
             r.hotelCheckOut
           ) {
-            const checkIn = r.hotelCheckIn;
-            const checkOut = r.hotelCheckOut;
+            // Convertir au format suisse DD.MM.YYYY
+            const formatSwissDate = (dateStr) => {
+              const d = new Date(dateStr);
+              const day = String(d.getDate()).padStart(2, "0");
+              const month = String(d.getMonth() + 1).padStart(2, "0");
+              const year = d.getFullYear();
+              return `${day}.${month}.${year}`;
+            };
+            
+            const checkIn = formatSwissDate(r.hotelCheckIn);
+            const checkOut = formatSwissDate(r.hotelCheckOut);
             const key = `${checkIn} → ${checkOut}`;
             acc[key] = (acc[key] || 0) + 1;
           }

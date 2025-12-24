@@ -555,30 +555,29 @@ function StatsView({ stats }) {
           </div>
 
           {/* Répartition par dates */}
-          {stats.hotel.byDate &&
-            Object.keys(stats.hotel.byDate).length > 0 && (
-              <div className="mt-4">
-                <h4 className="text-lg font-semibold text-gray-700 mb-3">
-                  📅 Répartition par Dates de Séjour
-                </h4>
-                <div className="space-y-2">
-                  {Object.entries(stats.hotel.byDate)
-                    .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
-                    .map(([dateRange, count]) => (
-                      <div
-                        key={dateRange}
-                        className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
-                        <span className="font-semibold text-gray-700">
-                          📆 {dateRange}
-                        </span>
-                        <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
-                          {count} {count > 1 ? "réservations" : "réservation"}
-                        </span>
-                      </div>
-                    ))}
-                </div>
+          {stats.hotel.byDate && Object.keys(stats.hotel.byDate).length > 0 && (
+            <div className="mt-4">
+              <h4 className="text-lg font-semibold text-gray-700 mb-3">
+                📅 Répartition par Dates de Séjour
+              </h4>
+              <div className="space-y-2">
+                {Object.entries(stats.hotel.byDate)
+                  .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
+                  .map(([dateRange, count]) => (
+                    <div
+                      key={dateRange}
+                      className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                      <span className="font-semibold text-gray-700">
+                        📆 {dateRange}
+                      </span>
+                      <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
+                        {count} {count > 1 ? "réservations" : "réservation"}
+                      </span>
+                    </div>
+                  ))}
               </div>
-            )}
+            </div>
+          )}
         </div>
       )}
 
@@ -799,7 +798,9 @@ function StatsView({ stats }) {
                   {stats.transport.bus1}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Après le gâteau (réponses)</p>
+              <p className="text-xs text-gray-500 mt-1">
+                Après le gâteau (réponses)
+              </p>
               {stats.transport.bus1People > 0 && (
                 <p className="text-sm font-semibold text-rose-gold mt-2">
                   👥 {stats.transport.bus1People} personnes
@@ -813,7 +814,9 @@ function StatsView({ stats }) {
                   {stats.transport.bus2}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Fin de soirée (réponses)</p>
+              <p className="text-xs text-gray-500 mt-1">
+                Fin de soirée (réponses)
+              </p>
               {stats.transport.bus2People > 0 && (
                 <p className="text-sm font-semibold text-gold mt-2">
                   👥 {stats.transport.bus2People} personnes
@@ -829,7 +832,9 @@ function StatsView({ stats }) {
                   {stats.transport.own}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Transport personnel (réponses)</p>
+              <p className="text-xs text-gray-500 mt-1">
+                Transport personnel (réponses)
+              </p>
               {stats.transport.ownPeople > 0 && (
                 <p className="text-sm font-semibold text-gray-600 mt-2">
                   👥 {stats.transport.ownPeople} personnes
