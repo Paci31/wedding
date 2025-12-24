@@ -297,6 +297,11 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         notAttending: responses.filter((r) => r.brunchAttending === "no")
           .length,
       },
+      transport: {
+        bus1: responses.filter((r) => r.transportChoice === "bus1").length,
+        bus2: responses.filter((r) => r.transportChoice === "bus2").length,
+        own: responses.filter((r) => r.transportChoice === "own").length,
+      },
     };
 
     res.json({ success: true, data: stats });

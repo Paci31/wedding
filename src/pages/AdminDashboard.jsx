@@ -629,6 +629,72 @@ function StatsView({ stats }) {
         </div>
       )}
 
+      {/* Statistiques Transport */}
+      {stats.transport && (
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800 mb-6">
+            🚌 Transport Retour
+          </h3>
+
+          <div className="flex items-end gap-4 h-48">
+            <BarChart
+              label="Bus 1 (00h30)"
+              value={stats.transport.bus1}
+              max={stats.total}
+              color="bg-purple-500"
+            />
+            <BarChart
+              label="Bus 2 (3h)"
+              value={stats.transport.bus2}
+              max={stats.total}
+              color="bg-indigo-500"
+            />
+            <BarChart
+              label="Propre moyen"
+              value={stats.transport.own}
+              max={stats.total}
+              color="bg-gray-500"
+            />
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-4">
+            <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  🚌 Bus 1
+                </span>
+                <span className="text-3xl font-bold text-purple-600">
+                  {stats.transport.bus1}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Après le gâteau</p>
+            </div>
+            <div className="p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-500">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  🚌 Bus 2
+                </span>
+                <span className="text-3xl font-bold text-indigo-600">
+                  {stats.transport.bus2}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Fin de soirée</p>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  🚗 Propre moyen
+                </span>
+                <span className="text-3xl font-bold text-gray-600">
+                  {stats.transport.own}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Transport personnel</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Réponses par date */}
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-4">
@@ -880,6 +946,18 @@ function ResponseCard({ response, onDelete }) {
               <div className="mt-4 p-4 bg-orange-50 rounded-lg border border-orange-200">
                 <p className="font-semibold text-gray-800 flex items-center gap-2">
                   <span>🥐</span> Présent au brunch du lendemain
+                </p>
+              </div>
+            )}
+
+            {/* Transport retour */}
+            {response.transportChoice && (
+              <div className="mt-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                <p className="font-semibold text-gray-800 flex items-center gap-2">
+                  <span>🚌</span> Transport :{" "}
+                  {response.transportChoice === "bus1" && "Bus 1 (00h30)"}
+                  {response.transportChoice === "bus2" && "Bus 2 (3h)"}
+                  {response.transportChoice === "own" && "🚗 Propre moyen"}
                 </p>
               </div>
             )}

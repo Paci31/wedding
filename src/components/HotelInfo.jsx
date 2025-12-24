@@ -141,6 +141,42 @@ function HotelInfo() {
             </div>
           </div>
 
+          {/* Navettes Bus */}
+          <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-lg mb-8">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">🚌</span>
+              <div className="flex-1">
+                <h4 className="font-bold text-gray-800 mb-3">
+                  {t("hotel.bus_title")}
+                </h4>
+                <p className="text-gray-700 font-lora mb-4">
+                  {t("hotel.bus_text")}
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
+                    <p className="font-bold text-purple-700 mb-1">
+                      🚌 {t("hotel.bus1_label")}
+                    </p>
+                    <p className="text-sm text-gray-700">
+                      {t("hotel.bus1_time")}
+                    </p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
+                    <p className="font-bold text-purple-700 mb-1">
+                      🚌 {t("hotel.bus2_label")}
+                    </p>
+                    <p className="text-sm text-gray-700">
+                      {t("hotel.bus2_time")}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-600 font-lora text-sm mt-4 italic">
+                  💡 {t("hotel.bus_note")}
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Note dans le formulaire RSVP */}
           <div className="bg-rose-50 border-2 border-rose-gold rounded-lg p-6 text-center">
             <p className="text-gray-700 font-lora text-lg">
