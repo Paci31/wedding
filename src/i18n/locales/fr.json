@@ -88,6 +88,8 @@
     "hotel_payment_note": "Le paiement doit être effectué par Twint avant la réservation. Tarif préférentiel valable jusqu'au 20.01.2026.",
     "dinner_section": "Repas de la Veille à Stresa",
     "dinner_attending": "Serez-vous présent(e) au repas du 19 juin à Stresa ?",
+    "brunch_section": "Brunch du Lendemain",
+    "brunch_attending": "Serez-vous présent(e) au brunch du 21 juin ?",
     "message": "Un Message pour les Mariés",
     "message_placeholder": "Partagez vos vœux et felicitations...",
     "submit": "✓ Envoyer ma Réponse",
@@ -128,6 +130,17 @@
     "date_label": "Quand",
     "date": "19 juin 2026",
     "location_label": "Où",
+    "form_note": "Merci d'indiquer votre présence dans le formulaire RSVP ci-dessous"
+  },
+  "brunch": {
+    "title": "Brunch du Lendemain",
+    "subtitle": "Continuons la fête !",
+    "message": "Nous organisons un brunch le lendemain du mariage pour prolonger ce moment ensemble. Ce sera l'occasion de se retrouver une dernière fois avant de se dire au revoir.",
+    "date_label": "Quand",
+    "date": "21 juin 2026",
+    "location_label": "Où",
+    "location": "Lieu à communiquer prochainement",
+    "cost_note": "Le brunch sera à la charge des invités",
     "form_note": "Merci d'indiquer votre présence dans le formulaire RSVP ci-dessous"
   },
   "footer": {

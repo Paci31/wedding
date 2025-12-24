@@ -88,6 +88,8 @@
     "hotel_payment_note": "Il pagamento deve essere effettuato tramite Twint prima della prenotazione. Tariffa preferenziale valida fino al 20.01.2026.",
     "dinner_section": "Cena della Vigilia a Stresa",
     "dinner_attending": "Sarai presente alla cena del 19 giugno a Stresa?",
+    "brunch_section": "Brunch del Giorno Dopo",
+    "brunch_attending": "Sarai presente al brunch del 21 giugno?",
     "message": "Un Messaggio per gli Sposi",
     "message_placeholder": "Condividi i tuoi auguri e felicitazioni...",
     "submit": "✓ Invia la Mia Risposta",
@@ -128,6 +130,17 @@
     "date_label": "Quando",
     "date": "19 giugno 2026",
     "location_label": "Dove",
+    "form_note": "Si prega di indicare la vostra presenza nel modulo RSVP qui sotto"
+  },
+  "brunch": {
+    "title": "Brunch del Giorno Dopo",
+    "subtitle": "Continuiamo la festa!",
+    "message": "Organizziamo un brunch il giorno dopo il matrimonio per prolungare questo momento insieme. Sarà l'occasione per ritrovarci un'ultima volta prima di salutarci.",
+    "date_label": "Quando",
+    "date": "21 giugno 2026",
+    "location_label": "Dove",
+    "location": "Luogo da comunicare prossimamente",
+    "cost_note": "Il brunch sarà a carico degli invitati",
     "form_note": "Si prega di indicare la vostra presenza nel modulo RSVP qui sotto"
   },
   "footer": {

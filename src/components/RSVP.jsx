@@ -16,6 +16,7 @@ function RSVP() {
     hotelCheckIn: "",
     hotelCheckOut: "",
     dinnerAttending: "",
+    brunchAttending: "",
     message: "",
   });
 
@@ -110,6 +111,7 @@ function RSVP() {
             hotelCheckIn: "",
             hotelCheckOut: "",
             dinnerAttending: "",
+            brunchAttending: "",
             message: "",
           });
           setSubmitted(false);
@@ -400,6 +402,29 @@ function RSVP() {
                 <select
                   name="dinnerAttending"
                   value={formData.dinnerAttending}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
+                  <option value="">{t("rsvp.select")}</option>
+                  <option value="yes">{t("rsvp.yes")}</option>
+                  <option value="no">{t("rsvp.no")}</option>
+                </select>
+              </div>
+
+              {/* Séparateur - Brunch */}
+              <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
+              <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                🥐 {t("rsvp.brunch_section")}
+              </h3>
+
+              {/* Présence au brunch */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.brunch_attending")} *
+                </label>
+                <select
+                  name="brunchAttending"
+                  value={formData.brunchAttending}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">

@@ -584,6 +584,51 @@ function StatsView({ stats }) {
         </div>
       )}
 
+      {/* Statistiques Brunch */}
+      {stats.brunch && (
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800 mb-6">
+            🥐 Brunch du Lendemain
+          </h3>
+
+          <div className="flex items-end gap-4 h-48">
+            <BarChart
+              label="Participeront"
+              value={stats.brunch.attending}
+              max={stats.total}
+              color="bg-amber-500"
+            />
+            <BarChart
+              label="Ne participeront pas"
+              value={stats.brunch.notAttending}
+              max={stats.total}
+              color="bg-gray-400"
+            />
+          </div>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-4">
+            <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">
+                  ✅ Participants
+                </span>
+                <span className="text-3xl font-bold text-amber-600">
+                  {stats.brunch.attending}
+                </span>
+              </div>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700 font-semibold">❌ Absents</span>
+                <span className="text-3xl font-bold text-gray-600">
+                  {stats.brunch.notAttending}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Réponses par date */}
       <div className="bg-white rounded-xl shadow-lg p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-4">
@@ -826,6 +871,15 @@ function ResponseCard({ response, onDelete }) {
               <div className="mt-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
                 <p className="font-semibold text-gray-800 flex items-center gap-2">
                   <span>🍝</span> Présent au repas de la veille à Stresa
+                </p>
+              </div>
+            )}
+
+            {/* Brunch du lendemain */}
+            {response.brunchAttending === "yes" && (
+              <div className="mt-4 p-4 bg-orange-50 rounded-lg border border-orange-200">
+                <p className="font-semibold text-gray-800 flex items-center gap-2">
+                  <span>🥐</span> Présent au brunch du lendemain
                 </p>
               </div>
             )}

@@ -8,6 +8,7 @@ import OurStory from "./components/OurStory";
 import HotelInfo from "./components/HotelInfo";
 import GiftInfo from "./components/GiftInfo";
 import DinnerInfo from "./components/DinnerInfo";
+import BrunchInfo from "./components/BrunchInfo";
 import RSVP from "./components/RSVP";
 import Footer from "./components/Footer";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -21,6 +22,7 @@ function HomePage() {
       <CeremonyDetails />
       <HotelInfo />
       <DinnerInfo />
+      <BrunchInfo />
       <GiftInfo />
       <Gallery />
       <RSVP />

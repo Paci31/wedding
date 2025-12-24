@@ -219,6 +219,10 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         attending: responses.filter((r) => r.dinnerAttending === "yes").length,
         notAttending: responses.filter((r) => r.dinnerAttending === "no").length,
       },
+      brunch: {
+        attending: responses.filter((r) => r.brunchAttending === "yes").length,
+        notAttending: responses.filter((r) => r.brunchAttending === "no").length,
+      },
     };
 
     res.json({ success: true, data: stats });
