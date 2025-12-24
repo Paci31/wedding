@@ -9,7 +9,7 @@ function HotelReservationsManager({ reservations }) {
 
   // Extraire les types de chambres uniques
   const roomTypes = [...new Set(reservations.map((r) => r.roomType))];
-  
+
   // Extraire les dates d'arrivée uniques
   const checkInDates = [...new Set(reservations.map((r) => r.checkIn))].sort(
     (a, b) => {
@@ -33,20 +33,20 @@ function HotelReservationsManager({ reservations }) {
 
   // Fonction d'export CSV pour l'hôtel
   const exportHotelCSV = () => {
-    // En-têtes du CSV pour l'hôtel
+    // En-têtes du CSV pour l'hôtel (en italien)
     const headers = [
-      "Nom du Client",
+      "Nome Cliente",
       "Email",
-      "Téléphone",
-      "Type de Chambre",
-      "Date d'Arrivée",
-      "Date de Départ",
-      "Nombre de Nuits",
-      "Nombre d'Adultes",
-      "Nombre d'Enfants",
-      "Âge des Enfants",
-      "Total Personnes",
-      "Régime Alimentaire Spécial",
+      "Telefono",
+      "Tipo di Camera",
+      "Data di Arrivo",
+      "Data di Partenza",
+      "Numero di Notti",
+      "Numero di Adulti",
+      "Numero di Bambini",
+      "Età dei Bambini",
+      "Totale Persone",
+      "Regime Alimentare Speciale",
     ];
 
     // Préparer les lignes de données
@@ -80,7 +80,7 @@ function HotelReservationsManager({ reservations }) {
     link.setAttribute("href", url);
     link.setAttribute(
       "download",
-      `reservations_hotel_${new Date().toISOString().split("T")[0]}.csv`
+      `prenotazioni_hotel_${new Date().toISOString().split("T")[0]}.csv`
     );
     document.body.appendChild(link);
     link.click();
