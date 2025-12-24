@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5173;
 
 // Middleware
 app.use(cors());
@@ -188,17 +188,31 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         return acc;
       }, {}),
       hotel: {
-        needed: responses.filter((r) => r.hotelRoomType && r.hotelRoomType !== "" && r.hotelRoomType !== "none").length,
-        notNeeded: responses.filter((r) => !r.hotelRoomType || r.hotelRoomType === "" || r.hotelRoomType === "none").length,
+        needed: responses.filter(
+          (r) =>
+            r.hotelRoomType &&
+            r.hotelRoomType !== "" &&
+            r.hotelRoomType !== "none"
+        ).length,
+        notNeeded: responses.filter(
+          (r) =>
+            !r.hotelRoomType ||
+            r.hotelRoomType === "" ||
+            r.hotelRoomType === "none"
+        ).length,
         roomTypes: responses.reduce((acc, r) => {
-          if (r.hotelRoomType && r.hotelRoomType !== "" && r.hotelRoomType !== "none") {
+          if (
+            r.hotelRoomType &&
+            r.hotelRoomType !== "" &&
+            r.hotelRoomType !== "none"
+          ) {
             // Convertir les codes en noms lisibles
             const roomNames = {
               single: "Chambre Simple",
               double: "Chambre Double/Twin",
               triple: "Chambre Triple",
               quadruple: "Chambre Quadruple",
-              larger: "Chambre Plus Grande"
+              larger: "Chambre Plus Grande",
             };
             const roomName = roomNames[r.hotelRoomType] || r.hotelRoomType;
             acc[roomName] = (acc[roomName] || 0) + 1;
@@ -206,10 +220,18 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
           return acc;
         }, {}),
         totalNights: responses.reduce((sum, r) => {
-          if (r.hotelRoomType && r.hotelRoomType !== "" && r.hotelRoomType !== "none" && r.hotelCheckIn && r.hotelCheckOut) {
+          if (
+            r.hotelRoomType &&
+            r.hotelRoomType !== "" &&
+            r.hotelRoomType !== "none" &&
+            r.hotelCheckIn &&
+            r.hotelCheckOut
+          ) {
             const checkIn = new Date(r.hotelCheckIn);
             const checkOut = new Date(r.hotelCheckOut);
-            const nights = Math.round((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+            const nights = Math.round(
+              (checkOut - checkIn) / (1000 * 60 * 60 * 24)
+            );
             return sum + (nights > 0 ? nights : 0);
           }
           return sum;
@@ -217,11 +239,13 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
       },
       dinner: {
         attending: responses.filter((r) => r.dinnerAttending === "yes").length,
-        notAttending: responses.filter((r) => r.dinnerAttending === "no").length,
+        notAttending: responses.filter((r) => r.dinnerAttending === "no")
+          .length,
       },
       brunch: {
         attending: responses.filter((r) => r.brunchAttending === "yes").length,
-        notAttending: responses.filter((r) => r.brunchAttending === "no").length,
+        notAttending: responses.filter((r) => r.brunchAttending === "no")
+          .length,
       },
       transport: {
         bus1: responses.filter((r) => r.transportChoice === "bus1").length,

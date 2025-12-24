@@ -481,6 +481,9 @@ function StatsView({ stats }) {
 
           {/* Graphique besoin hôtel */}
           <div className="mb-6">
+            <h4 className="text-lg font-semibold text-gray-700 mb-4">
+              Besoin d'Hébergement
+            </h4>
             <div className="flex items-end gap-4 h-48">
               <BarChart
                 label="Besoin hôtel"
@@ -546,6 +549,9 @@ function StatsView({ stats }) {
             🍽️ Repas de la Veille à Stresa
           </h3>
 
+          <h4 className="text-lg font-semibold text-gray-700 mb-4">
+            Participation au Dîner (19 juin)
+          </h4>
           <div className="flex items-end gap-4 h-48">
             <BarChart
               label="Participeront"
@@ -591,6 +597,9 @@ function StatsView({ stats }) {
             🥐 Brunch du Lendemain
           </h3>
 
+          <h4 className="text-lg font-semibold text-gray-700 mb-4">
+            Participation au Brunch (21 juin)
+          </h4>
           <div className="flex items-end gap-4 h-48">
             <BarChart
               label="Participeront"
@@ -636,6 +645,9 @@ function StatsView({ stats }) {
             🚌 Transport Retour
           </h3>
 
+          <h4 className="text-lg font-semibold text-gray-700 mb-4">
+            Répartition des Choix de Transport
+          </h4>
           <div className="flex items-end gap-4 h-48">
             <BarChart
               label="Bus 1 (00h30)"
@@ -660,9 +672,7 @@ function StatsView({ stats }) {
           <div className="mt-6 grid md:grid-cols-3 gap-4">
             <div className="p-4 bg-rose-50 rounded-lg border-l-4 border-rose-gold">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-semibold">
-                  🚌 Bus 1
-                </span>
+                <span className="text-gray-700 font-semibold">🚌 Bus 1</span>
                 <span className="text-3xl font-bold text-rose-gold">
                   {stats.transport.bus1}
                 </span>
@@ -671,9 +681,7 @@ function StatsView({ stats }) {
             </div>
             <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-gold">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-semibold">
-                  🚌 Bus 2
-                </span>
+                <span className="text-gray-700 font-semibold">🚌 Bus 2</span>
                 <span className="text-3xl font-bold text-gold">
                   {stats.transport.bus2}
                 </span>

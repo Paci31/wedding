@@ -36,7 +36,8 @@ function HotelInfo() {
               {t("hotel.subtitle")}
             </p>
             <p className="text-gray-700 font-lora text-lg mb-3">
-              Via Strà Madonna, 15<br />
+              Via Strà Madonna, 15
+              <br />
               21047 Saronno VA, Italie
             </p>
             <a
@@ -97,7 +98,10 @@ function HotelInfo() {
                         {t(`hotel.room_${room.type}`)}
                       </p>
                       <p className="text-sm text-gray-600">
-                        {room.capacity} {room.capacity === 1 ? t("hotel.person") : t("hotel.persons")}
+                        {room.capacity}{" "}
+                        {room.capacity === 1
+                          ? t("hotel.person")
+                          : t("hotel.persons")}
                       </p>
                     </div>
                     <div className="text-right">
@@ -112,12 +116,12 @@ function HotelInfo() {
                 </div>
               ))}
             </div>
-            
+
             {/* Taxe de séjour */}
             <div className="mt-4 text-center text-sm text-gray-600 font-lora">
               {t("hotel.tourist_tax")}
             </div>
-            
+
             {/* Prix inclut petit-déjeuner */}
             <div className="mt-2 text-center">
               <span className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
@@ -141,6 +145,13 @@ function HotelInfo() {
             </div>
           </div>
 
+          {/* Note dans le formulaire RSVP */}
+          <div className="bg-rose-50 border-2 border-rose-gold rounded-lg p-6 text-center">
+            <p className="text-gray-700 font-lora text-lg">
+              💌 {t("hotel.form_note")}
+            </p>
+          </div>
+          <br />
           {/* Service de Navettes */}
           <div className="bg-gradient-to-br from-champagne via-rose-50 to-blush border-2 border-rose-gold border-opacity-30 p-8 rounded-xl mb-8 shadow-md">
             <div className="text-center mb-6">
@@ -167,7 +178,7 @@ function HotelInfo() {
               <div className="bg-white rounded-lg p-6 border-2 border-rose-gold border-opacity-20 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-xl shadow-md">
+                    <div className="w-10 h-10 bg-gradient-to-br from-rose-gold to-rose-600 rounded-full flex items-center justify-center text-white text-lg shadow-md">
                       →
                     </div>
                   </div>
@@ -205,12 +216,12 @@ function HotelInfo() {
                     {t("hotel.bus1_time")}
                   </p>
                 </div>
-                <div className="bg-white rounded-lg p-5 border-2 border-gold border-opacity-40 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-lg p-5 border-2 border-rose-gold border-opacity-40 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center text-white text-lg shadow-md">
+                    <div className="w-10 h-10 bg-gradient-to-br from-rose-gold to-rose-600 rounded-full flex items-center justify-center text-white text-lg shadow-md">
                       2
                     </div>
-                    <p className="font-bold text-gold text-lg">
+                    <p className="font-bold text-rose-gold text-lg">
                       {t("hotel.bus2_label")}
                     </p>
                   </div>
@@ -227,13 +238,6 @@ function HotelInfo() {
               </div>
             </div>
           </div>
-
-          {/* Note dans le formulaire RSVP */}
-          <div className="bg-rose-50 border-2 border-rose-gold rounded-lg p-6 text-center">
-            <p className="text-gray-700 font-lora text-lg">
-              💌 {t("hotel.form_note")}
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -241,4 +245,3 @@ function HotelInfo() {
 }
 
 export default HotelInfo;
-

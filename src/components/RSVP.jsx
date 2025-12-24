@@ -390,6 +390,30 @@ function RSVP() {
                 </>
               )}
 
+              {/* Séparateur - Transport */}
+              <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
+              <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
+                🚌 {t("rsvp.transport_section")}
+              </h3>
+
+              {/* Choix du transport */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
+                  {t("rsvp.transport_choice")} *
+                </label>
+                <select
+                  name="transportChoice"
+                  value={formData.transportChoice}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
+                  <option value="">{t("rsvp.select")}</option>
+                  <option value="bus1">{t("rsvp.transport_bus1")}</option>
+                  <option value="bus2">{t("rsvp.transport_bus2")}</option>
+                  <option value="own">{t("rsvp.transport_own")}</option>
+                </select>
+              </div>
+
               {/* Séparateur - Repas */}
               <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
               <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
@@ -433,30 +457,6 @@ function RSVP() {
                   <option value="">{t("rsvp.select")}</option>
                   <option value="yes">{t("rsvp.yes")}</option>
                   <option value="no">{t("rsvp.no")}</option>
-                </select>
-              </div>
-
-              {/* Séparateur - Transport */}
-              <div className="my-10 border-t-2 border-rose-gold opacity-20"></div>
-              <h3 className="text-2xl font-playfair font-bold text-gray-800 mb-6 text-center">
-                🚌 {t("rsvp.transport_section")}
-              </h3>
-
-              {/* Choix du transport */}
-              <div className="mb-6">
-                <label className="block text-gray-700 font-semibold text-sm uppercase tracking-wider mb-2">
-                  {t("rsvp.transport_choice")} *
-                </label>
-                <select
-                  name="transportChoice"
-                  value={formData.transportChoice}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-rose-gold focus:ring-2 focus:ring-rose-gold/20 outline-none transition-all duration-300 font-lora bg-white text-gray-700">
-                  <option value="">{t("rsvp.select")}</option>
-                  <option value="bus1">{t("rsvp.transport_bus1")}</option>
-                  <option value="bus2">{t("rsvp.transport_bus2")}</option>
-                  <option value="own">{t("rsvp.transport_own")}</option>
                 </select>
               </div>
 
