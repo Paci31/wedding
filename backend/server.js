@@ -200,6 +200,18 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
             r.hotelRoomType === "" ||
             r.hotelRoomType === "none"
         ).length,
+        totalPeople: responses.reduce((sum, r) => {
+          if (
+            r.hotelRoomType &&
+            r.hotelRoomType !== "" &&
+            r.hotelRoomType !== "none"
+          ) {
+            const adults = parseInt(r.adults) || 0;
+            const children = parseInt(r.children) || 0;
+            return sum + adults + children;
+          }
+          return sum;
+        }, 0),
         roomTypes: responses.reduce((acc, r) => {
           if (
             r.hotelRoomType &&
@@ -216,6 +228,21 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
             };
             const roomName = roomNames[r.hotelRoomType] || r.hotelRoomType;
             acc[roomName] = (acc[roomName] || 0) + 1;
+          }
+          return acc;
+        }, {}),
+        byDate: responses.reduce((acc, r) => {
+          if (
+            r.hotelRoomType &&
+            r.hotelRoomType !== "" &&
+            r.hotelRoomType !== "none" &&
+            r.hotelCheckIn &&
+            r.hotelCheckOut
+          ) {
+            const checkIn = r.hotelCheckIn;
+            const checkOut = r.hotelCheckOut;
+            const key = `${checkIn} → ${checkOut}`;
+            acc[key] = (acc[key] || 0) + 1;
           }
           return acc;
         }, {}),
@@ -241,16 +268,80 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
         attending: responses.filter((r) => r.dinnerAttending === "yes").length,
         notAttending: responses.filter((r) => r.dinnerAttending === "no")
           .length,
+        totalPeople: responses.reduce((sum, r) => {
+          if (r.dinnerAttending === "yes") {
+            const adults = parseInt(r.adults) || 0;
+            const children = parseInt(r.children) || 0;
+            return sum + adults + children;
+          }
+          return sum;
+        }, 0),
+        adults: responses.reduce((sum, r) => {
+          if (r.dinnerAttending === "yes") {
+            return sum + (parseInt(r.adults) || 0);
+          }
+          return sum;
+        }, 0),
+        children: responses.reduce((sum, r) => {
+          if (r.dinnerAttending === "yes") {
+            return sum + (parseInt(r.children) || 0);
+          }
+          return sum;
+        }, 0),
       },
       brunch: {
         attending: responses.filter((r) => r.brunchAttending === "yes").length,
         notAttending: responses.filter((r) => r.brunchAttending === "no")
           .length,
+        totalPeople: responses.reduce((sum, r) => {
+          if (r.brunchAttending === "yes") {
+            const adults = parseInt(r.adults) || 0;
+            const children = parseInt(r.children) || 0;
+            return sum + adults + children;
+          }
+          return sum;
+        }, 0),
+        adults: responses.reduce((sum, r) => {
+          if (r.brunchAttending === "yes") {
+            return sum + (parseInt(r.adults) || 0);
+          }
+          return sum;
+        }, 0),
+        children: responses.reduce((sum, r) => {
+          if (r.brunchAttending === "yes") {
+            return sum + (parseInt(r.children) || 0);
+          }
+          return sum;
+        }, 0),
       },
       transport: {
         bus1: responses.filter((r) => r.transportChoice === "bus1").length,
         bus2: responses.filter((r) => r.transportChoice === "bus2").length,
         own: responses.filter((r) => r.transportChoice === "own").length,
+        bus1People: responses.reduce((sum, r) => {
+          if (r.transportChoice === "bus1") {
+            const adults = parseInt(r.adults) || 0;
+            const children = parseInt(r.children) || 0;
+            return sum + adults + children;
+          }
+          return sum;
+        }, 0),
+        bus2People: responses.reduce((sum, r) => {
+          if (r.transportChoice === "bus2") {
+            const adults = parseInt(r.adults) || 0;
+            const children = parseInt(r.children) || 0;
+            return sum + adults + children;
+          }
+          return sum;
+        }, 0),
+        ownPeople: responses.reduce((sum, r) => {
+          if (r.transportChoice === "own") {
+            const adults = parseInt(r.adults) || 0;
+            const children = parseInt(r.children) || 0;
+            return sum + adults + children;
+          }
+          return sum;
+        }, 0),
       },
     };
 

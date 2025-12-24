@@ -526,19 +526,59 @@ function StatsView({ stats }) {
               </div>
             )}
 
-          {/* Total nuitées */}
-          {stats.hotel.totalNights > 0 && (
-            <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-              <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-semibold">
-                  🌙 Total de nuitées réservées
-                </span>
-                <span className="text-2xl font-bold text-blue-600">
-                  {stats.hotel.totalNights}
-                </span>
+          {/* Total personnes et nuitées */}
+          <div className="mt-4 grid md:grid-cols-2 gap-4">
+            {stats.hotel.totalPeople > 0 && (
+              <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700 font-semibold">
+                    👥 Nombre total de personnes
+                  </span>
+                  <span className="text-2xl font-bold text-blue-600">
+                    {stats.hotel.totalPeople}
+                  </span>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+            {stats.hotel.totalNights > 0 && (
+              <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-700 font-semibold">
+                    🌙 Total de nuitées réservées
+                  </span>
+                  <span className="text-2xl font-bold text-blue-600">
+                    {stats.hotel.totalNights}
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Répartition par dates */}
+          {stats.hotel.byDate &&
+            Object.keys(stats.hotel.byDate).length > 0 && (
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold text-gray-700 mb-3">
+                  📅 Répartition par Dates de Séjour
+                </h4>
+                <div className="space-y-2">
+                  {Object.entries(stats.hotel.byDate)
+                    .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
+                    .map(([dateRange, count]) => (
+                      <div
+                        key={dateRange}
+                        className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <span className="font-semibold text-gray-700">
+                          📆 {dateRange}
+                        </span>
+                        <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
+                          {count} {count > 1 ? "réservations" : "réservation"}
+                        </span>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
         </div>
       )}
 
@@ -571,7 +611,7 @@ function StatsView({ stats }) {
             <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
               <div className="flex items-center justify-between">
                 <span className="text-gray-700 font-semibold">
-                  ✅ Participants
+                  ✅ Participants (réponses)
                 </span>
                 <span className="text-3xl font-bold text-emerald-600">
                   {stats.dinner.attending}
@@ -587,6 +627,47 @@ function StatsView({ stats }) {
               </div>
             </div>
           </div>
+
+          {/* Détail adultes/enfants */}
+          {stats.dinner.totalPeople > 0 && (
+            <div className="mt-4">
+              <h4 className="text-lg font-semibold text-gray-700 mb-3">
+                👥 Nombre de Personnes Attendues
+              </h4>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="p-4 bg-emerald-100 rounded-lg border-l-4 border-emerald-600">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">
+                      👥 Total
+                    </span>
+                    <span className="text-2xl font-bold text-emerald-700">
+                      {stats.dinner.totalPeople}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">
+                      👨‍👩‍👧 Adultes
+                    </span>
+                    <span className="text-2xl font-bold text-emerald-600">
+                      {stats.dinner.adults}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">
+                      👶 Enfants
+                    </span>
+                    <span className="text-2xl font-bold text-emerald-600">
+                      {stats.dinner.children}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -619,7 +700,7 @@ function StatsView({ stats }) {
             <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
               <div className="flex items-center justify-between">
                 <span className="text-gray-700 font-semibold">
-                  ✅ Participants
+                  ✅ Participants (réponses)
                 </span>
                 <span className="text-3xl font-bold text-amber-600">
                   {stats.brunch.attending}
@@ -635,6 +716,47 @@ function StatsView({ stats }) {
               </div>
             </div>
           </div>
+
+          {/* Détail adultes/enfants */}
+          {stats.brunch.totalPeople > 0 && (
+            <div className="mt-4">
+              <h4 className="text-lg font-semibold text-gray-700 mb-3">
+                👥 Nombre de Personnes Attendues
+              </h4>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="p-4 bg-amber-100 rounded-lg border-l-4 border-amber-600">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">
+                      👥 Total
+                    </span>
+                    <span className="text-2xl font-bold text-amber-700">
+                      {stats.brunch.totalPeople}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">
+                      👨‍👩‍👧 Adultes
+                    </span>
+                    <span className="text-2xl font-bold text-amber-600">
+                      {stats.brunch.adults}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 font-semibold">
+                      👶 Enfants
+                    </span>
+                    <span className="text-2xl font-bold text-amber-600">
+                      {stats.brunch.children}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -677,7 +799,12 @@ function StatsView({ stats }) {
                   {stats.transport.bus1}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Après le gâteau</p>
+              <p className="text-xs text-gray-500 mt-1">Après le gâteau (réponses)</p>
+              {stats.transport.bus1People > 0 && (
+                <p className="text-sm font-semibold text-rose-gold mt-2">
+                  👥 {stats.transport.bus1People} personnes
+                </p>
+              )}
             </div>
             <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-gold">
               <div className="flex items-center justify-between">
@@ -686,7 +813,12 @@ function StatsView({ stats }) {
                   {stats.transport.bus2}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Fin de soirée</p>
+              <p className="text-xs text-gray-500 mt-1">Fin de soirée (réponses)</p>
+              {stats.transport.bus2People > 0 && (
+                <p className="text-sm font-semibold text-gold mt-2">
+                  👥 {stats.transport.bus2People} personnes
+                </p>
+              )}
             </div>
             <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-gray-400">
               <div className="flex items-center justify-between">
@@ -697,7 +829,12 @@ function StatsView({ stats }) {
                   {stats.transport.own}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 mt-1">Transport personnel</p>
+              <p className="text-xs text-gray-500 mt-1">Transport personnel (réponses)</p>
+              {stats.transport.ownPeople > 0 && (
+                <p className="text-sm font-semibold text-gray-600 mt-2">
+                  👥 {stats.transport.ownPeople} personnes
+                </p>
+              )}
             </div>
           </div>
         </div>
