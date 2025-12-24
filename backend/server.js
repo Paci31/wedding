@@ -231,14 +231,16 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
           }
           return acc;
         }, {}),
-        byDate: responses.reduce((acc, r) => {
-          if (
-            r.hotelRoomType &&
-            r.hotelRoomType !== "" &&
-            r.hotelRoomType !== "none" &&
-            r.hotelCheckIn &&
-            r.hotelCheckOut
-          ) {
+        reservations: responses
+          .filter(
+            (r) =>
+              r.hotelRoomType &&
+              r.hotelRoomType !== "" &&
+              r.hotelRoomType !== "none" &&
+              r.hotelCheckIn &&
+              r.hotelCheckOut
+          )
+          .map((r) => {
             // Convertir au format suisse DD.MM.YYYY
             const formatSwissDate = (dateStr) => {
               const d = new Date(dateStr);
@@ -247,14 +249,38 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
               const year = d.getFullYear();
               return `${day}.${month}.${year}`;
             };
-            
-            const checkIn = formatSwissDate(r.hotelCheckIn);
-            const checkOut = formatSwissDate(r.hotelCheckOut);
-            const key = `${checkIn} → ${checkOut}`;
-            acc[key] = (acc[key] || 0) + 1;
-          }
-          return acc;
-        }, {}),
+
+            const roomNames = {
+              single: "Chambre Simple",
+              double: "Chambre Double/Twin",
+              triple: "Chambre Triple",
+              quadruple: "Chambre Quadruple",
+              larger: "Chambre Plus Grande",
+            };
+
+            const checkInDate = new Date(r.hotelCheckIn);
+            const checkOutDate = new Date(r.hotelCheckOut);
+            const nights = Math.round(
+              (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)
+            );
+
+            return {
+              name: r.name,
+              roomType: roomNames[r.hotelRoomType] || r.hotelRoomType,
+              checkIn: formatSwissDate(r.hotelCheckIn),
+              checkOut: formatSwissDate(r.hotelCheckOut),
+              nights: nights > 0 ? nights : 0,
+              adults: parseInt(r.adults) || 0,
+              children: parseInt(r.children) || 0,
+              totalPeople: (parseInt(r.adults) || 0) + (parseInt(r.children) || 0),
+            };
+          })
+          .sort((a, b) => {
+            // Trier par date de check-in
+            const dateA = a.checkIn.split(".").reverse().join("");
+            const dateB = b.checkIn.split(".").reverse().join("");
+            return dateA.localeCompare(dateB);
+          }),
         totalNights: responses.reduce((sum, r) => {
           if (
             r.hotelRoomType &&

@@ -554,27 +554,54 @@ function StatsView({ stats }) {
             )}
           </div>
 
-          {/* Répartition par dates */}
-          {stats.hotel.byDate && Object.keys(stats.hotel.byDate).length > 0 && (
-            <div className="mt-4">
-              <h4 className="text-lg font-semibold text-gray-700 mb-3">
-                📅 Répartition par Dates de Séjour
+          {/* Détail des réservations */}
+          {stats.hotel.reservations && stats.hotel.reservations.length > 0 && (
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold text-gray-700 mb-4">
+                📋 Détail des Réservations d'Hôtel
               </h4>
-              <div className="space-y-2">
-                {Object.entries(stats.hotel.byDate)
-                  .sort(([dateA], [dateB]) => dateA.localeCompare(dateB))
-                  .map(([dateRange, count]) => (
-                    <div
-                      key={dateRange}
-                      className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
-                      <span className="font-semibold text-gray-700">
-                        📆 {dateRange}
-                      </span>
-                      <span className="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-bold">
-                        {count} {count > 1 ? "réservations" : "réservation"}
-                      </span>
+              <div className="space-y-3">
+                {stats.hotel.reservations.map((reservation, index) => (
+                  <div
+                    key={index}
+                    className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="font-bold text-gray-800 text-lg mb-2">
+                          👤 {reservation.name}
+                        </p>
+                        <p className="text-sm text-gray-700">
+                          <span className="font-semibold">🛏️ Chambre:</span>{" "}
+                          {reservation.roomType}
+                        </p>
+                        <p className="text-sm text-gray-700">
+                          <span className="font-semibold">👥 Personnes:</span>{" "}
+                          {reservation.totalPeople} ({reservation.adults}{" "}
+                          {reservation.adults > 1 ? "adultes" : "adulte"}
+                          {reservation.children > 0 &&
+                            `, ${reservation.children} ${
+                              reservation.children > 1 ? "enfants" : "enfant"
+                            }`}
+                          )
+                        </p>
+                      </div>
+                      <div className="flex flex-col justify-center">
+                        <p className="text-sm text-gray-700">
+                          <span className="font-semibold">📅 Arrivée:</span>{" "}
+                          {reservation.checkIn}
+                        </p>
+                        <p className="text-sm text-gray-700">
+                          <span className="font-semibold">📅 Départ:</span>{" "}
+                          {reservation.checkOut}
+                        </p>
+                        <p className="text-sm text-blue-600 font-semibold mt-1">
+                          🌙 {reservation.nights}{" "}
+                          {reservation.nights > 1 ? "nuits" : "nuit"}
+                        </p>
+                      </div>
                     </div>
-                  ))}
+                  </div>
+                ))}
               </div>
             </div>
           )}
