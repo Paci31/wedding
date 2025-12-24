@@ -270,11 +270,11 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
           ) {
             // Convertir les codes en noms lisibles
             const roomNames = {
-              single: "Chambre Simple",
-              double: "Chambre Double/Twin",
-              triple: "Chambre Triple",
-              quadruple: "Chambre Quadruple",
-              larger: "Chambre Plus Grande",
+              single: "Camera Singola",
+              double: "Camera Doppia/Twin",
+              triple: "Camera Tripla",
+              quadruple: "Camera Quadrupla",
+              larger: "Camera Più Grande",
             };
             const roomName = roomNames[r.hotelRoomType] || r.hotelRoomType;
             acc[roomName] = (acc[roomName] || 0) + 1;
@@ -301,11 +301,11 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
             };
 
             const roomNames = {
-              single: "Chambre Simple",
-              double: "Chambre Double/Twin",
-              triple: "Chambre Triple",
-              quadruple: "Chambre Quadruple",
-              larger: "Chambre Plus Grande",
+              single: "Camera Singola",
+              double: "Camera Doppia/Twin",
+              triple: "Camera Tripla",
+              quadruple: "Camera Quadrupla",
+              larger: "Camera Più Grande",
             };
 
             const checkInDate = new Date(r.hotelCheckIn);
