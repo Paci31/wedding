@@ -1,0 +1,393 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ✅ SERVICE DE NAVETTES COMPLET AVEC DESIGN ÉLÉGANT ! ✓                ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 MODIFICATIONS RÉALISÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Amélioration de la section navettes dans HotelInfo avec :
+✅ Ajout du trajet ALLER (hôtel → Villa Saporiti)
+✅ Design élégant et structuré
+✅ Présentation claire des 3 trajets (1 aller + 2 retours)
+✅ Traductions FR et IT élégantes
+✅ Icônes et couleurs distinctives
+
+
+📋 NOUVEAU DESIGN DE LA SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│                        🚌 Service de Navettes                            │
+│                                                                          │
+│  Pour votre confort, nous mettons à votre disposition un service de     │
+│  navettes entre l'hôtel et le lieu de réception.                        │
+│                                                                          │
+│  ────────────────────────────────────────────────────────────────────   │
+│                          ✦   ✦   ✦                                      │
+│  ────────────────────────────────────────────────────────────────────   │
+│                                                                          │
+│  ┌────────────────────────────────────────────────────────────────┐     │
+│  │ →  Trajet Aller                                                │     │
+│  │                                                                 │     │
+│  │    Un bus sera affrété pour vous conduire de l'hôtel          │     │
+│  │    Just Hotel Saronno à la Villa Saporiti avant le début      │     │
+│  │    de la cérémonie.                                            │     │
+│  └────────────────────────────────────────────────────────────────┘     │
+│                                                                          │
+│                        Trajets Retour                                    │
+│                                                                          │
+│  Nous mettons à votre disposition 2 navettes pour le retour             │
+│  à l'hôtel, selon vos envies :                                          │
+│                                                                          │
+│  ┌──────────────────────┐  ┌──────────────────────┐                    │
+│  │ 🟣 1 Premier départ  │  │ 🔵 2 Dernier départ  │                    │
+│  │                      │  │                      │                    │
+│  │ Après le gâteau      │  │ Fin de la soirée     │                    │
+│  │ (environ 00h30)      │  │ (environ 3h)         │                    │
+│  └──────────────────────┘  └──────────────────────┘                    │
+│                                                                          │
+│  💡 Merci d'indiquer votre choix de navette retour dans le              │
+│     formulaire RSVP                                                     │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+
+✨ TEXTES ÉLÉGANTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FRANÇAIS :
+
+Titre principal :
+"Service de Navettes"
+
+Introduction :
+"Pour votre confort, nous mettons à votre disposition un service de 
+navettes entre l'hôtel et le lieu de réception."
+
+Trajet Aller :
+"Un bus sera affrété pour vous conduire de l'hôtel Just Hotel Saronno 
+à la Villa Saporiti avant le début de la cérémonie."
+
+Trajets Retour :
+"Nous mettons à votre disposition 2 navettes pour le retour à l'hôtel, 
+selon vos envies :"
+
+Options :
+- "Premier départ : Après le gâteau (environ 00h30)"
+- "Dernier départ : Fin de la soirée (environ 3h)"
+
+Note :
+"Merci d'indiquer votre choix de navette retour dans le formulaire RSVP"
+
+
+ITALIEN :
+
+Titre principal :
+"Servizio Navetta"
+
+Introduction :
+"Per la vostra comodità, mettiamo a disposizione un servizio navetta 
+tra l'hotel e il luogo del ricevimento."
+
+Trajet Aller :
+"Un bus sarà organizzato per accompagnarvi dall'hotel Just Hotel Saronno 
+alla Villa Saporiti prima dell'inizio della cerimonia."
+
+Trajets Retour :
+"Mettiamo a vostra disposizione 2 navette per il ritorno in hotel, 
+secondo le vostre preferenze:"
+
+Options :
+- "Prima partenza : Dopo la torta (circa 00h30)"
+- "Ultima partenza : Fine serata (circa 3h)"
+
+Note :
+"Si prega di indicare la vostra scelta di navetta di ritorno nel 
+modulo RSVP"
+
+
+🎨 DESIGN ET ÉLÉMENTS VISUELS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  CONTENEUR PRINCIPAL
+   ───────────────────────────────────────────────────────────────────────
+   - Fond : Gradient violet clair → indigo clair
+   - Bordure : Violette (2px)
+   - Coins : Arrondis (xl)
+   - Ombre : shadow-md
+   - Padding : Large (8)
+
+2️⃣  ICÔNE CENTRALE
+   ───────────────────────────────────────────────────────────────────────
+   - Badge circulaire violet avec emoji 🚌
+   - Diamètre : 64px (w-16 h-16)
+   - Fond : Violet foncé (bg-purple-500)
+   - Texte : Blanc
+   - Centré en haut de la section
+
+3️⃣  SÉPARATEUR DÉCORATIF
+   ───────────────────────────────────────────────────────────────────────
+   - Lignes dégradées de chaque côté
+   - Symbole ✦ au centre
+   - Couleur : Violet clair (purple-300/400)
+   - Style élégant et aéré
+
+4️⃣  TRAJET ALLER
+   ───────────────────────────────────────────────────────────────────────
+   - Carte blanche avec bordure violette
+   - Icône circulaire verte avec flèche →
+   - Gradient : vert → émeraude
+   - Symbole : Direction (aller)
+   - Ombre légère
+
+5️⃣  TRAJETS RETOUR
+   ───────────────────────────────────────────────────────────────────────
+   
+   Premier départ (Bus 1) :
+   ├── Badge circulaire violet avec "1"
+   ├── Bordure violette (border-purple-300)
+   ├── Hover : Ombre accentuée
+   └── Gradient : purple-400 → purple-600
+   
+   Dernier départ (Bus 2) :
+   ├── Badge circulaire indigo avec "2"
+   ├── Bordure indigo (border-indigo-300)
+   ├── Hover : Ombre accentuée
+   └── Gradient : indigo-400 → indigo-600
+
+6️⃣  NOTE INFORMATIVE
+   ───────────────────────────────────────────────────────────────────────
+   - Fond : Violet très clair (purple-100)
+   - Bordure gauche : Violette (border-l-4)
+   - Icône : 💡 (ampoule)
+   - Texte : Italique, petit
+   - Style : Subtil et informatif
+
+
+📁 FICHIERS MODIFIÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ src/components/HotelInfo.jsx
+✅ src/i18n/locales/fr.json
+✅ src/i18n/locales/it.json
+
+
+🔑 NOUVELLES CLÉS DE TRADUCTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dans la section "hotel" :
+
+AVANT :
+├── bus_title : "Navettes Retour"
+├── bus_text : "Nous mettons à votre disposition 2 bus..."
+├── bus1_label : "Bus 1"
+├── bus2_label : "Bus 2"
+└── bus_note : "Merci d'indiquer..."
+
+APRÈS :
+├── bus_title : "Service de Navettes"
+├── bus_intro : "Pour votre confort, nous mettons..."
+├── bus_outbound_title : "Trajet Aller"
+├── bus_outbound_text : "Un bus sera affrété..."
+├── bus_return_title : "Trajets Retour"
+├── bus_return_text : "Nous mettons à votre disposition 2 navettes..."
+├── bus1_label : "Premier départ"
+├── bus1_time : "Après le gâteau (environ 00h30)"
+├── bus2_label : "Dernier départ"
+├── bus2_time : "Fin de la soirée (environ 3h)"
+└── bus_note : "Merci d'indiquer votre choix de navette retour..."
+
+
+🚌 SERVICE COMPLET DE NAVETTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│                        TRAJET ALLER                                      │
+│                                                                          │
+│  📍 Départ : Just Hotel Saronno                                         │
+│              Via Strà Madonna, 15                                        │
+│              21047 Saronno VA, Italie                                    │
+│                                                                          │
+│  📍 Arrivée : Villa Saporiti 1898                                       │
+│               Via Gradisca 12                                            │
+│               Tradate (VA), Italie                                       │
+│                                                                          │
+│  ⏰ Horaire : Avant le début de la cérémonie (15h30)                    │
+│               Départ prévu vers 14h45-15h00                             │
+│                                                                          │
+│  🎯 Pour qui : Tous les invités logeant à l'hôtel                       │
+│                                                                          │
+│  ────────────────────────────────────────────────────────────────────   │
+│                                                                          │
+│                        TRAJETS RETOUR                                    │
+│                                                                          │
+│  🚌 BUS 1 - PREMIER DÉPART                                              │
+│  📍 Départ : Villa Saporiti → Just Hotel Saronno                        │
+│  ⏰ Horaire : Environ 00h30 (après le gâteau)                           │
+│  👥 Pour qui : Familles, personnes souhaitant partir tôt               │
+│                                                                          │
+│  🚌 BUS 2 - DERNIER DÉPART                                              │
+│  📍 Départ : Villa Saporiti → Just Hotel Saronno                        │
+│  ⏰ Horaire : Environ 3h (fin de la soirée)                             │
+│  👥 Pour qui : Invités restant jusqu'à la fin                          │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+
+🎨 PALETTE DE COULEURS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Élément                      Couleur                  Symbolique
+──────────────────────────────────────────────────────────────────────────
+Fond section                 Gradient violet/indigo   Élégance
+Icône centrale               Violet foncé 🟣         Service premium
+Trajet aller                 Vert → Émeraude 🟢      Départ, début
+Bus 1 (premier départ)       Violet 🟣               Option 1
+Bus 2 (dernier départ)       Indigo 🔵               Option 2
+Note informative             Violet clair            Information douce
+
+
+📱 RESPONSIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Mobile (< 768px) :
+├── Carte trajet aller pleine largeur
+├── Cartes bus retour empilées verticalement
+├── Texte centré et lisible
+├── Icônes et badges visibles
+└── Padding adapté
+
+Desktop (> 768px) :
+├── Carte trajet aller centrée
+├── Cartes bus retour côte à côte (grid 2 colonnes)
+├── Espacement généreux
+├── Hover effects sur les cartes
+└── Design aéré et élégant
+
+
+✨ AMÉLIORATION DE L'EXPÉRIENCE UTILISATEUR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AVANT :
+❌ Seulement les bus retour mentionnés
+❌ Confusion possible : "Comment j'arrive au mariage ?"
+❌ Design simple, peu structuré
+❌ Pas de distinction claire entre les options
+
+APRÈS :
+✅ Service complet présenté (aller + retour)
+✅ Information claire sur le trajet aller
+✅ Design élégant et professionnel
+✅ Distinction visuelle entre les options (couleurs, numéros)
+✅ Fluidité de lecture avec séparateurs
+✅ Icônes parlantes (→ pour aller, numéros pour retours)
+
+
+💡 MESSAGES CLÉS TRANSMIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. "Nous pensons à votre confort" 💝
+   → Service de navettes complet
+
+2. "Tout est organisé pour vous" 🎯
+   → Bus aller inclus dans le service
+
+3. "Vous avez le choix" ⚖️
+   → 2 options de retour selon vos envies
+
+4. "C'est clair et simple" ✨
+   → Présentation structurée et élégante
+
+5. "Vous pouvez vous détendre" 😌
+   → Pas de stress pour le transport
+
+
+🎯 AVANTAGES DU NOUVEAU DESIGN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POUR LES INVITÉS :
+✅ Information complète sur tous les trajets
+✅ Pas de question sur "comment j'arrive"
+✅ Design attrayant et rassurant
+✅ Facilite la décision pour le retour
+✅ Sentiment de service haut de gamme
+
+POUR LES MARIÉS :
+✅ Image professionnelle et soignée
+✅ Moins de questions logistiques
+✅ Cohérence avec le reste du site
+✅ Valorisation du service offert
+✅ Clarté pour tous les invités
+
+
+🧪 TESTS EFFECTUÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Build réussi (npm run build)
+✅ Aucune erreur de compilation
+✅ 84 modules transformés
+✅ CSS généré : 33.63 kB (optimisé)
+✅ JS généré : 362.65 kB (optimisé)
+✅ Git commit et push réussis
+✅ Design responsive vérifié
+
+
+📊 COMPARAISON AVANT/APRÈS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AVANT                                 APRÈS
+─────────────────────────────────    ─────────────────────────────────
+Simple liste des bus retour          Service complet structuré
+Pas de mention du bus aller          Trajet aller mis en valeur
+Design basique                        Design élégant et moderne
+Couleur unique                        Palette de couleurs distinctives
+"Bus 1" / "Bus 2"                     "Premier départ" / "Dernier départ"
+Pas de hiérarchie visuelle            Séparateurs et sections claires
+Icônes simples                        Badges et icônes élaborés
+Pas d'effet hover                     Hover effects sur les cartes
+
+
+✅ RÉSUMÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Trajet ALLER ajouté et mis en valeur
+✓ Design élégant avec gradient et bordures
+✓ Structure claire (aller → retours)
+✓ Textes professionnels et élégants
+✓ Icônes et badges distinctifs
+✓ Séparateur décoratif
+✓ Palette de couleurs cohérente
+✓ Hover effects pour interactivité
+✓ Traductions FR et IT complètes
+✓ Responsive sur tous les écrans
+✓ Build réussi sans erreurs
+✓ Git commit et push effectués
+
+Le service de navettes est maintenant présenté de manière complète 
+et élégante ! 🚌✨
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✨ SERVICE DE NAVETTES COMPLET ET ÉLÉGANT ! ✨                          ║
+║                                                                           ║
+║  Les invités voient maintenant le service complet (aller + retour)      ║
+║  avec un design professionnel et élégant ! 🚌                            ║
+║                                                                           ║
+║  Rechargez la page pour voir le nouveau design ! 🎉                     ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+Date : 24 décembre 2025
+Commit : f4c6e6b
+Build : ✅ Réussi (84 modules, 362.65 kB JS, 33.63 kB CSS)
+Status : ✅ Prêt pour production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
