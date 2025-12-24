@@ -102,7 +102,7 @@
     "title": "Alloggio",
     "subtitle": "Camere a tariffa preferenziale",
     "mapLink": "Localizza sulla mappa",
-    "deadline_title": "Prenotazione entro il 20 gennaio 2026",
+    "deadline_title": "Prenotazione entro il 16 febbraio 2026",
     "deadline_text": "Abbiamo riservato delle camere a tariffa preferenziale fino al 20 gennaio 2026. Dopo questa data, c'è il rischio che le camere non siano più disponibili o che il prezzo aumenti.",
     "rates_title": "Tariffe per notte",
     "room_single": "Camera Singola",
@@ -130,6 +130,7 @@
     "date_label": "Quando",
     "date": "19 giugno 2026",
     "location_label": "Dove",
+    "cost_note": "La cena è offerta dagli sposi",
     "form_note": "Si prega di indicare la vostra presenza nel modulo RSVP qui sotto"
   },
   "brunch": {

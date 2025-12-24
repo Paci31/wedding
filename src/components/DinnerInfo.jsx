@@ -53,8 +53,15 @@ function DinnerInfo() {
               </div>
             </div>
 
+            {/* Information sur le coût */}
+            <div className="mt-8 bg-green-50 border-2 border-green-500 rounded-lg p-6">
+              <p className="text-gray-700 font-lora text-lg font-semibold">
+                🎁 {t("dinner.cost_note")}
+              </p>
+            </div>
+
             {/* Note dans le formulaire RSVP */}
-            <div className="mt-8 bg-rose-50 border-2 border-rose-gold rounded-lg p-6">
+            <div className="mt-6 bg-rose-50 border-2 border-rose-gold rounded-lg p-6">
               <p className="text-gray-700 font-lora text-lg">
                 💌 {t("dinner.form_note")}
               </p>
