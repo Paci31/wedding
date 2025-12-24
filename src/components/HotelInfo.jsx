@@ -141,37 +141,88 @@ function HotelInfo() {
             </div>
           </div>
 
-          {/* Navettes Bus */}
-          <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-lg mb-8">
-            <div className="flex items-start gap-3">
-              <span className="text-2xl">🚌</span>
-              <div className="flex-1">
-                <h4 className="font-bold text-gray-800 mb-3">
-                  {t("hotel.bus_title")}
-                </h4>
-                <p className="text-gray-700 font-lora mb-4">
-                  {t("hotel.bus_text")}
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
-                    <p className="font-bold text-purple-700 mb-1">
-                      🚌 {t("hotel.bus1_label")}
-                    </p>
-                    <p className="text-sm text-gray-700">
-                      {t("hotel.bus1_time")}
-                    </p>
+          {/* Service de Navettes */}
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-300 p-8 rounded-xl mb-8 shadow-md">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500 text-white rounded-full mb-4">
+                <span className="text-3xl">🚌</span>
+              </div>
+              <h4 className="text-2xl font-playfair font-bold text-gray-800 mb-3">
+                {t("hotel.bus_title")}
+              </h4>
+              <p className="text-gray-700 font-lora text-lg max-w-2xl mx-auto">
+                {t("hotel.bus_intro")}
+              </p>
+            </div>
+
+            {/* Séparateur décoratif */}
+            <div className="flex items-center justify-center gap-4 my-8">
+              <div className="w-20 h-px bg-gradient-to-r from-transparent to-purple-300"></div>
+              <span className="text-purple-400 text-2xl">✦</span>
+              <div className="w-20 h-px bg-gradient-to-l from-transparent to-purple-300"></div>
+            </div>
+
+            {/* Trajet Aller */}
+            <div className="mb-8">
+              <div className="bg-white rounded-lg p-6 border-2 border-purple-200 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-xl">
+                      →
+                    </div>
                   </div>
-                  <div className="bg-white rounded-lg p-4 border-2 border-purple-200">
-                    <p className="font-bold text-purple-700 mb-1">
-                      🚌 {t("hotel.bus2_label")}
-                    </p>
-                    <p className="text-sm text-gray-700">
-                      {t("hotel.bus2_time")}
+                  <div className="flex-1">
+                    <h5 className="text-lg font-bold text-gray-800 mb-2">
+                      {t("hotel.bus_outbound_title")}
+                    </h5>
+                    <p className="text-gray-700 font-lora">
+                      {t("hotel.bus_outbound_text")}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-600 font-lora text-sm mt-4 italic">
-                  💡 {t("hotel.bus_note")}
+              </div>
+            </div>
+
+            {/* Trajets Retour */}
+            <div>
+              <h5 className="text-lg font-bold text-gray-800 mb-3 text-center">
+                {t("hotel.bus_return_title")}
+              </h5>
+              <p className="text-gray-700 font-lora mb-4 text-center">
+                {t("hotel.bus_return_text")}
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <div className="bg-white rounded-lg p-5 border-2 border-purple-300 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-lg">
+                      1
+                    </div>
+                    <p className="font-bold text-purple-700 text-lg">
+                      {t("hotel.bus1_label")}
+                    </p>
+                  </div>
+                  <p className="text-gray-700 font-lora ml-13">
+                    {t("hotel.bus1_time")}
+                  </p>
+                </div>
+                <div className="bg-white rounded-lg p-5 border-2 border-indigo-300 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center text-white text-lg">
+                      2
+                    </div>
+                    <p className="font-bold text-indigo-700 text-lg">
+                      {t("hotel.bus2_label")}
+                    </p>
+                  </div>
+                  <p className="text-gray-700 font-lora ml-13">
+                    {t("hotel.bus2_time")}
+                  </p>
+                </div>
+              </div>
+              <div className="bg-purple-100 border-l-4 border-purple-500 p-4 rounded-lg">
+                <p className="text-gray-700 font-lora text-sm italic flex items-start gap-2">
+                  <span className="text-lg">💡</span>
+                  <span>{t("hotel.bus_note")}</span>
                 </p>
               </div>
             </div>
