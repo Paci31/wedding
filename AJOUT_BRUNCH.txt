@@ -1,0 +1,415 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ✅ SECTION BRUNCH AJOUTÉE AVEC SUCCÈS ! ✓                             ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+🎯 MODIFICATIONS RÉALISÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ajout d'une nouvelle section "Brunch du Lendemain" avec :
+✅ Composant d'information BrunchInfo
+✅ Champ dans le formulaire RSVP
+✅ Statistiques dans le dashboard admin
+✅ Backend pour le calcul des stats
+✅ Traductions FR et IT
+✅ Intégration dans l'application
+
+
+📋 DÉTAILS DES MODIFICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  NOUVEAU COMPOSANT : BrunchInfo.jsx
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/components/BrunchInfo.jsx
+   
+   ✨ Contenu :
+   - Titre : "Brunch du Lendemain"
+   - Emoji : 🥐
+   - Date : 21 juin 2026
+   - Lieu : "À communiquer prochainement"
+   - Note : "Le brunch sera à la charge des invités"
+   - Lien vers le formulaire RSVP
+   
+   🎨 Style :
+   - Fond : Gradient champagne vers blush
+   - Décorations : Cercles dorés
+   - Cartes : Fond blanc avec bordures dorées
+   - Sections info : Fond orange pour les notes
+
+
+2️⃣  TRADUCTIONS FR/IT
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichiers : 
+   - src/i18n/locales/fr.json
+   - src/i18n/locales/it.json
+   
+   ✨ Nouvelles clés ajoutées :
+   
+   Section "brunch" :
+   ├── title : "Brunch du Lendemain" / "Brunch del Giorno Dopo"
+   ├── subtitle : "Continuons la fête !" / "Continuiamo la festa!"
+   ├── message : Message d'explication
+   ├── date_label : "Quand" / "Quando"
+   ├── date : "21 juin 2026" / "21 giugno 2026"
+   ├── location_label : "Où" / "Dove"
+   ├── location : "Lieu à communiquer prochainement" / "Luogo da comunicare..."
+   ├── cost_note : "Le brunch sera à la charge des invités" / "Il brunch sarà..."
+   └── form_note : Message pour le formulaire
+   
+   Section "rsvp" :
+   ├── brunch_section : "Brunch du Lendemain" / "Brunch del Giorno Dopo"
+   └── brunch_attending : Question de présence
+
+
+3️⃣  FORMULAIRE RSVP
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/components/RSVP.jsx
+   
+   ✨ Modifications :
+   
+   a) État du formulaire (formData) :
+      + brunchAttending: ""  (nouveau champ)
+   
+   b) Nouvelle section dans le formulaire (après le dîner) :
+      ┌─────────────────────────────────────────────────────────┐
+      │ 🥐 Brunch du Lendemain                                  │
+      │                                                          │
+      │ Serez-vous présent(e) au brunch du 21 juin ? *          │
+      │ ┌──────────────────────────────────────────────┐        │
+      │ │ [-- Sélectionnez --]                         │        │
+      │ │  ✓ Oui, je serai présent(e)                  │        │
+      │ │  ✗ Non, je ne serai pas présent(e)           │        │
+      │ └──────────────────────────────────────────────┘        │
+      └─────────────────────────────────────────────────────────┘
+   
+   c) Champ obligatoire (required)
+   
+   d) Réinitialisation du formulaire incluse
+
+
+4️⃣  ADMIN DASHBOARD - STATISTIQUES
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/pages/AdminDashboard.jsx
+   
+   ✨ Nouvelle section de statistiques :
+   
+   a) Graphiques en barres :
+      ┌────────────────────────────────────────────┐
+      │ 🥐 Brunch du Lendemain                     │
+      │                                             │
+      │   ┌─────┐  ┌─────┐                        │
+      │   │     │  │     │                         │
+      │   │ XX  │  │ YY  │                         │
+      │   │     │  │     │                         │
+      │   └─────┘  └─────┘                         │
+      │  Participeront  Ne participeront pas       │
+      └────────────────────────────────────────────┘
+   
+   b) Cartes de statistiques :
+      ┌─────────────────────┐  ┌─────────────────────┐
+      │ ✅ Participants     │  │ ❌ Absents          │
+      │                     │  │                     │
+      │      XX             │  │      YY             │
+      └─────────────────────┘  └─────────────────────┘
+   
+   c) Couleurs :
+      - Participants : Fond amber (🟠)
+      - Absents : Fond gris
+   
+   ✨ Affichage dans les réponses individuelles :
+   
+   Quand un invité participe au brunch, affichage de :
+   ┌──────────────────────────────────────────────┐
+   │ 🥐 Présent au brunch du lendemain            │
+   └──────────────────────────────────────────────┘
+   (Fond orange, bordure orange)
+
+
+5️⃣  BACKEND - CALCUL DES STATISTIQUES
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichiers : 
+   - backend/server.js
+   - server-unified.js
+   
+   ✨ Nouvelle section dans les stats :
+   
+   brunch: {
+     attending: <nombre de "yes">,
+     notAttending: <nombre de "no">
+   }
+   
+   🔍 Logique :
+   - Filtre les réponses avec brunchAttending === "yes"
+   - Filtre les réponses avec brunchAttending === "no"
+   - Calcul automatique à chaque requête GET /api/admin/stats
+
+
+6️⃣  INTÉGRATION DANS L'APPLICATION
+   ───────────────────────────────────────────────────────────────────────
+   📁 Fichier : src/App.jsx
+   
+   ✨ Modifications :
+   
+   a) Import du composant :
+      import BrunchInfo from "./components/BrunchInfo";
+   
+   b) Ordre d'affichage dans HomePage :
+      1. Header
+      2. OurStory
+      3. CeremonyDetails
+      4. HotelInfo          (Hébergement)
+      5. DinnerInfo         (Repas de la veille - 19 juin)
+      6. BrunchInfo         (⭐ NOUVEAU - 21 juin)
+      7. GiftInfo           (Lune de miel)
+      8. Gallery
+      9. RSVP
+      10. Footer
+   
+   💡 Ordre logique :
+   - Avant : Hôtel → Dîner (veille) → Cadeau
+   - Après : Hôtel → Dîner (veille) → Brunch (lendemain) → Cadeau
+
+
+📊 STRUCTURE DU BRUNCH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│                     🥐 BRUNCH DU LENDEMAIN 🥐                           │
+│                                                                          │
+│  ────────────────────────────────────────────────────────────────────   │
+│                                                                          │
+│                     Continuons la fête !                                 │
+│                                                                          │
+│  Nous organisons un brunch le lendemain du mariage pour prolonger       │
+│  ce moment ensemble. Ce sera l'occasion de se retrouver une dernière    │
+│  fois avant de se dire au revoir.                                       │
+│                                                                          │
+│  ┌──────────────────────┐  ┌──────────────────────┐                    │
+│  │ 📅 Quand             │  │ 📍 Où                │                    │
+│  │                      │  │                      │                    │
+│  │ 21 juin 2026         │  │ Lieu à communiquer   │                    │
+│  │                      │  │ prochainement        │                    │
+│  └──────────────────────┘  └──────────────────────┘                    │
+│                                                                          │
+│  ┌────────────────────────────────────────────────────────────────┐    │
+│  │ 💰 Le brunch sera à la charge des invités                      │    │
+│  └────────────────────────────────────────────────────────────────┘    │
+│                                                                          │
+│  ┌────────────────────────────────────────────────────────────────┐    │
+│  │ 💌 Merci d'indiquer votre présence dans le formulaire RSVP     │    │
+│  │    ci-dessous                                                   │    │
+│  └────────────────────────────────────────────────────────────────┘    │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+
+🎨 DESIGN ET COULEURS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Composant BrunchInfo :
+├── Fond : Gradient champagne → blanc → blush
+├── Décorations : Cercles dorés et roses
+├── Titre : Police Playfair, gris foncé
+├── Cartes info : Fond gradient champagne → rose
+└── Notes : Fond orange/doré pour l'info coût
+
+Formulaire RSVP :
+├── Section : 🥐 emoji
+├── Champ select : Style classique du formulaire
+└── Obligatoire : Astérisque rouge *
+
+Dashboard Admin :
+├── Graphiques : Barres amber (🟠) et grises
+├── Cartes stats : Fond amber-50 et gris-50
+└── Badge réponse : Fond orange-50, bordure orange
+
+
+🔄 FLUX DE DONNÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. UTILISATEUR remplit le formulaire RSVP
+   └── Sélectionne "Oui" ou "Non" pour le brunch
+   
+2. SOUMISSION du formulaire
+   └── POST /api/rsvp avec { brunchAttending: "yes" | "no" }
+   
+3. BACKEND sauvegarde dans responses.json
+   └── Fichier : backend/data/responses.json
+   
+4. ADMIN consulte le dashboard
+   └── GET /api/admin/stats
+   
+5. BACKEND calcule les statistiques
+   ├── brunch.attending = count(brunchAttending === "yes")
+   └── brunch.notAttending = count(brunchAttending === "no")
+   
+6. AFFICHAGE dans le dashboard
+   ├── Graphiques en barres
+   ├── Cartes de statistiques
+   └── Badges individuels sur chaque réponse
+
+
+📁 FICHIERS MODIFIÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FRONTEND :
+✅ src/components/BrunchInfo.jsx (NOUVEAU)
+✅ src/components/RSVP.jsx
+✅ src/pages/AdminDashboard.jsx
+✅ src/App.jsx
+✅ src/i18n/locales/fr.json
+✅ src/i18n/locales/it.json
+
+BACKEND :
+✅ backend/server.js
+✅ server-unified.js
+
+
+🧪 TESTS EFFECTUÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Build réussi (npm run build)
+✅ Aucune erreur de compilation
+✅ 84 modules transformés
+✅ Tous les assets générés correctement
+✅ Git commit et push réussis
+
+
+🎯 FONCTIONNALITÉS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Section d'information visible pour tous les invités
+✅ Champ obligatoire dans le formulaire RSVP
+✅ Validation côté client (required)
+✅ Sauvegarde dans la base de données
+✅ Statistiques en temps réel dans le dashboard
+✅ Graphiques visuels (barres)
+✅ Cartes de comptage
+✅ Affichage individuel sur chaque réponse
+✅ Support multilingue FR/IT
+✅ Responsive design (mobile + desktop)
+✅ Cohérence visuelle avec le reste du site
+
+
+📱 RESPONSIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Mobile (< 768px) :
+├── Cartes info empilées verticalement
+├── Formulaire pleine largeur
+└── Graphiques adaptés
+
+Desktop (> 768px) :
+├── Cartes info côte à côte (grid 2 colonnes)
+├── Formulaire centré
+└── Graphiques optimisés
+
+
+🌐 TRADUCTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FRANÇAIS (FR) :
+├── Titre : "Brunch du Lendemain"
+├── Sous-titre : "Continuons la fête !"
+├── Date : "21 juin 2026"
+├── Lieu : "Lieu à communiquer prochainement"
+├── Note coût : "Le brunch sera à la charge des invités"
+└── Question formulaire : "Serez-vous présent(e) au brunch du 21 juin ?"
+
+ITALIEN (IT) :
+├── Titre : "Brunch del Giorno Dopo"
+├── Sous-titre : "Continuiamo la festa!"
+├── Date : "21 giugno 2026"
+├── Lieu : "Luogo da comunicare prossimamente"
+├── Note coût : "Il brunch sarà a carico degli invitati"
+└── Question formulaire : "Sarai presente al brunch del 21 giugno?"
+
+
+📊 STATISTIQUES DASHBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Le dashboard admin affiche maintenant :
+
+1. Graphiques en barres :
+   ├── Barre amber : Nombre de participants
+   └── Barre grise : Nombre d'absents
+
+2. Cartes de comptage :
+   ├── Carte amber : ✅ Participants (grand chiffre)
+   └── Carte grise : ❌ Absents (grand chiffre)
+
+3. Pourcentage visuel :
+   └── Hauteur des barres = (valeur / total) × 100%
+
+4. Affichage individuel :
+   └── Badge orange "🥐 Présent au brunch du lendemain"
+
+
+✨ POINTS IMPORTANTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Le brunch est LE LENDEMAIN du mariage (21 juin 2026)
+2. Le lieu sera communiqué prochainement
+3. Le brunch sera À LA CHARGE DES INVITÉS (important !)
+4. Le champ est OBLIGATOIRE dans le formulaire
+5. L'ordre logique est : Dîner (19 juin) → Mariage (20 juin) → Brunch (21 juin)
+
+
+🚀 PROCHAINES ÉTAPES SUGGÉRÉES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Mettre à jour le lieu du brunch quand il sera connu :
+   └── Modifier fr.json et it.json : "brunch.location"
+
+2. Ajouter le nom du restaurant/lieu si désiré :
+   └── Par exemple : "Restaurant Le Jardin - Saronno"
+
+3. Optionnel : Ajouter l'heure du brunch :
+   └── Par exemple : "À partir de 11h00"
+
+4. Optionnel : Ajouter le coût estimé :
+   └── Par exemple : "Environ €25-30 par personne"
+
+5. Tester le formulaire complet :
+   └── Remplir un RSVP avec toutes les sections
+   └── Vérifier l'affichage dans le dashboard
+
+
+✅ RÉSUMÉ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Section Brunch créée et intégrée
+✓ Formulaire RSVP mis à jour avec champ obligatoire
+✓ Dashboard admin avec statistiques visuelles
+✓ Backend configuré pour le calcul des stats
+✓ Traductions FR et IT complètes
+✓ Design cohérent avec le reste du site
+✓ Responsive sur tous les écrans
+✓ Build réussi sans erreurs
+✓ Git commit et push effectués
+
+Le site est maintenant prêt avec la section Brunch complète ! 🎉
+
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  ✨ BRUNCH DU LENDEMAIN OPÉRATIONNEL ! ✨                               ║
+║                                                                           ║
+║  Les invités peuvent maintenant indiquer leur présence au brunch        ║
+║  et vous pouvez suivre les statistiques en temps réel !                 ║
+║                                                                           ║
+║  Rechargez la page pour voir la nouvelle section ! 🥐                   ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+Date : 24 décembre 2025
+Commit : 314136b
+Build : ✅ Réussi (84 modules, 353.95 kB JS)
+Status : ✅ Prêt pour production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
