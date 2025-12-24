@@ -316,13 +316,18 @@ app.get("/api/admin/stats", authenticateAdmin, async (req, res) => {
 
             return {
               name: r.name,
+              email: r.email || "",
+              phone: r.phone || "",
               roomType: roomNames[r.hotelRoomType] || r.hotelRoomType,
               checkIn: formatSwissDate(r.hotelCheckIn),
               checkOut: formatSwissDate(r.hotelCheckOut),
               nights: nights > 0 ? nights : 0,
               adults: parseInt(r.adults) || 0,
               children: parseInt(r.children) || 0,
-              totalPeople: (parseInt(r.adults) || 0) + (parseInt(r.children) || 0),
+              childrenAges: r.childrenAges || "",
+              totalPeople:
+                (parseInt(r.adults) || 0) + (parseInt(r.children) || 0),
+              dietary: r.dietary || "",
             };
           })
           .sort((a, b) => {

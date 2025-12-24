@@ -1,6 +1,222 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Composant de gestion des réservations d'hôtel avec filtres et export CSV
+function HotelReservationsManager({ reservations }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterRoomType, setFilterRoomType] = useState("all");
+  const [filterDate, setFilterDate] = useState("all");
+
+  // Extraire les types de chambres uniques
+  const roomTypes = [...new Set(reservations.map((r) => r.roomType))];
+  
+  // Extraire les dates d'arrivée uniques
+  const checkInDates = [...new Set(reservations.map((r) => r.checkIn))].sort(
+    (a, b) => {
+      const dateA = a.split(".").reverse().join("");
+      const dateB = b.split(".").reverse().join("");
+      return dateA.localeCompare(dateB);
+    }
+  );
+
+  // Filtrer les réservations
+  const filteredReservations = reservations.filter((reservation) => {
+    const matchesSearch = reservation.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesRoomType =
+      filterRoomType === "all" || reservation.roomType === filterRoomType;
+    const matchesDate =
+      filterDate === "all" || reservation.checkIn === filterDate;
+    return matchesSearch && matchesRoomType && matchesDate;
+  });
+
+  // Fonction d'export CSV pour l'hôtel
+  const exportHotelCSV = () => {
+    // En-têtes du CSV pour l'hôtel
+    const headers = [
+      "Nom du Client",
+      "Email",
+      "Téléphone",
+      "Type de Chambre",
+      "Date d'Arrivée",
+      "Date de Départ",
+      "Nombre de Nuits",
+      "Nombre d'Adultes",
+      "Nombre d'Enfants",
+      "Âge des Enfants",
+      "Total Personnes",
+      "Régime Alimentaire Spécial",
+    ];
+
+    // Préparer les lignes de données
+    const csvRows = [headers.join(",")];
+
+    filteredReservations.forEach((reservation) => {
+      const row = [
+        `"${reservation.name}"`,
+        `"${reservation.email || ""}"`,
+        `"${reservation.phone || ""}"`,
+        `"${reservation.roomType}"`,
+        `"${reservation.checkIn}"`,
+        `"${reservation.checkOut}"`,
+        reservation.nights,
+        reservation.adults,
+        reservation.children,
+        `"${reservation.childrenAges || ""}"`,
+        reservation.totalPeople,
+        `"${reservation.dietary || ""}"`,
+      ];
+      csvRows.push(row.join(","));
+    });
+
+    // Créer le fichier CSV
+    const csvContent = csvRows.join("\n");
+    const blob = new Blob(["\ufeff" + csvContent], {
+      type: "text/csv;charset=utf-8;",
+    });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute(
+      "download",
+      `reservations_hotel_${new Date().toISOString().split("T")[0]}.csv`
+    );
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <div className="mt-6">
+      <div className="flex items-center justify-between mb-4">
+        <h4 className="text-lg font-semibold text-gray-700">
+          📋 Détail des Réservations d'Hôtel
+        </h4>
+        <button
+          onClick={exportHotelCSV}
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-colors flex items-center gap-2">
+          📥 Export CSV pour Hôtel ({filteredReservations.length})
+        </button>
+      </div>
+
+      {/* Filtres */}
+      <div className="mb-4 grid md:grid-cols-3 gap-3">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            Rechercher par nom
+          </label>
+          <input
+            type="text"
+            placeholder="Nom du client..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            Type de chambre
+          </label>
+          <select
+            value={filterRoomType}
+            onChange={(e) => setFilterRoomType(e.target.value)}
+            className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none bg-white text-sm">
+            <option value="all">Tous les types</option>
+            {roomTypes.map((roomType) => (
+              <option key={roomType} value={roomType}>
+                {roomType}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            Date d'arrivée
+          </label>
+          <select
+            value={filterDate}
+            onChange={(e) => setFilterDate(e.target.value)}
+            className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none bg-white text-sm">
+            <option value="all">Toutes les dates</option>
+            {checkInDates.map((date) => (
+              <option key={date} value={date}>
+                {date}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Compteur de résultats */}
+      <p className="text-sm text-gray-600 mb-3">
+        {filteredReservations.length === reservations.length
+          ? `${reservations.length} réservation(s) au total`
+          : `${filteredReservations.length} réservation(s) affichée(s) sur ${reservations.length}`}
+      </p>
+
+      {/* Liste des réservations filtrées */}
+      <div className="space-y-3">
+        {filteredReservations.length === 0 ? (
+          <div className="p-8 bg-gray-50 rounded-lg text-center">
+            <p className="text-gray-500">
+              Aucune réservation ne correspond aux filtres
+            </p>
+          </div>
+        ) : (
+          filteredReservations.map((reservation, index) => (
+            <div
+              key={index}
+              className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <p className="font-bold text-gray-800 text-lg mb-2">
+                    👤 {reservation.name}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">🛏️ Chambre:</span>{" "}
+                    {reservation.roomType}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">👥 Personnes:</span>{" "}
+                    {reservation.totalPeople} ({reservation.adults}{" "}
+                    {reservation.adults > 1 ? "adultes" : "adulte"}
+                    {reservation.children > 0 &&
+                      `, ${reservation.children} ${
+                        reservation.children > 1 ? "enfants" : "enfant"
+                      }`}
+                    )
+                  </p>
+                  {reservation.childrenAges && (
+                    <p className="text-sm text-gray-700">
+                      <span className="font-semibold">🎂 Âge enfants:</span>{" "}
+                      {reservation.childrenAges}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col justify-center">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">📅 Arrivée:</span>{" "}
+                    {reservation.checkIn}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold">📅 Départ:</span>{" "}
+                    {reservation.checkOut}
+                  </p>
+                  <p className="text-sm text-blue-600 font-semibold mt-1">
+                    🌙 {reservation.nights}{" "}
+                    {reservation.nights > 1 ? "nuits" : "nuit"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
+
 function AdminDashboard() {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -556,54 +772,7 @@ function StatsView({ stats }) {
 
           {/* Détail des réservations */}
           {stats.hotel.reservations && stats.hotel.reservations.length > 0 && (
-            <div className="mt-6">
-              <h4 className="text-lg font-semibold text-gray-700 mb-4">
-                📋 Détail des Réservations d'Hôtel
-              </h4>
-              <div className="space-y-3">
-                {stats.hotel.reservations.map((reservation, index) => (
-                  <div
-                    key={index}
-                    className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <p className="font-bold text-gray-800 text-lg mb-2">
-                          👤 {reservation.name}
-                        </p>
-                        <p className="text-sm text-gray-700">
-                          <span className="font-semibold">🛏️ Chambre:</span>{" "}
-                          {reservation.roomType}
-                        </p>
-                        <p className="text-sm text-gray-700">
-                          <span className="font-semibold">👥 Personnes:</span>{" "}
-                          {reservation.totalPeople} ({reservation.adults}{" "}
-                          {reservation.adults > 1 ? "adultes" : "adulte"}
-                          {reservation.children > 0 &&
-                            `, ${reservation.children} ${
-                              reservation.children > 1 ? "enfants" : "enfant"
-                            }`}
-                          )
-                        </p>
-                      </div>
-                      <div className="flex flex-col justify-center">
-                        <p className="text-sm text-gray-700">
-                          <span className="font-semibold">📅 Arrivée:</span>{" "}
-                          {reservation.checkIn}
-                        </p>
-                        <p className="text-sm text-gray-700">
-                          <span className="font-semibold">📅 Départ:</span>{" "}
-                          {reservation.checkOut}
-                        </p>
-                        <p className="text-sm text-blue-600 font-semibold mt-1">
-                          🌙 {reservation.nights}{" "}
-                          {reservation.nights > 1 ? "nuits" : "nuit"}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <HotelReservationsManager reservations={stats.hotel.reservations} />
           )}
         </div>
       )}
