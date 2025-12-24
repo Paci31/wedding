@@ -92,8 +92,8 @@
     "brunch_attending": "Sarai presente al brunch del 21 giugno?",
     "transport_section": "Trasporto di Ritorno",
     "transport_choice": "Come prevedi di tornare in hotel?",
-    "transport_bus1": "🚌 Bus 1 - Partenza dopo la torta (00h30)",
-    "transport_bus2": "🚌 Bus 2 - Partenza fine serata (3h)",
+    "transport_bus1": "🚌 Bus 1 - Partenza dopo la torta (circa 00:30)",
+    "transport_bus2": "🚌 Bus 2 - Partenza fine serata (circa le 03:00)",
     "transport_own": "🚗 Il mio mezzo di trasporto",
     "message": "Un Messaggio per gli Sposi",
     "message_placeholder": "Condividi i tuoi auguri e felicitazioni...",
@@ -147,7 +147,8 @@
     "date": "19 giugno 2026",
     "location_label": "Dove",
     "cost_note": "La cena è offerta dagli sposi",
-    "form_note": "Si prega di indicare la vostra presenza nel modulo RSVP qui sotto"
+    "form_note": "Si prega di indicare la vostra presenza nel modulo RSVP qui sotto",
+    "location": "Stresa, le informazioni saranno comunicate prossimamente"
   },
   "brunch": {
     "title": "Brunch del Giorno Dopo",
@@ -156,7 +157,7 @@
     "date_label": "Quando",
     "date": "21 giugno 2026",
     "location_label": "Dove",
-    "location": "Luogo da comunicare prossimamente",
+    "location": "Le informazioni saranno comunicate prossimamente",
     "cost_note": "Il brunch sarà a carico degli invitati",
     "form_note": "Si prega di indicare la vostra presenza nel modulo RSVP qui sotto"
   },

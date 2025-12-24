@@ -92,8 +92,8 @@
     "brunch_attending": "Serez-vous présent(e) au brunch du 21 juin ?",
     "transport_section": "Transport Retour",
     "transport_choice": "Comment comptez-vous rentrer à l'hôtel ?",
-    "transport_bus1": "🚌 Bus 1 - Départ après le gâteau (00h30)",
-    "transport_bus2": "🚌 Bus 2 - Départ fin de soirée (3h)",
+    "transport_bus1": "🚌 Bus 1 - Départ après le gâteau (env. 00h30)",
+    "transport_bus2": "🚌 Bus 2 - Départ fin de soirée (env. 3h)",
     "transport_own": "🚗 Mon propre moyen de transport",
     "message": "Un Message pour les Mariés",
     "message_placeholder": "Partagez vos vœux et felicitations...",
@@ -147,7 +147,8 @@
     "date": "19 juin 2026",
     "location_label": "Où",
     "cost_note": "Le repas est offert par les mariés",
-    "form_note": "Merci d'indiquer votre présence dans le formulaire RSVP ci-dessous"
+    "form_note": "Merci d'indiquer votre présence dans le formulaire RSVP ci-dessous",
+    "location": "Stresa, les informations suivront prochainement"
   },
   "brunch": {
     "title": "Brunch du Lendemain",
@@ -156,7 +157,7 @@
     "date_label": "Quand",
     "date": "21 juin 2026",
     "location_label": "Où",
-    "location": "Lieu à communiquer prochainement",
+    "location": "Les informations suivront prochainement",
     "cost_note": "Le brunch sera à la charge des invités",
     "form_note": "Merci d'indiquer votre présence dans le formulaire RSVP ci-dessous"
   },

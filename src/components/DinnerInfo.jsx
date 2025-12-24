@@ -48,7 +48,7 @@ function DinnerInfo() {
                   {t("dinner.location_label")}
                 </p>
                 <p className="text-2xl font-playfair font-bold text-gray-800">
-                  Stresa
+                  {t("dinner.location")}
                 </p>
               </div>
             </div>

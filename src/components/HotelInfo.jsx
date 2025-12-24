@@ -142,9 +142,9 @@ function HotelInfo() {
           </div>
 
           {/* Service de Navettes */}
-          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-300 p-8 rounded-xl mb-8 shadow-md">
+          <div className="bg-gradient-to-br from-champagne via-rose-50 to-blush border-2 border-rose-gold border-opacity-30 p-8 rounded-xl mb-8 shadow-md">
             <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-500 text-white rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-gold to-gold text-white rounded-full mb-4 shadow-lg">
                 <span className="text-3xl">🚌</span>
               </div>
               <h4 className="text-2xl font-playfair font-bold text-gray-800 mb-3">
@@ -157,17 +157,17 @@ function HotelInfo() {
 
             {/* Séparateur décoratif */}
             <div className="flex items-center justify-center gap-4 my-8">
-              <div className="w-20 h-px bg-gradient-to-r from-transparent to-purple-300"></div>
-              <span className="text-purple-400 text-2xl">✦</span>
-              <div className="w-20 h-px bg-gradient-to-l from-transparent to-purple-300"></div>
+              <div className="w-20 h-px bg-gradient-to-r from-transparent to-rose-gold"></div>
+              <span className="text-rose-gold text-2xl">✦</span>
+              <div className="w-20 h-px bg-gradient-to-l from-transparent to-rose-gold"></div>
             </div>
 
             {/* Trajet Aller */}
             <div className="mb-8">
-              <div className="bg-white rounded-lg p-6 border-2 border-purple-200 shadow-sm">
+              <div className="bg-white rounded-lg p-6 border-2 border-rose-gold border-opacity-20 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-xl">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-xl shadow-md">
                       →
                     </div>
                   </div>
@@ -192,12 +192,12 @@ function HotelInfo() {
                 {t("hotel.bus_return_text")}
               </p>
               <div className="grid md:grid-cols-2 gap-4 mb-4">
-                <div className="bg-white rounded-lg p-5 border-2 border-purple-300 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-lg p-5 border-2 border-rose-gold border-opacity-40 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-rose-gold to-rose-600 rounded-full flex items-center justify-center text-white text-lg shadow-md">
                       1
                     </div>
-                    <p className="font-bold text-purple-700 text-lg">
+                    <p className="font-bold text-rose-gold text-lg">
                       {t("hotel.bus1_label")}
                     </p>
                   </div>
@@ -205,12 +205,12 @@ function HotelInfo() {
                     {t("hotel.bus1_time")}
                   </p>
                 </div>
-                <div className="bg-white rounded-lg p-5 border-2 border-indigo-300 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-lg p-5 border-2 border-gold border-opacity-40 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center text-white text-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center text-white text-lg shadow-md">
                       2
                     </div>
-                    <p className="font-bold text-indigo-700 text-lg">
+                    <p className="font-bold text-gold text-lg">
                       {t("hotel.bus2_label")}
                     </p>
                   </div>
@@ -219,7 +219,7 @@ function HotelInfo() {
                   </p>
                 </div>
               </div>
-              <div className="bg-purple-100 border-l-4 border-purple-500 p-4 rounded-lg">
+              <div className="bg-rose-50 border-l-4 border-rose-gold p-4 rounded-lg">
                 <p className="text-gray-700 font-lora text-sm italic flex items-start gap-2">
                   <span className="text-lg">💡</span>
                   <span>{t("hotel.bus_note")}</span>

@@ -641,13 +641,13 @@ function StatsView({ stats }) {
               label="Bus 1 (00h30)"
               value={stats.transport.bus1}
               max={stats.total}
-              color="bg-purple-500"
+              color="bg-rose-gold"
             />
             <BarChart
               label="Bus 2 (3h)"
               value={stats.transport.bus2}
               max={stats.total}
-              color="bg-indigo-500"
+              color="bg-gold"
             />
             <BarChart
               label="Propre moyen"
@@ -658,23 +658,23 @@ function StatsView({ stats }) {
           </div>
 
           <div className="mt-6 grid md:grid-cols-3 gap-4">
-            <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+            <div className="p-4 bg-rose-50 rounded-lg border-l-4 border-rose-gold">
               <div className="flex items-center justify-between">
                 <span className="text-gray-700 font-semibold">
                   🚌 Bus 1
                 </span>
-                <span className="text-3xl font-bold text-purple-600">
+                <span className="text-3xl font-bold text-rose-gold">
                   {stats.transport.bus1}
                 </span>
               </div>
               <p className="text-xs text-gray-500 mt-1">Après le gâteau</p>
             </div>
-            <div className="p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-500">
+            <div className="p-4 bg-amber-50 rounded-lg border-l-4 border-gold">
               <div className="flex items-center justify-between">
                 <span className="text-gray-700 font-semibold">
                   🚌 Bus 2
                 </span>
-                <span className="text-3xl font-bold text-indigo-600">
+                <span className="text-3xl font-bold text-gold">
                   {stats.transport.bus2}
                 </span>
               </div>
@@ -952,7 +952,7 @@ function ResponseCard({ response, onDelete }) {
 
             {/* Transport retour */}
             {response.transportChoice && (
-              <div className="mt-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
+              <div className="mt-4 p-4 bg-rose-50 rounded-lg border border-rose-gold border-opacity-30">
                 <p className="font-semibold text-gray-800 flex items-center gap-2">
                   <span>🚌</span> Transport :{" "}
                   {response.transportChoice === "bus1" && "Bus 1 (00h30)"}
